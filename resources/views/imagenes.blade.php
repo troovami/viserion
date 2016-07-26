@@ -1,0 +1,1 @@
+<img src="http://localhost/viserion/public/autostars/images/logo.png" alt=""/>

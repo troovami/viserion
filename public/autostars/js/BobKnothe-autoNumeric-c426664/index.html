@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>autoNumeric</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://rawgit.com/BobKnothe/autoNumeric/master/autoNumeric.js"></script>
+<script type="text/javascript">
+jQuery(function($) {
+    $('.auto').autoNumeric('init');
+});
+</script>
+<style>
+input[type="text"] {
+	text-align:right;
+}
+.method {
+	margin-top: 25px;
+	margin-bottom:25px;
+}
+.method td {
+	height:25px;
+}
+</style>
+</head>
+
+<body>
+<div id="main" style="width:900px; border:#000000; border-width: 1px; border-style: solid; background-color:#FFFFFF">
+  <div id="banner">
+    <h1 style="font-family:'Comic Sans MS', cursive; background-color:#000; color:#CCCCCC; height:100px; margin-top:0px; padding-top:25px; padding-left:10px; margin-bottom: 0px;">$(selector).<span style="color:#00F">autoNumeric</span>('init', {options});</h1>
+  </div>
+  <div id="content" style="padding: 5px 10px 10px 10px; margin-top:0px">
+
+    <p><strong>Examples of autoNumeric's flexibility:</strong></p>
+    <form name="form1" method="post" action="">
+      <table width="880" border="0">
+        <tr>
+          <td colspan="3"><strong>Demonstrates some of the available decimal  &amp; thousand  separators</strong></td>
+        </tr>
+        <tr>
+          <td>decimal '.' &amp; thousand ',' separators</td>
+          <td>decimal ',' &amp; thousand '.' separators</td>
+          <td>decimal '.' &amp; thousand ' ' separators</td>
+        </tr>
+        <tr>
+          <td width="33%"><input type="text" class="auto"></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep="." data-a-dec=","></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep=" " data-a-dec=","></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong>Demonstrates use of currency signs and the placement</strong></td>
+        </tr>
+        <tr>
+          <td>Dollar as a prefix</td>
+          <td>Euro as prefix</td>
+          <td>Swiss Franc as a suffix</td>
+        </tr>
+        <tr>
+          <td width="33%"><input type="text" class="auto" data-a-sign="$ "></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep="." data-a-dec="," data-a-sign="€ "></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep=" " data-a-dec="," data-a-sign=" CHF" data-p-sign="s"></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong>Demonstrates min/max values including negative values  with brackets on focus out.</strong></td>
+        </tr>
+        <tr>
+          <td>0 to 9999 no decimal place</td>
+          <td>-99.99 to 1000.00 two decimal places</td>
+          <td>-9999.99 to 0.00 negative only w/brackets</td>
+        </tr>
+        <tr>
+          <td width="33%"><input type="text" class="auto" data-v-max="9999" data-v-min="0"></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep="." data-a-dec="," data-v-min="-99.99" data-v-max="1000.00"></td>
+          <td width="33%"><input type="text" class="auto" data-a-sep="." data-a-dec="," data-v-min="-9999.99" data-v-max="0.00" data-n-bracket="(,)"></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong>Demonstrates digital grouping &quot;hint - for none set the thousand seperator (aSep: &quot;&quot; or data-a-sep=&quot;&quot;) to and empty string</strong></td>
+        </tr>
+        <tr>
+          <td width="33%">none</td>
+          <td width="33%">2 India's lakhs ( on values below 1 billion)</td>
+          <td width="33%">4 used in some Asian countries</td>
+        </tr>
+        
+          <td width="33%"><input type="text" class="auto" data-a-sep=""></td>
+          <td width="33%"><input type="text" class="auto" data-d-group="2" data-a-sign="Rs. "></td>
+          <td width="33%"><input type="text" class="auto" data-d-group="4" data-a-sign="¥ "></td>
+        </tr>
+        <tr>
+          <td width="33%">&nbsp;</td>
+          <td width="33%">&nbsp;</td>
+          <td width="33%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="3"><strong>Demonstrates non-input elements - default values are formatted on page ready - can changed via the &quot;set&quot; method</strong></td>
+        </tr>
+        <tr>
+          <td width="33%">&lt;span class=&quot;auto&quot;&gt;1234.56&lt;/span&gt;</td>
+          <td width="33%">&lt;td  class=&quot;auto&quot;&gt;1234.56&lt;/td&gt;</td>
+          <td width="33%">&lt;label class=&quot;auto&quot;&gt;1234.56&lt;/label&gt;</td>
+        </tr>
+        <tr>
+          <td width="33%"><span class="auto">1234.56</span></td>
+          <td width="33%" class="auto">1234.56</td>
+          <td width="33%"><label class="auto">1234.56</label></td>
+        </tr>
+      </table>
+    </form>
+  
+</div>
+    
+</body>
+</html>
