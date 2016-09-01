@@ -1052,8 +1052,8 @@ class Consultas extends Model
         			and v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
                 	and v.status_user = ".Consultas::STATUS_USER." 	        			
-						group by dm.str_descripcion
-						order by dm.int_peso");
+						group by dm.str_descripcion, dm.id
+						order by dm.int_peso, dm.id");
         	
         		return $tipos;
         	break;
@@ -1192,8 +1192,8 @@ class Consultas extends Model
 						where v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
                 	and v.status_user = ".Consultas::STATUS_USER." 	             			
-						GROUP BY m.str_marca
-						ORDER BY m.str_marca");
+						GROUP BY m.str_marca, m.id
+						ORDER BY m.str_marca, m.id");
             
             	return $marcas;
             break;
@@ -1212,8 +1212,8 @@ class Consultas extends Model
 							where v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
                 	and v.status_user = ".Consultas::STATUS_USER." 	             			
-							group by ma.str_marca, mo.str_modelo
-							order by ma.str_marca, mo.str_modelo");
+							group by ma.str_marca, mo.str_modelo, v.lng_idmodelo
+							order by ma.str_marca, mo.str_modelo, v.lng_idmodelo");
             
             	return $modelos;
             break;                   
