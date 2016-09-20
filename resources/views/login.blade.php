@@ -4,18 +4,25 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 style="text-align: center;"><img style="width: 120px" src="{{ asset('autostars/images/troovami_logo_2.png') }}" alt="Logo"><br>Iniciar Sesión</h4>
+                <h4 style="text-align: center;"><img style="width: 120px" src="{{ asset('autostars/images/troovami_logo_2.png') }}" alt="Logo"></h4>
+                	
+                	<h5 class="widgettitle" style="text-align: center;">
+                		<strong>Tr</strong><strong style="color: red;">oo</strong><strong>vami</strong> es un sitio<strong> privado</strong> para ver los precios debe iniciar sesión
+                	</h5>
+                
+                
             </div>
             <div class="modal-body">
 
-                {!! Form::open(['route' => 'login', 'class' => 'form']) !!}
+                {!! Form::open(['route' => 'login', 'class' => 'form', 'data-parsley-validate']) !!}
+
                     <div class="form-group">
-                        <label>Correo Electrónico</label>
-                        {!! Form::email('email', '', ['class'=> 'form-control']) !!}
+                        <label><i style="color: red">*</i> Correo Electrónico</label>
+                        {!! Form::email('email', '', ['class'=> 'form-control', 'required']) !!}
                     </div>
                     <div class="form-group">
-                        <label>Contraseña</label>
-                        {!! Form::password('password', ['class'=> 'form-control']) !!}
+                        <label><i style="color: red">*</i> Contraseña</label>
+                        {!! Form::password('password', ['class'=> 'form-control', 'required']) !!}
                     </div>
 
 					<input type="hidden" readonly="readonly" value="{{Request::path()}}" id="posicion" name="posicion">

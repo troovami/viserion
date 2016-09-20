@@ -92,11 +92,57 @@
                                                                                  
                                             <ul class="filter-options-list list-group">
                                             	<div id="divFiltroCiudades">
+                                            	
+                                            		<?php                                             			
+                                            			$flag = 0;
+                                            		?>
 	                                            	@foreach ($ciudades as $ciudad)
-	                                                	<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
-	                                                		<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="data:image/jpeg;base64,{{ $ciudad->bandera }}" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
-	                                                	</li>
+	                                            	
+	                                            		@if ($flag < 6)
+														
+	                                                		<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
+	                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="data:image/jpeg;base64,{{ $ciudad->bandera }}" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
+	                                                		</li>
+	                                                	
+														@endif
+
+                                                	<?php 
+														$flag ++;                                              	
+                                                	?>
+	                                                	
 	    											@endforeach
+	    												    											
+				                                    <div class="accordion-heading togglize" id="verMas"> 
+				                                    	<a onclick="document.getElementById('verMas').style.display = 'none'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseCiudades" style="font-size: 10px">Ver más + </a> 
+				                                    </div>
+				                                    
+				                                    <div id="collapseCiudades" class="accordion-body collapse">
+				                                    	
+	                                            		<?php                                             			
+	                                            			$flag = 0;
+	                                            		?>
+		                                            	@foreach ($ciudades as $ciudad)
+		                                            	
+		                                            		@if ($flag > 6)
+															
+		                                                		<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
+		                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="data:image/jpeg;base64,{{ $ciudad->bandera }}" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
+		                                                		</li>
+		                                                	
+															@endif
+	
+	                                                	<?php 
+															$flag ++;                                              	
+	                                                	?>
+		                                                	
+		    											@endforeach
+		    											
+		    										    <div class="accordion-heading togglize"id="verMenos">
+					                                    	<a onclick="document.getElementById('verMas').style.display = 'inline'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseCiudades" style="font-size: 10px">Ver menos - </a> 
+					                                    </div>
+	    															                                    	
+				                                    </div>	    											
+	    											
     											</div>
                                             </ul>
                                              	
@@ -111,14 +157,62 @@
                                         <div class="accordion-inner">                                                                                                                         
                                             
                                       		<ul class="filter-options-list list-group">
-                                            	<div id="dependienteMarcasFiltro">                                      		
+                                            	<div id="dependienteMarcasFiltro">
+                                            	
+                                            		<?php                                             			
+                                            			$flag2 = 0;
+                                            		?>
 	                                            	@foreach ($marcas as $marca)
-	                                                	<li class="list-group-item"><span class="badge">{{ $marca->total }} </span>
-	                                                		<a href="#" onclick="filtro_por_marca2({{ $marca->id}})">
-	                                                			<img class="" src="data:image/jpeg;base64,{{ $marca->logo }}" style="width:20px" /> {{ $marca->str_marca }}
-	                                                		</a>
-	                                                	</li>                                                	                                                	                                                
-	    											@endforeach	
+	                                            	
+	                                            		@if ($flag2 == 0)
+														
+		                                                	<li class="list-group-item"><span class="badge">{{ $marca->total }} </span>
+		                                                		<a href="#" onclick="filtro_por_marca2({{ $marca->id}})">
+		                                                			<img class="" src="data:image/jpeg;base64,{{ $marca->logo }}" style="width:20px" /> {{ $marca->str_marca }}
+		                                                		</a>
+		                                                	</li>  
+	                                                	
+														@endif
+
+                                                	<?php 
+														$flag2 ++;                                              	
+                                                	?>
+	                                                	
+	    											@endforeach
+	    												    											
+				                                    <div class="accordion-heading togglize" id="verMasMarcas"> 
+				                                    	<a onclick="document.getElementById('verMasMarcas').style.display = 'none'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseMarcas" style="font-size: 10px">Ver más + </a> 
+				                                    </div>
+				                                    
+				                                    <div id="collapseMarcas" class="accordion-body collapse">
+				                                    	
+	                                            		<?php                                             			
+	                                            			$flag2 = 0;
+	                                            		?>
+		                                            	@foreach ($marcas as $marca)
+		                                            	
+		                                            		@if ($flag2 > 0)
+															
+		                                                		<li class="list-group-item"><span class="badge">{{ $marca->total }} </span>
+			                                                		<a href="#" onclick="filtro_por_marca2({{ $marca->id}})">
+			                                                			<img class="" src="data:image/jpeg;base64,{{ $marca->logo }}" style="width:20px" /> {{ $marca->str_marca }}
+			                                                		</a>
+			                                                	</li>
+		                                                	
+															@endif
+	
+	                                                	<?php 
+															$flag2 ++;                                              	
+	                                                	?>
+		                                                	
+		    											@endforeach
+		    											
+		    										    <div class="accordion-heading togglize"id="verMenos">
+					                                    	<a onclick="document.getElementById('verMasMarcas').style.display = 'inline'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseMarcas" style="font-size: 10px">Ver menos - </a> 
+					                                    </div>
+	    															                                    	
+				                                    </div>                                            	                          		
+
                                                 </div>
                                             </ul>
                                              	                                                                                                                                                                  
@@ -134,25 +228,81 @@
                                             
                                       		<ul class="filter-options-list list-group">
                                       			<div id="dependienteModelosFiltro">
-                                      	
+
+													<?php                                             			
+                                            			$flag3 = 0;
+                                            		?>
 	                                            	@foreach ($modelosTotal as $modelo)
-	                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
-	                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
-	                                                			<img class="" src="data:image/jpeg;base64,{{ $modelo->blb_img }}" style="width:20px" />
-	                                                			
-					                                        	@if( strlen(".$modelo->str_modelo.") < 20 ) 
-					                                        	
-					                                        		{{ $modelo->str_modelo }}
-					                                        		
-					                                        	@else 
-					                                        		{!! substr($modelo->str_modelo,0,20)."..." !!}
-					                                        		
-					                                        	@endif 
-	                                                				                                                			
-	                                                		</a>
-	                                                	</li>
+	                                            	
+	                                            		@if ($flag3 == 0)
+														
+		                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
+		                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
+		                                                			<img class="" src="data:image/jpeg;base64,{{ $modelo->blb_img }}" style="width:20px" />
+		                                                			
+						                                        	@if( strlen(".$modelo->str_modelo.") < 20 ) 
+						                                        	
+						                                        		{{ $modelo->str_modelo }}
+						                                        		
+						                                        	@else 
+						                                        		{!! substr($modelo->str_modelo,0,20)."..." !!}
+						                                        		
+						                                        	@endif 
+		                                                				                                                			
+		                                                		</a>
+		                                                	</li>  
+	                                                	
+														@endif
+
+                                                	<?php 
+														$flag3 ++;                                              	
+                                                	?>
 	                                                	
 	    											@endforeach
+	    												    											
+				                                    <div class="accordion-heading togglize" id="verMasModelos"> 
+				                                    	<a onclick="document.getElementById('verMasModelos').style.display = 'none'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseModelos" style="font-size: 10px">Ver más + </a> 
+				                                    </div>
+				                                    
+				                                    <div id="collapseModelos" class="accordion-body collapse">
+				                                    	
+	                                            		<?php                                             			
+	                                            			$flag3 = 0;
+	                                            		?>
+		                                            	@foreach ($modelosTotal as $modelo)
+		                                            	
+		                                            		@if ($flag3 > 0)
+															
+			                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
+			                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
+			                                                			<img class="" src="data:image/jpeg;base64,{{ $modelo->blb_img }}" style="width:20px" />
+			                                                			
+							                                        	@if( strlen(".$modelo->str_modelo.") < 20 ) 
+							                                        	
+							                                        		{{ $modelo->str_modelo }}
+							                                        		
+							                                        	@else 
+							                                        		{!! substr($modelo->str_modelo,0,20)."..." !!}
+							                                        		
+							                                        	@endif 
+			                                                				                                                			
+			                                                		</a>
+			                                                	</li>
+		                                                	
+															@endif
+	
+	                                                	<?php 
+															$flag3 ++;                                              	
+	                                                	?>
+		                                                	
+		    											@endforeach
+		    											
+		    										    <div class="accordion-heading togglize"id="verMenos">
+					                                    	<a onclick="document.getElementById('verMasModelos').style.display = 'inline'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseModelos" style="font-size: 10px">Ver menos - </a> 
+					                                    </div>
+	    															                                    	
+				                                    </div>
+
     											</div>
                                             </ul>
                                              	
@@ -168,14 +318,62 @@
                                             <ul class="filter-options-list list-group">
 											
 												<div id="dependienteColoresFiltro">
+
+													<?php                                             			
+                                            			$flag4 = 0;
+                                            		?>
 	                                            	@foreach ($colors as $color)
-	                                                	<li class="list-group-item"><span class="badge">{{ $color->total }}</span>
-	                                                		<a href="#" onclick="filtros('color',<?=$color->lng_idcolor;?>);">
-	                                                			{{ $color->str_descripcion }}
-	                                                		</a>
-	                                                	</li>
-	                                                
+	                                            	
+	                                            		@if ($flag4 == 0)
+														
+		                                                	<li class="list-group-item"><span class="badge">{{ $color->total }}</span>
+		                                                		<a href="#" onclick="filtros('color',<?=$color->lng_idcolor;?>);">
+		                                                			{{ $color->str_descripcion }}
+		                                                		</a>
+		                                                	</li>
+	                                                	
+														@endif
+
+                                                	<?php 
+														$flag4 ++;                                              	
+                                                	?>
+	                                                	
 	    											@endforeach
+	    												    											
+				                                    <div class="accordion-heading togglize" id="verMasColores"> 
+				                                    	<a onclick="document.getElementById('verMasColores').style.display = 'none'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseColores" style="font-size: 10px">Ver más + </a> 
+				                                    </div>
+				                                    
+				                                    <div id="collapseColores" class="accordion-body collapse">
+				                                    	
+	                                            		<?php                                             			
+	                                            			$flag4 = 0;
+	                                            		?>
+		                                            	@foreach ($colors as $color)
+		                                            	
+		                                            		@if ($flag4 > 0)
+															
+			                                                	<li class="list-group-item"><span class="badge">{{ $color->total }}</span>
+			                                                		<a href="#" onclick="filtros('color',<?=$color->lng_idcolor;?>);">
+			                                                			{{ $color->str_descripcion }}
+			                                                		</a>
+			                                                	</li>
+		                                                	
+															@endif
+	
+	                                                	<?php 
+															$flag4 ++;                                              	
+	                                                	?>
+		                                                	
+		    											@endforeach
+		    											
+		    										    <div class="accordion-heading togglize"id="verMenos">
+					                                    	<a onclick="document.getElementById('verMasColores').style.display = 'inline'" class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseColores" style="font-size: 10px">Ver menos - </a> 
+					                                    </div>
+	    											
+	    											
+	    											
+	    											
 												</div>
 												
                                             </ul>
