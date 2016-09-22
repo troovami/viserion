@@ -3,7 +3,7 @@
                                             		?>
 	                                            	@foreach ($modelos as $modelo)
 	                                            	
-	                                            		@if ($flag3 == 0)
+	                                            		@if ($flag3 < 6)
 														
 		                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
 		                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
@@ -40,7 +40,7 @@
 	                                            		?>
 		                                            	@foreach ($modelos as $modelo)
 		                                            	
-		                                            		@if ($flag3 > 0)
+		                                            		@if ($flag3 > 6)
 															
 			                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
 			                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
