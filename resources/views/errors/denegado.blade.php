@@ -42,7 +42,7 @@
 
                                                 <p>
                                                     <a href="{{ route('register') }}">
-                                                        <button type="button" class="btn btn-warning">Crear Cuenta</button>
+                                                        <button type="button" class="btn btn-warning">Registrate</button>
                                                     </a>
                                                 </p>
 

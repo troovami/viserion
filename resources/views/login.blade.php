@@ -27,8 +27,16 @@
 
 					<input type="hidden" readonly="readonly" value="{{Request::path()}}" id="posicion" name="posicion">
 
-
-						<div style="text-align: center;"><h5 class="widgettitle"><a href="{{route('recuperar')}}"><strong>¿Olvidó su Clave?</strong></a></h5></div>
+						<div style="text-align: center;">
+							<h5 class="widgettitle">
+								<input type="checkbox" id="recordarme" name="remember"><strong>&nbsp;Recordarme</strong>
+								<a href="{{route('recuperar')}}">
+									<strong>
+										¿Olvidó su Clave?
+									</strong>
+								</a>
+							</h5>
+						</div>
 						
                     <div>                            
                         {!! Form::submit('Entrar',['class' => 'btn btn-primary']) !!}

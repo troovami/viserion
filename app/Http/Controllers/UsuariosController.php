@@ -212,7 +212,7 @@ class UsuariosController extends Controller
 		
 	</table>';
             
-            
+            /*
             $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
             $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $cabeceras .= "Content-Type: image/png";
@@ -225,9 +225,9 @@ class UsuariosController extends Controller
             } else {
             	Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
             }
+            */
             
             
-            /*
             $mail = new PHPMailer;
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
@@ -256,7 +256,7 @@ class UsuariosController extends Controller
                 Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
             }
 
-            */
+            
             
             return Redirect::to('/Recuperar-Clave');    
         }   
