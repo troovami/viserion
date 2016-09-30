@@ -123,11 +123,11 @@
                 
                 @elseif(Route::current()->getName() == 'publicarCarro')
                 	
-                	<body class="home" onload="setTimeout('formularioDinamico()',500);ImagenesGaleria();">
+                	<body class="home" onload="setTimeout('formularioDinamico()',500);ImagenesGaleria();ImagenesGaleria1();">
                 
                 @elseif(Route::current()->getName() == 'publicarMotocicleta')
                 	
-                	<body class="home" onload="ImagenesGaleria();">
+                	<body class="home" onload="ImagenesGaleria();ImagenesGaleria1();">
                 	
                 @elseif(Route::current()->getName() == 'editarPublicacion')
                 	                	

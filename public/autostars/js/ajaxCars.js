@@ -1195,7 +1195,52 @@ document.querySelector('.cropped-5').addEventListener("click", function() {	popu
 document.querySelector('.close').addEventListener("click", function() { popupHidden();})
 */
 /////////////////////////////////////////////////////////////////////////////// 
-     
+
+function ImagenesGaleria1() {
+	
+	//alert('publicando')
+	
+    var options =
+    {
+        imageBox: '.imageBoxImage',
+        thumbBox: '.thumbBoxImage',
+        spinner: '.spinnerImage',
+        imgSrc: 'avatar1.png'
+    }
+    var cropper = new cropbox(options);
+    
+    function croppedImage(valor){	
+		var clase = ".cropped-" + valor;		
+		var img = cropper.getDataURL();
+		var tagImage = '<img class="img-responsive" src="'+img+'">';
+		var nameInputHidden = 'blb_img' + valor;
+		var inputHiddenImage = '<input required="required" readonly="readonly" type="hidden" id="'+ nameInputHidden +'" name="'+ nameInputHidden +'" value="'+img+'">';
+    	document.querySelector(clase).innerHTML = tagImage+inputHiddenImage;
+    	popupHidden(); 
+	}
+
+    document.querySelector('#fileImage').addEventListener('change', function(){
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            options.imgSrc = e.target.result;
+            cropper = new cropbox(options);
+        }
+        reader.readAsDataURL(this.files[0]);
+        this.files = [];
+    })        
+    	document.querySelector('#btnCrop-0').addEventListener('click', function(){ croppedImage('0') })
+
+
+    // Maximizar
+    document.querySelector('#btnZoomInImage').addEventListener('click', function(){
+        cropper.zoomIn();
+    })
+    // Minimizar
+    document.querySelector('#btnZoomOutImage').addEventListener('click', function(){
+        cropper.zoomOut();
+    })
+};
+
     function ImagenesGaleria() {
     	
     	//alert('publicando')
@@ -1228,7 +1273,8 @@ document.querySelector('.close').addEventListener("click", function() { popupHid
             reader.readAsDataURL(this.files[0]);
             this.files = [];
         })        
-        document.querySelector('#btnCrop-0').addEventListener('click', function(){ croppedImage('0');document.getElementById('file').value = "" })
+
+
         document.querySelector('#btnCrop-1').addEventListener('click', function(){ croppedImage('1');document.getElementById('file').value = "" })
         document.querySelector('#btnCrop-2').addEventListener('click', function(){ croppedImage('2');document.getElementById('file').value = "" })
         document.querySelector('#btnCrop-3').addEventListener('click', function(){ croppedImage('3'); })

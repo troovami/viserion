@@ -1261,13 +1261,13 @@ class Consultas extends Model
                                 
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
-            			v.str_video, v.str_comentario, ima.blb_img as imagen, p.blb_img as bandera, p.str_paises as pais, p.str_abreviatura,
+            			v.str_video, v.str_comentario,  p.blb_img as bandera, p.str_paises as pais, p.str_abreviatura,
             			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo
                     from tbl_vehiculos as v                               			
             		join cat_paises as p on p.id = v.lng_idpais            			
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca
-            		join imagenppal as ima on ima.lng_idvehiculo = v.id           	
+            		      	
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0
                 	and status_admin = ".Consultas::STATUS_ADMIN."
@@ -1305,9 +1305,7 @@ class Consultas extends Model
             case 'total_buscarVehiculos':
                             	
             	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(*) as total
-                    from tbl_vehiculos as v             			
-                    join tbl_modelos as mo on mo.id =  v.lng_idmodelo
-            		join cat_marcas as ma on ma.id =  mo.lng_idmarca            			
+                    from tbl_vehiculos as v             			          			
             		where v.bol_eliminado = 0 ".$and."
                     and status_admin = ".Consultas::STATUS_ADMIN."
                 	and status_user = ".Consultas::STATUS_USER."

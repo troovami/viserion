@@ -118,6 +118,7 @@ class PublicarMotocicletasController extends Controller
 
         	'lng_idpersona' =>  Auth::user()->id,
         	'lng_idtipo_vehiculo' => 559,//id cat_datos_maestros
+        	'status_user' => 706,
         	'lng_idsubtipo_vehiculo' => $data['lng_idsubtipo_vehiculo'],
         	'str_placa' => trim($data['str_placa']),        		
         	'lng_idmodelo' => $data['lng_idmodelo'],
@@ -175,6 +176,14 @@ class PublicarMotocicletasController extends Controller
 	        ]);
         }
   
+        $file = $data['fileImage'];
+        
+        //obtenemos el nombre del archivo
+        $nombre = $lastInsertedId;//$file->getClientOriginalName();
+        
+        //indicamos que queremos guardar un nuevo archivo en el disco local
+        \Storage::disk('local')->put($nombre,  \File::get($file));        
+        
         return $imagenesVehiculos;
         
     }
