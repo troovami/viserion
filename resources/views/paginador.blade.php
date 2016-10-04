@@ -70,7 +70,7 @@
 	                                        		{!! $vehiculo->marca." ".$vehiculo->modelo !!} 
 	                                        		
 	                                        	@else 
-	                                        		{!! substr($vehiculo->marca." ".$vehiculo->modelo,0,18)."..." !!}
+	                                        		{!! substr($vehiculo->marca." ".$vehiculo->modelo,0,15)."..." !!}
 	                                        		
 	                                        	@endif 
 
