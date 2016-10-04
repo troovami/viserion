@@ -1152,13 +1152,13 @@ class Consultas extends Model
                 	$query->where('p.bol_eliminado', '=', 0);
                 })                
                 ->orderBy('p.str_paises')
-                ->select( 'p.id', 'p.str_paises','p.blb_img as imagen')
+                ->select( 'p.id', 'p.str_paises')
                 ->get();
                 return $paises;
             break;        
 
             case 'paisesPublicados':
-                $paises = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT p.id, p.str_paises, p.blb_img AS bandera, p.str_abreviatura,COUNT(*) AS total 
+                $paises = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT p.id, p.str_paises, v.lng_idpais, p.str_abreviatura,COUNT(*) AS total 
                 		from cat_paises as p 
                 		join tbl_vehiculos as v on p.id = v.lng_idpais 
                 		where v.bol_eliminado = 0
@@ -1171,7 +1171,7 @@ class Consultas extends Model
             break;
                        
             case 'ciudadesPublicados':
-            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as idpais, p.blb_img AS bandera, COUNT( c.id ) AS total
+            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, v.lng_idpais, COUNT( c.id ) AS total
 						FROM cat_ciudades c
 						JOIN tbl_vehiculos v ON v.lng_idciudad = c.id
 						JOIN cat_paises p ON p.id = c.lng_idpais

@@ -237,7 +237,7 @@
 										break;
 										
 										case "Venezuela":
-											?><img src="{{ asset('autostars/images/paises-america/Flag_of_Venezuela.svg.png') }}" alt="..." style="width:30px; height: 25px" title="{{Session::get('locacion')}}" ><?php
+											?><img src="{{ asset('autostars/images/paises-america/13.png') }}" alt="..." style="width:30px; height: 25px" title="{{Session::get('locacion')}}" ><?php
 										break;											
 										
 									}
@@ -260,7 +260,7 @@
 						      					      			      
 							      <li onclick="document.getElementById('locacion').value = '{{ $lista->str_paises}}';document.getElementById('id_locacion').value = '{{ $lista->id}}';document.getElementById('ubicacionForm').submit() ">								      	
 							      	<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="" style="font-size: 12px">
-							      		<img src="data:image/jpeg;base64,{{ $lista->imagen }}" alt="..." style="width:30px; height: 25px"> {{ $lista->str_paises }}
+							      		<img src="autostars/images/paises-america/<?=$lista->id?>.png" alt="..." style="width:30px; height: 25px"> {{ $lista->str_paises }}
 							      	</a>
 							      </li>
 							      

@@ -173,6 +173,7 @@
 									case "Chery": ?> '<img src="{{ asset('autostars/images/marcas/chery.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Chevrolet": ?> '<img src="{{ asset('autostars/images/marcas/chevrolet.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Citroën": ?> '<img src="{{ asset('autostars/images/marcas/citroen.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
+									case "Daelim": ?> '<img src="{{ asset('autostars/images/marcas/daelim.jpg') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Daewoo": ?> '<img src="{{ asset('autostars/images/marcas/daewoo.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;									
 									case "Delorean": ?> '<img src="{{ asset('autostars/images/marcas/dmc.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;									
 									case "Dodge": ?> '<img src="{{ asset('autostars/images/marcas/dodge.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
