@@ -37,7 +37,7 @@
                                         </a>
                                         <span class="vehicle-age">
                                         <p class="label label-primary">{!! $vehiculo->int_ano !!}</p>
-                                        <!-- <p class="text-center" style="margin-top: -2px;"><img class="" src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" style="width:35px" /></p>-->                                     
+                                                                             
                                         </span>
                                         <span class="  premium-listing "></span>
                                         
@@ -153,7 +153,7 @@
                                         <div class="result-item-features" style="font-size:10px;text-align:center"><br>
                                                                                                                                 
                                             <p class="text-center" style="margin-top: -2px;">
-                                            	<img class="" src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" style="width:35px" /><br>
+                                            	<img class="" src="autostars/images/paises-america/<?=$vehiculo->lng_idpais?>.png"/><br>
                                             	{!! $vehiculo->ciudad !!}
                                             	
                                             <div class="result-item-block col1" style="font-size:11px;width: 100%">
