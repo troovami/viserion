@@ -406,7 +406,7 @@
 													  <!-- Wrapper for slides -->
 													  <div class="carousel-inner" role="listbox">
 													    <div class="item active">
-													      <img src="{{ asset('autostars/images/slide3_.jpg') }}" alt="...">
+													      <img src="" alt="...">
 													      <!-- 
 													      <div class="carousel-caption">
 													        ...
@@ -414,7 +414,7 @@
 													       -->
 													    </div>
 													    <div class="item">
-													      <img src="{{ asset('autostars/images/slide4_.jpg') }}" alt="...">
+													      <img src="" alt="...">
 													      <!-- 
 													      <div class="carousel-caption">
 													        ...
@@ -422,7 +422,7 @@
 													       -->
 													    </div>
 													    <div class="item">
-													      <img src="{{ asset('autostars/images/slide3_.jpg') }}" alt="...">
+													      <img src="" alt="...">
 													      
 													      <!-- 
 													      <div class="carousel-caption">
@@ -449,14 +449,14 @@
                                             <div class="mm-col col-md-5">
                                                 <span class="megamenu-sub-title">Los más solicitados</span>
                                                 <ul class="make-widget">
-                                                    <li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_mercedes.png')}}" alt=""></a></li>
-                                    				<li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_vw.png')}}" alt=""></a></li>
-                                    				<li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_mazda.png')}}" alt=""></a></li>
-                                                    <li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_toyota.png')}}" alt=""></a></li>
-                                                    <li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_nissan.png')}}" alt=""></a></li>
-                                                    <li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_ford.png')}}" alt=""></a></li>
-                                                    <li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_bmw.png')}}" alt=""></a></li>
-                                    				<li class="item"> <a href="#"><img src="{{ asset('autostars/images/logo_audi.png')}}" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                                    <li class="item"> <a href="#"><img src="" alt=""></a></li>
+                                    				<li class="item"> <a href="#"><img src="" alt=""></a></li>
                                                 </ul>
                                                 <a href="#" class="basic-link">ver todos</a>
                                             </div>
