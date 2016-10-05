@@ -162,6 +162,7 @@
 
 									case "Alfa Romeo": ?> '<img src="{{ asset('autostars/images/marcas/alfa-romeo.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Audi": ?> '<img src="{{ asset('autostars/images/marcas/audi.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
+									case "Adly": ?> '<img src="{{ asset('autostars/images/marcas/adly-moto.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "BMW": ?> '<img src="{{ asset('autostars/images/marcas/bmw.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Asia Motors": ?> '<img src="{{ asset('autostars/images/marcas/') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;
 									case "Buick": ?> '<img src="{{ asset('autostars/images/marcas/buick.png') }}" style="height: 55px;" alt="" title="{{ $hoy->str_marca}}" style="cursor: pointer"><?php ; break;									

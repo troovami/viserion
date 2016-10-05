@@ -803,8 +803,8 @@
                                 
                             </section>							
 								
-								<a href="http://www.libost.com" title="www.libost.com" target="_blank">
-									<img src="{{ asset('autostars/images/publicidad-troovami/publicidad-libost.png') }}" alt="Logo">
+								<a href="http://www.bluproducts.com" title="www.bluproducts.com" target="_blank">
+									<img src="{{ asset('autostars/images/publicidad-troovami/bluaboutbanner.jpg') }}" alt="Logo">
 								</a>
 								<br>
 
