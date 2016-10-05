@@ -176,6 +176,7 @@ class PublicarMotocicletasController extends Controller
 	        ]);
         }
   
+        /*
         $file = $data['fileImage'];
         
         //obtenemos el nombre del archivo
@@ -183,7 +184,7 @@ class PublicarMotocicletasController extends Controller
         
         //indicamos que queremos guardar un nuevo archivo en el disco local
         \Storage::disk('local')->put($nombre,  \File::get($file));        
-        
+        */
         return $imagenesVehiculos;
         
     }
