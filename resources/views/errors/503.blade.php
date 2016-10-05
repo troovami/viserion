@@ -41,9 +41,9 @@
                 <h1>pronto estaremos en línea</h1>
                   
                  <h4><b>Síguenos en <i class="fa fa-twitter"></i> 
-                      <a href="https://twitter.com/NeilBarazarte" target="_blank" style="color: #FFF">@troovami</a>
+                      <a href="https://twitter.com/troovami" target="_blank" style="color: #FFF">@troovami</a>
                       y en <i class="fa fa-facebook-official"></i> 
-                      <a href="https://www.facebook.com/neil.ache" target="_blank" style="color: #FFF">facebook.com/troovami</a></b>
+                      <a href="https://www.facebook.com/Troovami-1566517207012420/" target="_blank" style="color: #FFF">facebook.com/troovami</a></b>
                   </h4>
             </header>
 
@@ -98,7 +98,7 @@
   function get15dayFromNow() {
 
     //return new Date(new Date().valueOf() + 1 * 24 * 60 * 60 * 1000);
-    return new Date(new Date('May 31 2016, 10:55:02').valueOf());//la fecha y la hora debo ponerla igual en el crontab
+    return new Date(new Date('Oct 31 2016, 10:55:02').valueOf());//la fecha y la hora debo ponerla igual en el crontab
   }
 
   var $days = $('#days');

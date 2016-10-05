@@ -689,7 +689,7 @@
 	                                                        
 	                                                        <span class="label label-default vehicle-age"></span>
 					                                        <span class="vehicle-age">
-					                                        <p class="label label-default">{!! $ultimos->int_ano !!}</p>
+					                                        <p class="label label-primary">{!! $ultimos->int_ano !!}</p>
 					                                        <p class="text-center" style="margin-top: -12px;margin-left: -20px;"><img class="" src="autostars/images/paises-america/<?=$ultimos->lng_idpais?>.png" style="width:35px" /></p>                                       
 					                                        </span>	                                                        
 	                                                        <h5 class="vehicle-title"><a href="#">{!! $ultimos->marca." ".$ultimos->modelo!!}</a></h5>
@@ -760,7 +760,7 @@
 	                                                        
 	                                                        <span class="label label-default vehicle-age"></span>
 					                                        <span class="vehicle-age">
-					                                        <p class="label label-default">{!! $ultimos->int_ano !!}</p>
+					                                        <p class="label label-primary">{!! $ultimos->int_ano !!}</p>
 					                                        <p class="text-center" style="margin-top: -12px;margin-left: -20px;"><img class="" src="autostars/images/paises-america/<?=$ultimos->lng_idpais?>.png" style="width:35px" /></p>                                       
 					                                        </span>	                                                        
 	                                                        <h5 class="vehicle-title"><a href="#">{!! $ultimos->marca." ".$ultimos->modelo!!}</a></h5>
