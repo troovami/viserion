@@ -1305,7 +1305,8 @@ class Consultas extends Model
             case 'total_buscarVehiculos':
                             	
             	$total_buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(*) as total
-                    from tbl_vehiculos as v             			          			
+                    from tbl_vehiculos as v  
+            		join tbl_modelos mo on mo.id = v.lng_idmodelo
             		where v.bol_eliminado = 0 ".$and."
                     and status_admin = ".Consultas::STATUS_ADMIN."
                 	and status_user = ".Consultas::STATUS_USER."
