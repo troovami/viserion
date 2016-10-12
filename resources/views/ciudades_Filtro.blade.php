@@ -6,7 +6,7 @@
 	                                            		@if ($flag < 6)
 														
 	                                                		<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
-	                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="data:image/jpeg;base64,{{ $ciudad->bandera }}" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
+	                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="autostars/images/paises-america/<?=$ciudad->lng_idpais?>.png" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
 	                                                		</li>
 	                                                	
 														@endif
@@ -31,7 +31,7 @@
 		                                            		@if ($flag > 6)
 															
 		                                                		<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
-		                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="data:image/jpeg;base64,{{ $ciudad->bandera }}" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
+		                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="autostars/images/paises-america/<?=$ciudad->lng_idpais?>.png" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
 		                                                		</li>
 		                                                	
 															@endif

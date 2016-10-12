@@ -520,7 +520,7 @@ class Consultas extends Model
             	
             case 'ciudadesPaisPublicados':
             
-            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as idpais, p.blb_img AS bandera, COUNT( c.id ) AS total 
+            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as lng_idpais, p.blb_img AS bandera, COUNT( c.id ) AS total 
 						from cat_ciudades c
 						join tbl_vehiculos as v on v.lng_idciudad = c.id
             			join cat_paises p on p.id = c.lng_idpais
