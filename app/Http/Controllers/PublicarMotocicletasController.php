@@ -12,6 +12,8 @@ use Troovami\ImagenesVehiculos;
 use Illuminate\Support\Facades\Auth;
 use Troovami\Consultas;
 use Troovami\Buscador;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class PublicarMotocicletasController extends Controller
 {
@@ -218,7 +220,10 @@ class PublicarMotocicletasController extends Controller
      */
     public function redirectPath()
     {
-        return route('home');
+        //return route('home');
+    	Session::flash('message','Su publicación se ha guardado exitosamente!');
+    	//return Redirect::to('/Mi-Cuenta');
+    	return route('cuenta');
     }
 
     /**

@@ -17,12 +17,18 @@
 
                                         <label  style="color: #777"><i style="color: red">*</i> País</label>                                        
                                         
-                                        {!! Form::select('lng_idpais', 
+                                        <!-- 
+                                        Form::select('lng_idpais', 
                                                             (['' => 'Seleccione'] + $paises), 
                                                             null, 
                                                             ['class' => 'form-control','id'=>'lng_idpais','onchange' => 'soloEnVenezuela(this.name);buscarCiudadPorPais(this.value)','required']
                                                         ) 
-                                        !!} 
+                                          -->
+
+
+					{!! Form::input('text', 'str_pais', 'Venezuela', ['class'=> 'form-control','maxlength' => '9' ,'onkeypress'=>'','required', 'readonly']) !!}
+                    {!! Form::input('hidden', 'lng_idpais', '13', ['class'=> 'form-control','maxlength' => '2' ,'id'=>'lng_idpais','required']) !!}
+
 
                                     </div>
 
@@ -53,6 +59,10 @@
                                     <div class="form-group ">
 
                                         <div id="monedas_validar">
+                                        	<!-- aqui va el contenido de abajo -->
+                                        </div>
+                                        
+                                        
                                             <!-- <i id="str_moneda_validar" class="fa fa-asterisk" style="color:red;"></i>-->
 	                                        {!! Form::label('str_moneda', 'Moneda (Sólo para Venezuela)',(['style'=> 'color:#777'])) !!}
 	
@@ -61,7 +71,7 @@
 	                                         	Form::select('str_moneda', array('' => 'Seleccione', 'Bolívares' => 'Bolívares', 'Dólares' => 'Dólares'), 'S',['class' => 'form-control','onchange' => 'validar(this.value,this.name)'])
 	                                        
 	                                        !!} 
-										</div>
+										
 										
                                     </div>
                                                                         

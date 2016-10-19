@@ -282,12 +282,21 @@ Descripción
 			        			
 			        <label style="color: #777"><i style="color: red">*</i> Dueños</label>
 			
-                    {!! Form::select('lng_idunicodueno', 
-                                        (['' => 'Seleccione'] + range(1,10)), 
-                                        null, 
-                                        ['class' => 'form-control','required']
-                                    ) 
-                    !!} 			
+    					<select id='lng_idunicodueno' name='lng_idunicodueno' class='form-control' onchange='' required=''>            
+	                        <option value=''>Seleccione</option>
+								
+								   <option value='1'>1</option>
+								   <option value='2'>2</option>
+								   <option value='3'>3</option>
+								   <option value='4'>4</option>
+								   <option value='5'>5</option>
+								   <option value='6'>6</option>
+								   <option value='7'>7</option>
+								   <option value='8'>8</option>
+								   <option value='9'>9</option>
+								   <option value='10'>10</option>								   								   
+								   																               					
+						</select>				
 						        
 			    </div>
 			

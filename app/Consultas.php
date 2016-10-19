@@ -1150,7 +1150,15 @@ class Consultas extends Model
                
                 ->Where(function ($query) {
                 	$query->where('p.bol_eliminado', '=', 0);
+                })  
+                
+                
+                ->Where(function ($query) {
+                	$query->where('p.id', '=', 13);
                 })                
+                
+                
+                
                 ->orderBy('p.str_paises')
                 ->select( 'p.id', 'p.str_paises')
                 ->get();

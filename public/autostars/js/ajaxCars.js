@@ -2481,9 +2481,9 @@ function ImagenesGaleria1() {
 				
 			case "Modificar":
 								
-				//window.location.href="http://vehiculos-troovami.got/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
+				window.location.href="http://vehiculos-troovami.got/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
                 //window.location.href="http://cars.troovami.com/Mi-Cuenta/Modificar/"+id;
-				window.location.href="http://troovami.com/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
+				//window.location.href="http://troovami.com/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
                 //window.location.href="http://viserion-troovami.ddns.net/Mi-Cuenta/Modificar/"+id;
 
 			break;
