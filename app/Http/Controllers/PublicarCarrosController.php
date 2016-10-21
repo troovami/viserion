@@ -286,11 +286,23 @@ class PublicarCarrosController extends Controller
 
         //indicamos que queremos guardar un nuevo archivo en el disco local
         \Storage::disk('local')->put("mini_".$nombrecompuesto,  \File::get($file));
-                               
+                            
         $imgMini = "mini_".$nombrecompuesto;       
-                                
-        $miniatura = DB::update('update tbl_vehiculos set str_mini = "'.$imgMini.'" where id = '.$lastInsertedId);      
+                 
+
+			$image = \Input::file('fileImage');
+            $filename  = 'mini_'. $lastInsertedId.'.' .$image->getClientOriginalExtension();
+            $path = public_path('publicaciones/' . $filename);
+            \Image::make($image->getRealPath())->resize(140, 93)->save($path);
+            //$product->image = 'publicaciones/'.$filename;
+            //$product->save();
         
+        
+                       
+		$miniatura = DB::update('update tbl_vehiculos set str_mini = "'.$imgMini.'" where id = '.$lastInsertedId);		
+		
+		//echo "-->".$file->getRealPath();die();
+				
         return $imagenesVehiculos;
         
     }
