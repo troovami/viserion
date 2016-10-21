@@ -25,8 +25,13 @@
                                 <!-- Result Item -->
                                 <div class="result-item format-standard">
 
-                                    <div class="result-item-image">                         
-                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="{{ $vehiculo->imagen }}" style="width: 140px; height: 93px"/>
+                                    <div class="result-item-image">    
+                                    
+                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/publicaciones/<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>                                        
+                                        
+                                        <!-- 
+                                        	<a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="<?=$vehiculo->imagen?>" style="width: 140px; height: 93px"/>
+                                        -->
                                         
                                         <span class="zoom">
                                         	<span class="icon">

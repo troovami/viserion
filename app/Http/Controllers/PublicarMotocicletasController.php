@@ -14,6 +14,7 @@ use Troovami\Consultas;
 use Troovami\Buscador;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use DB;
 
 class PublicarMotocicletasController extends Controller
 {
@@ -178,17 +179,39 @@ class PublicarMotocicletasController extends Controller
 	        ]);
         }
   
-        /*
         $file = $data['fileImage'];
         
         //obtenemos el nombre del archivo
-        $nombre = $lastInsertedId;//$file->getClientOriginalName();
-        
+        //$nombre = $lastInsertedId;/*file->getClientOriginalName();*/
+                                
+        $nombre_original = str_replace(" ","*", strstr($file->getClientOriginalName(),'.', true)."_".$lastInsertedId.strtolower(substr($file->getClientOriginalName(),-4))  );
+		
+        $extension = substr(strtolower($nombre_original),-4);
+		$parte1=substr($nombre_original,5,-4);
+		$parte2=strstr($parte1, '_');
+		$parte3=substr($parte2,1);
+		$nombrecompuesto = $parte3.$extension;
+
         //indicamos que queremos guardar un nuevo archivo en el disco local
-        \Storage::disk('local')->put($nombre,  \File::get($file));        
-        */
-        return $imagenesVehiculos;
+        \Storage::disk('local')->put("mini_".$nombrecompuesto,  \File::get($file));
+                            
+        $imgMini = "mini_".$nombrecompuesto;       
+                 
+
+			$image = \Input::file('fileImage');
+            $filename  = 'mini_'. $lastInsertedId.'.' .$image->getClientOriginalExtension();
+            $path = public_path('publicaciones/' . $filename);
+            \Image::make($image->getRealPath())->resize(140, 93)->save($path);
+            //$product->image = 'publicaciones/'.$filename;
+            //$product->save();
         
+        
+                       
+		$miniatura = DB::update('update tbl_vehiculos set str_mini = "'.$imgMini.'" where id = '.$lastInsertedId);		
+		
+		//echo "-->".$file->getRealPath();die();
+				
+        return $imagenesVehiculos;
     }
 
     //Este método llama a la vista del formulario de carros:

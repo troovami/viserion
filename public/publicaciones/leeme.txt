@@ -1,0 +1,2 @@
+crear este link:
+ln -s /home/blutecno/viserion/public/publicaciones/ /home/blutecno/public_html/publicaciones/

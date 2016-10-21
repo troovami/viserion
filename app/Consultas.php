@@ -1265,6 +1265,7 @@ class Consultas extends Model
 
             break;
 
+            
             case 'todosLosVehiculos':
                                 
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
@@ -1283,6 +1284,26 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	
                 return $todosLosVehiculos;
+                
+                /*
+            case 'todosLosVehiculos':
+            
+            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+            			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
+            			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini
+                    from tbl_vehiculos as v
+            		join cat_paises as p on p.id = v.lng_idpais
+                    join tbl_modelos as mo on mo.id =  v.lng_idmodelo
+            		join cat_marcas as ma on ma.id =  mo.lng_idmarca            		
+                    join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+            		where v.bol_eliminado = 0
+                	and status_admin = ".Consultas::STATUS_ADMIN."
+                	and status_user = ".Consultas::STATUS_USER."
+            		order by v.id desc limit ".$limit." offset ".$offset." ");
+            	 
+            	return $todosLosVehiculos;            
+                */
                 //join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
 
             break;
@@ -1305,7 +1326,26 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");                
                 
                 return $buscarVehiculos;
-
+                
+               /* 
+            case 'buscarVehiculos':
+            
+            	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+            			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
+            			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini
+                    from tbl_vehiculos as v
+            		join cat_paises as p on p.id = v.lng_idpais
+                    join tbl_modelos as mo on mo.id =  v.lng_idmodelo
+            		join cat_marcas as ma on ma.id =  mo.lng_idmarca					
+                    join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+            		where v.bol_eliminado = 0 ".$and."
+            		and status_admin = ".Consultas::STATUS_ADMIN."
+                	and status_user = ".Consultas::STATUS_USER."
+            		order by v.id desc limit ".$limit." offset ".$offset." ");
+            
+            	return $buscarVehiculos;            
+                */
                 //join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1 
                 
             break;
