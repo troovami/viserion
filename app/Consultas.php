@@ -1265,7 +1265,7 @@ class Consultas extends Model
 
             break;
 
-            
+            /*
             case 'todosLosVehiculos':
                                 
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
@@ -1284,8 +1284,8 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	
                 return $todosLosVehiculos;
+                */
                 
-                /*
             case 'todosLosVehiculos':
             
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
@@ -1303,11 +1303,11 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	 
             	return $todosLosVehiculos;            
-                */
+                
                 //join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
 
             break;
-
+/*
             case 'buscarVehiculos':
                                 
             	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
@@ -1326,8 +1326,8 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");                
                 
                 return $buscarVehiculos;
-                
-               /* 
+                */
+               
             case 'buscarVehiculos':
             
             	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
@@ -1345,7 +1345,7 @@ class Consultas extends Model
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             
             	return $buscarVehiculos;            
-                */
+                
                 //join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1 
                 
             break;
