@@ -30,7 +30,7 @@
                                         <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/publicaciones/<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>                                        
                                         
                                         <!-- 
-                                        	<a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="<?=$vehiculo->imagen?>" style="width: 140px; height: 93px"/>
+                                        	<a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>
                                         -->
                                         
                                         <span class="zoom">
