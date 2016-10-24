@@ -504,7 +504,7 @@ class Consultas extends Model
             break;
              
             case 'ciudadesTiposPublicados':
-            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as idpais, p.blb_img AS bandera, COUNT( c.id ) AS total
+            	$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as lng_idpais, p.blb_img AS bandera, COUNT( c.id ) AS total
 						FROM cat_ciudades c
 						JOIN tbl_vehiculos v ON v.lng_idciudad = c.id
 						JOIN cat_paises p ON p.id = c.lng_idpais
