@@ -49,7 +49,9 @@ class Consultas extends Model
                                   
             case 'vehiculosEditar':
             	$vehiculos = DB::table('tbl_vehiculos as v')
-            	->where('v.id', '=', $valor)         	
+            	->where('v.id', '=', $valor)
+            	
+           	
             	->Where(function ($query) {
             		$id = \Auth::user()->id;
             		$query->where('v.lng_idpersona', '=', $id);
@@ -57,6 +59,10 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('v.bol_eliminado', '=', 0);
             	})
+            	
+            	
+            	
+            	
             	->Where(function ($query) {
             		//$id = \Auth::user()->id;
             		$query->where('v.status_admin', '=', Consultas::STATUS_ADMIN);
@@ -100,7 +106,7 @@ class Consultas extends Model
 			    })
 			    ->Where(function ($query) {
 			    	$query->where('v.bol_eliminado', '=', 0);
-			    })			    
+			    })	
 			    ->select('v.*','v.id as lng_idvehiculo','per.name as usuario','p2.str_paises as pais_persona','p.str_abreviatura','p2.blb_img as bandera_persona','per.str_nombre as nombre_persona','per.str_apellido as apellido_persona','per.email',
 		            'per.str_ididentificacion','per.str_telefono','per.str_twitter','per.str_facebook','per.str_instagram', 'ma.blb_img as logo', 'ma.id as lng_idmarca',
 		            'per.blb_img as ima_persona','ima.blb_img as imagen', 'p.blb_img as bandera','dm.str_descripcion as transmision', 
@@ -118,6 +124,7 @@ class Consultas extends Model
 			    ->get();
 			    return $vehiculoDetalle;
             break;
+
 
 			case 'imagenes':
 				    $imagenes = DB::table('tbl_imagenes_vehiculos as ima')
@@ -793,7 +800,7 @@ class Consultas extends Model
         		
         	case 'ciudadesTipoPaisPublicados':
         	
-        		$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as idpais, p.blb_img AS bandera, 
+        		$ciudades = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT c.id, c.str_ciudad, p.id as lng_idpais, p.blb_img AS bandera, 
         				COUNT( c.id ) AS total        				
 						from cat_ciudades c
 						join tbl_vehiculos as v on v.lng_idciudad = c.id

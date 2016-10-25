@@ -148,9 +148,12 @@ class DetallesController extends Controller
     	$imagenes = Imagenes::find($id);
     	$imagenes->fill($request->all());
     	$imagenes->save();
+    	    
+    	DetallesController::statusPublicacion($idPublicacion);
     	
     	Session::flash('message','La imágen fue actualizada exitosamente!');
-    	return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);    	
+    	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	return Redirect::to('/Mi-Cuenta');
     }
     
     public function actualizarVideo(Request $request){
@@ -159,9 +162,12 @@ class DetallesController extends Controller
     	$video = Vehiculo::find($idPublicacion);
     	$video->fill($request->all());
     	$video->save();
-    	 
+    	
+    	DetallesController::statusPublicacion($idPublicacion);
+    	
     	Session::flash('message','El video fue actualizado exitosamente!');
-    	return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);    	   
+    	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	return Redirect::to('/Mi-Cuenta');
     }
     
     public function actualizarComentario(Request $request){
@@ -171,8 +177,11 @@ class DetallesController extends Controller
     	$comentario->fill($request->all());
     	$comentario->save();
     
+    	DetallesController::statusPublicacion($idPublicacion);
+    	
     	Session::flash('message','El comentario fue actualizado exitosamente!');
-    	return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	return Redirect::to('/Mi-Cuenta');
     } 
         
     public function actualizarEspecificaciones(Request $request){
@@ -181,9 +190,12 @@ class DetallesController extends Controller
     	$especificaciones = Vehiculo::find($idPublicacion);
     	$especificaciones->fill($request->all());
     	$especificaciones->save();
-    
+    	
+    	DetallesController::statusPublicacion($idPublicacion);
+    	
     	Session::flash('message','Las especificaciones fueron actualizadas exitosamente!');
-    	return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
+    	return Redirect::to('/Mi-Cuenta');
     }    
     
     public function actualizarCaracteristicas(Request $request){
@@ -204,9 +216,12 @@ class DetallesController extends Controller
     				'lng_idcaracteristica' => $detalles[$i],
     		]);
     	}    	    	
-    
+    	
+    	DetallesController::statusPublicacion($idPublicacion);
+    	
     	Session::flash('message','Las Caracteristicas fueron actualizadas exitosamente!');
-    	return Redirect::to('/Mi-Cuenta/Modificar/'.$idvehiculo);
+    	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idvehiculo);
+    	return Redirect::to('/Mi-Cuenta');
     }
     
     public function acciones($accion, $texto, $id){
@@ -224,6 +239,19 @@ class DetallesController extends Controller
     	
     	}
     	
-    }    
+    }
+    
+    public  function statusPublicacion($id){
+    	
+    	$publicacion = DB::update('update tbl_vehiculos set status_admin = 710 where id = '.$id);
+    	
+    	return $publicacion;
+    	
+    }
+    
+    
+    
+    
+    
     
 }

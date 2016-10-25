@@ -575,8 +575,14 @@
 						  <div class="col-md-6" style="text-align: center;">
 						  
 	                        <div class="btn-group">
-	                            <a href="#" class="btn btn-default" id="results-list-view"><i class="fa fa-th-list"></i></a>
-	                            <a href="#" class="btn btn-default active" id="results-grid-view"><i class="fa fa-th"></i></a>                            
+	                           
+	                           <!-- 
+	                            <a href="#" class="btn btn-default" id="results-list-view"><i class="fa fa-th-list"></i></a>                           
+	                           
+	                            <a href="#" class="btn btn-default active" id="results-grid-view"><i class="fa fa-th"></i></a>    
+	                            
+	                            -->
+	                                                    
 	                            <div id="numPagina" class="btn btn-default ">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>
 	                        </div>						  
 						  
