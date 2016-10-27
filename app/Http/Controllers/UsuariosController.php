@@ -46,6 +46,8 @@ class UsuariosController extends Controller
     	$cuenta_usuario[0]->fecha_nacimiento = "$var[2]-$var[1]-$var[0]";
 
         $publicaciones_usuario = Consultas::querysValor('publicaciones_usuario',$id);
+        
+        $favoritos_usuario = Consultas::querysValor('favoritos_usuario',$id);
 	   
         /*
         print_r($publicaciones_usuario);
@@ -76,8 +78,25 @@ class UsuariosController extends Controller
 			}
 			
 		}
+				
+		if (array_key_exists('0', $favoritos_usuario)) {
 		
-		return \View::make('usuarios',compact('cuenta_usuario','publicaciones_usuario','totalPublicaciones'));
+			$a = 0;
+			//for($x=0; $x < count($publicaciones_usuario); $x++){
+			foreach ($favoritos_usuario as $fav){
+		
+
+					
+				$totalFavoritos_usuario = Consultas::querysValor('totalFavoritos_usuario',$id);
+					
+				//print_r($totalFavoritos_usuario);die;
+				$a++;
+			}
+				
+		}		
+		
+		
+		return \View::make('usuarios',compact('cuenta_usuario','publicaciones_usuario','totalPublicaciones', 'favoritos_usuario','totalFavoritos_usuario'));
 
     } 
     

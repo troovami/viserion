@@ -216,7 +216,23 @@ class Consultas extends Model
 										order by v.id desc");
 			
 				return $publicaciones_usuario;
-			break;
+			break;			
+			
+			case 'favoritos_usuario':
+					$favoritos_usuario = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id, m.str_marca, mo.str_modelo, p.str_paises as pais, 
+							p.blb_img as bandera, v.str_precio_venta, v.str_moneda, ima.blb_img as imagen 
+							FROM tbl_favoritos as fav 
+							join tbl_vehiculos v on v.id = fav.lng_idpublicacion 
+							join cat_datos_maestros dm on dm.id = v.status_admin 
+							join cat_datos_maestros dm2 on dm2.id = v.status_user 
+							join tbl_modelos as mo on mo.id = v.lng_idmodelo 
+							join cat_marcas as m on m.id = mo.lng_idmarca 
+							join cat_paises as p on p.id = v.lng_idpais 
+							join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id and ima.int_peso = 1 
+							join tbl_usuarios_sociales as us on us.lng_idpersona = ".$valor." or us.lng_idempresa = ".$valor." WHERE 1");
+						
+					return $favoritos_usuario;
+				break;				
 
 			case 'totalPublicaciones_usuario':
 				$totalPublicaciones_usuario = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(v.id) as total
@@ -225,6 +241,21 @@ class Consultas extends Model
 			
 				return $totalPublicaciones_usuario;
 			break;
+			
+			case 'totalFavoritos_usuario':
+				$totalFavoritos_usuario = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(v.id) as total 
+				FROM tbl_favoritos as fav 
+				join tbl_vehiculos v on v.id = fav.lng_idpublicacion 
+				join cat_datos_maestros dm on dm.id = v.status_admin 
+				join cat_datos_maestros dm2 on dm2.id = v.status_user 
+				join tbl_modelos as mo on mo.id = v.lng_idmodelo 
+				join cat_marcas as m on m.id = mo.lng_idmarca 
+				join cat_paises as p on p.id = v.lng_idpais 
+				join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id and ima.int_peso = 1 
+				join tbl_usuarios_sociales as us on us.lng_idpersona = ".$valor." or us.lng_idempresa = ".$valor);
+					
+				return $totalFavoritos_usuario;
+				break;			
 
 			case 'paisesTiposPublicados':
 				$paises = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT p.id, p.str_paises, p.blb_img AS bandera, p.str_abreviatura,COUNT(*) AS total

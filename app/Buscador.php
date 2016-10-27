@@ -16,19 +16,10 @@ class Buscador extends Model
         $tipos = Consultas::querys('tiposPublicados');                
         $colors = Consultas::querys('coloresPublicados');                 
         $anospublicados = Consultas::querys('anosPublicados');
-        $modelosTotal = Consultas::querys('modelosPublicados');
-        
+        $modelosTotal = Consultas::querys('modelosPublicados');        
         $paisesLista = Consultas::querys('paisesLista');
-        
-        
-        
         $marcasPublicadosHoy = Consultas::querys('marcasPublicadosHoy');
-        
-        
-        
-        
-        
-        
+                
         \View::share(compact('paisesBuscador','tipos','colors','modelosTotal','ciudades','marcas','anospublicados','paisesLista','marcasPublicadosHoy'));   
     }
 }

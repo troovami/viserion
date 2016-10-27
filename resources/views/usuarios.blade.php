@@ -111,199 +111,356 @@
 
 <div class="row">
 
-<div class="panel panel-default">
-  <div class="panel-heading" style="background-color: #5bc0de">
-    <h3 class="panel-title" style="color: #FFF"><i class="fa fa-newspaper-o"></i> Mis Publicaciones
-    <span class="badge" style="background-color: #777"> 
-    									@if (isset($totalPublicaciones))
-									
-	                                    @foreach ($totalPublicaciones as $totales)
-										    {{ $totales->total }} 
-										@endforeach
-										
-									@else
-										0										
-									@endif
-    </span>
-    
-    </h3>
-  </div>
-  <div class="panel-body">
-                               
 
-                                <div class="table-responsive">
-                                    <table class="table table-striped dashboard-tables saved-cars-table" style="width: 500%">
-                                    
-                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
-                                        <thead>
-                                            <tr style="text-align: center">
-                                            	<td><strong>#</strong></td>
-                                                <td><strong>Imágen</strong></td>
-                                                <td><strong>Descripción</strong></td>
-                                                <td><strong>Precio</strong></td>
-                                                <td><strong>Período</strong></td>
-                                                
-                                                <td colspan="2"><strong>Acciones</strong></td>                                                
-                                                <td><strong>Estatus</strong></td>
-                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
-                                            </tr>
-                                        </thead>
+                                        <div class="panel-body">
 
-                                        <tbody>
-											
-											@if (isset($publicaciones_usuario))
-											    											
-												<?php 
-													$a = 0;
-												?>
-                                             @foreach ($publicaciones_usuario as $publicaciones) 
-                                                <tr style="text-align: center">
-                                                                                                
-                                                    <td>																											
+
+                                    <div class="tabs listing-step-tabs">
+
+                                        <ul class="nav nav-tabs">
+
+                                            <li class="active"> <a data-toggle="tab" href="#publicaciones" aria-controls="seguridad" role="tab"><i class="fa fa-newspaper-o"></i> Mis Publicaciones
+                                            
+                                            
 													    <span class="badge" style="background-color: #777"> 
-															<?=$a+1?>
-													    </span>																										
-													</td>                                                
-                                                
-                                                    <td>
-                                                        <!-- Result -->
-                                                        <a href="{{ route('detalles',$publicaciones->id) }}" target="_blank" class="car-image">
-                                                            <img src="{{ $publicaciones->imagen }}" alt="">
-                                                        </a>
+					    									@if (isset($totalPublicaciones))
+														
+							                                    @foreach ($totalPublicaciones as $totales)
+																    {{ $totales->total }} 
+																@endforeach
+																
+															@else
+																0										
+															@endif
+													    </span>                                            
+                                            
+                                            </a></li>
 
-													</td>
+                                            <li> <a data-toggle="tab" href="#favoritos" aria-controls="sonido" role="tab"><i class="fa fa-heart"></i> Mis Favoritos
+                                            
+													    <span class="badge" style="background-color: #777"> 
+					    									@if (isset($totalFavoritos_usuario))
+														
+							                                    @foreach ($totalFavoritos_usuario as $totales_fav)
+																    {{ $totales_fav->total }} 
+																@endforeach
+																
+															@else
+																0										
+															@endif
+													    </span>                                             
+                                            
+                                            </a></li>
+
+                                        </ul>
+
+                                        <div class="tab-content">
+                                            
+                                            <div id="publicaciones" class="tab-pane fade  in active">                                                                                             
+                                               
+													<div class="panel panel-default">
+	
+													  <div class="panel-body">
+													                               
 													
-													<td>
-                                                       
-                                                            <h5><a href="{{ route('detalles',$publicaciones->id) }}" target="_blank" title="Click para ver {{$publicaciones->str_marca}} {{$publicaciones->str_modelo}}"> 
+													                                <div class="table-responsive">
+													                                    <table class="table table-striped dashboard-tables saved-cars-table" style="width: 500%">
+													                                    
+													                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
+													                                        <thead>
+													                                            <tr style="text-align: center">
+													                                            	<td><strong>#</strong></td>
+													                                                <td><strong>Imágen</strong></td>
+													                                                <td><strong>Descripción</strong></td>
+													                                                <td><strong>Precio</strong></td>
+													                                                <td><strong>Período</strong></td>
+													                                                
+													                                                <td colspan="2"><strong>Acciones</strong></td>                                                
+													                                                <td><strong>Estatus</strong></td>
+													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
+													                                            </tr>
+													                                        </thead>
+													
+													                                        <tbody>
+																								
+																								@if (isset($publicaciones_usuario))
+																								    											
+																									<?php 
+																										$a = 0;
+																									?>
+													                                             @foreach ($publicaciones_usuario as $publicaciones) 
+													                                                <tr style="text-align: center">
+													                                                                                                
+													                                                    <td>																											
+																										    <span class="badge" style="background-color: #777"> 
+																												<?=$a+1?>
+																										    </span>																										
+																										</td>                                                
+													                                                
+													                                                    <td>
+													                                                        <!-- Result -->
+													                                                        <a href="{{ route('detalles',$publicaciones->id) }}" target="_blank" class="car-image">
+													                                                            <img src="{{ $publicaciones->imagen }}" alt="">
+													                                                        </a>
+													
+																										</td>
+																										
+																										<td>
+													                                                       
+													                                                            <h5><a href="{{ route('detalles',$publicaciones->id) }}" target="_blank" title="Click para ver {{$publicaciones->str_marca}} {{$publicaciones->str_modelo}}"> 
+													
+													                                                                @if( strlen(".$publicaciones->str_marca $publicaciones->str_modelo.") < 20 ) 
+													                                                                
+													                                                                    {!! $publicaciones->str_marca." ".$publicaciones->str_modelo !!} 
+													                                                                    
+													                                                                @else 
+													                                                                    {!! $publicaciones->str_marca." ".substr($publicaciones->str_modelo,0,4)."..." !!}
+													                                                                    
+													                                                                @endif
+													                                                            </a></h5>
+													                                                       
+													                                                    </td>
+													                                                    <td><span class="price">
+													
+													
+													                                                            @if ($publicaciones->str_moneda == 'Dólares' ) 
+													                            
+													                                                                $
+													                                                            
+													                                                            @elseif ($publicaciones->str_moneda == 'Bolívares' )
+													                                                                
+													                                                                <!-- VEF --> BsF
+													                                                                                                                            
+													                                                            @elseif ($publicaciones->str_moneda == '' )
+													                                                            
+													                                                                {!! $publicaciones->str_abreviatura !!}
+													                                                                                            
+													                                                            @endif
+													
+													                                                            {!! number_format($publicaciones->str_precio_venta, null, ',', '.') !!} </span></td>
+													                                                    
+													                                                        <td align="center">
+													                                                            <span class="text-success">
+													                                                                {{ $publicaciones->created_at }}
+													                                                            </span>
+													                                                                         		<br>                                             
+													                                                            <span class="text-danger">
+													                                                                {{ $publicaciones->dmt_fecha_publicacion_fin }}
+													                                                            </span>                                                            
+													                                                            
+													                                                        </td>                                                        
+													
+													      												<td>
+													      													<a href="#">
+													      													
+													      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control selectpicker input-sm" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' )" >
+													      															<option value="">Seleccione</option>
+													      															<option value="706">En Línea</option>
+													      															<option value="707">Pausar</option>
+													      															<option value="">Modificar</option>     															
+													      														</select>
+													      														
+													      													</a>
+													      												</td>
+													
+													      												<td>
+													
+														      													<div id="accionPublicacion<?=$a?>">
+														      														 
+														      															      														
+																	      												@if($publicaciones->status_user == "Activa")
+																	      												
+																			  												<i title="{{ $publicaciones->status_user }}" style="color: green; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>
+																			  												
+																			  												
+																	      												
+																	      												@else	      														
+																		      											
+																		      												<i title="{{ $publicaciones->status_user }}" style="color: orange; cursor:pointer" class="fa fa-pause" aria-hidden="true"></i>		
+																		      											
+																		      											@endif		
+														      														
+														      													</div>
+													      													
+													      												</td>      												  											
+													      												
+													      												
+													      												<td>
+													
+														      													<div id="accionPublicacion<?=$a?>">
+														      														 
+														      															      														
+																	      												@if($publicaciones->status_admin == "Activa")
+																	      												
+																			  												<i title="{{ $publicaciones->status_admin }}" style="color: green; cursor:pointer" class="fa fa-check" aria-hidden="true"></i>
+																	      												
+																	      												@elseif($publicaciones->status_admin == "Revisando")	      														
+																		      											
+																		      												<i title="{{ $publicaciones->status_admin }}" style="color: blue; cursor:pointer" class="fa fa-clock-o" aria-hidden="true"></i>		
+																		      											
+																	      												@elseif($publicaciones->status_admin == "Inactiva")	      														
+																		      											
+																		      												<i title="{{ $publicaciones->status_admin }}" style="color: red; cursor:pointer" class="fa fa-times" aria-hidden="true"></i>		
+																		      																      											
+																		      											@endif		
+														      														
+														      													</div>
+													      												
+													      												</td> 
+													      												
+													      												
+													      												<td>
+													      												
+													      														<a href="https://twitter.com/share" class="twitter-share-button" data-text="Se vende este vehículo {{ $publicaciones->str_marca }} {{ $publicaciones->str_modelo }} {{ $publicaciones->int_ano }}" data-url="http://www.troovami.com/Vehiculo/{{$publicaciones->id}}" data-via="troovami" data-hashtags="">Tweet</a>
+																												<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
+													      														         			<br>  									
+													      												&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
+													      												</td>
+													      												      												
+													      												
+													      												<?php 
+													      													$a++;
+													      												?>
+													                                                </tr>
+													                                            @endforeach
+																							@endif
+													                                        </tbody>
+													
+													                                    </table>
+													                                    
+													                                    <hr>
+													
+													
+													                               	</div>
+													                                
+													                            
+													  </div>
+													</div>                                               
+                                               
+                                               
+                                               
+                                               
+                                            </div>
 
-                                                                @if( strlen(".$publicaciones->str_marca $publicaciones->str_modelo.") < 20 ) 
-                                                                
-                                                                    {!! $publicaciones->str_marca." ".$publicaciones->str_modelo !!} 
-                                                                    
-                                                                @else 
-                                                                    {!! $publicaciones->str_marca." ".substr($publicaciones->str_modelo,0,4)."..." !!}
-                                                                    
-                                                                @endif
-                                                            </a></h5>
-                                                       
-                                                    </td>
-                                                    <td><span class="price">
+                                            <div id="favoritos" class="tab-pane fade">
+												
+
+<div class="panel panel-default">
+	
+													  <div class="panel-body">
+													                               
+													
+													                                <div class="table-responsive">
+													                                    <table class="table table-striped dashboard-tables saved-cars-table" style="width: 500%">
+													                                    
+													                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
+													                                        <thead>
+													                                            <tr style="text-align: center">
+													                                            	<td><strong>#</strong></td>
+													                                                <td><strong>Imágen</strong></td>
+													                                                <td><strong>Descripción</strong></td>
+													                                                <td><strong>Precio</strong></td>
+													                                      												                                                
+													       
+													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
+													                                            </tr>
+													                                        </thead>
+													
+													                                        <tbody>
+																								
+																								@if (isset($favoritos_usuario))
+																								    											
+																									<?php 
+																										$a = 0;
+																									?>
+													                                             @foreach ($favoritos_usuario as $favoritos) 
+													                                                <tr style="text-align: center">
+													                                                                                                
+													                                                    <td>																											
+																										    <span class="badge" style="background-color: #777"> 
+																												<?=$a+1?>
+																										    </span>																										
+																										</td>                                                
+													                                                
+													                                                    <td>
+													                                                        <!-- Result -->
+													                                                        <a href="{{ route('detalles',$favoritos->id) }}" target="_blank" class="car-image">
+													                                                            <img src="{{ $favoritos->imagen }}" alt="">
+													                                                        </a>
+													
+																										</td>
+																										
+																										<td>
+													                                                       
+													                                                            <h5><a href="{{ route('detalles',$favoritos->id) }}" target="_blank" title="Click para ver {{$favoritos->str_marca}} {{$favoritos->str_modelo}}"> 
+													
+													                                                                @if( strlen(".$favoritos->str_marca $favoritos->str_modelo.") < 20 ) 
+													                                                                
+													                                                                    {!! $favoritos->str_marca." ".$favoritos->str_modelo !!} 
+													                                                                    
+													                                                                @else 
+													                                                                    {!! $favoritos->str_marca." ".substr($favoritos->str_modelo,0,4)."..." !!}
+													                                                                    
+													                                                                @endif
+													                                                            </a></h5>
+													                                                       
+													                                                    </td>
+													                                                    <td><span class="price">
+													
+													
+													                                                            @if ($favoritos->str_moneda == 'Dólares' ) 
+													                            
+													                                                                $
+													                                                            
+													                                                            @elseif ($favoritos->str_moneda == 'Bolívares' )
+													                                                                
+													                                                                <!-- VEF --> BsF
+													                                                                                                                            
+													                                                            @elseif ($favoritos->str_moneda == '' )
+													                                                            
+													                                                                {!! $favoritos->str_abreviatura !!}
+													                                                                                            
+													                                                            @endif
+													
+													                                                            {!! number_format($favoritos->str_precio_venta, null, ',', '.') !!} </span></td>
+						
+													      												<td>
+													      												
+													      														<a href="https://twitter.com/share" class="twitter-share-button" data-text="Se vende este vehículo {{ $publicaciones->str_marca }} {{ $publicaciones->str_modelo }} {{ $publicaciones->int_ano }}" data-url="http://www.troovami.com/Vehiculo/{{$publicaciones->id}}" data-via="troovami" data-hashtags="">Tweet</a>
+																												<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
+													      														         			<br>  									
+													      												&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
+													      												</td>
+													      												      												
+													      												
+													      												<?php 
+													      													$a++;
+													      												?>
+													                                                </tr>
+													                                            @endforeach
+																							@endif
+													                                        </tbody>
+													
+													                                    </table>
+													                                    
+													                                    <hr>
+													
+													
+													                               	</div>
+													                                
+													                            
+													  </div>
+													</div>   
 
 
-                                                            @if ($publicaciones->str_moneda == 'Dólares' ) 
-                            
-                                                                $
-                                                            
-                                                            @elseif ($publicaciones->str_moneda == 'Bolívares' )
-                                                                
-                                                                <!-- VEF --> BsF
-                                                                                                                            
-                                                            @elseif ($publicaciones->str_moneda == '' )
-                                                            
-                                                                {!! $publicaciones->str_abreviatura !!}
-                                                                                            
-                                                            @endif
 
-                                                            {!! number_format($publicaciones->str_precio_venta, null, ',', '.') !!} </span></td>
-                                                    
-                                                        <td align="center">
-                                                            <span class="text-success">
-                                                                {{ $publicaciones->created_at }}
-                                                            </span>
-                                                                         		<br>                                             
-                                                            <span class="text-danger">
-                                                                {{ $publicaciones->dmt_fecha_publicacion_fin }}
-                                                            </span>                                                            
-                                                            
-                                                        </td>                                                        
+                                            </div>
+                                       
+                                        </div>
+                                    </div>
 
-      												<td>
-      													<a href="#">
-      													
-      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control selectpicker input-sm" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' )" >
-      															<option value="">Seleccione</option>
-      															<option value="706">En Línea</option>
-      															<option value="707">Pausar</option>
-      															<option value="">Modificar</option>     															
-      														</select>
-      														
-      													</a>
-      												</td>
+                                </div>
 
-      												<td>
-
-	      													<div id="accionPublicacion<?=$a?>">
-	      														 
-	      															      														
-				      												@if($publicaciones->status_user == "Activa")
-				      												
-						  												<i title="{{ $publicaciones->status_user }}" style="color: green; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>
-						  												
-						  												
-				      												
-				      												@else	      														
-					      											
-					      												<i title="{{ $publicaciones->status_user }}" style="color: orange; cursor:pointer" class="fa fa-pause" aria-hidden="true"></i>		
-					      											
-					      											@endif		
-	      														
-	      													</div>
-      													
-      												</td>      												  											
-      												
-      												
-      												<td>
-
-	      													<div id="accionPublicacion<?=$a?>">
-	      														 
-	      															      														
-				      												@if($publicaciones->status_admin == "Activa")
-				      												
-						  												<i title="{{ $publicaciones->status_admin }}" style="color: green; cursor:pointer" class="fa fa-check" aria-hidden="true"></i>
-				      												
-				      												@elseif($publicaciones->status_admin == "Revisando")	      														
-					      											
-					      												<i title="{{ $publicaciones->status_admin }}" style="color: blue; cursor:pointer" class="fa fa-clock-o" aria-hidden="true"></i>		
-					      											
-				      												@elseif($publicaciones->status_admin == "Inactiva")	      														
-					      											
-					      												<i title="{{ $publicaciones->status_admin }}" style="color: red; cursor:pointer" class="fa fa-times" aria-hidden="true"></i>		
-					      																      											
-					      											@endif		
-	      														
-	      													</div>
-      												
-      												</td> 
-      												
-      												
-      												<td>
-      												
-      														<a href="https://twitter.com/share" class="twitter-share-button" data-text="Se vende este vehículo {{ $publicaciones->str_marca }} {{ $publicaciones->str_modelo }} {{ $publicaciones->int_ano }}" data-url="http://www.troovami.com/Vehiculo/{{$publicaciones->id}}" data-via="troovami" data-hashtags="">Tweet</a>
-															<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
-      														         			<br>  									
-      												&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
-      												</td>
-      												      												
-      												
-      												<?php 
-      													$a++;
-      												?>
-                                                </tr>
-                                            @endforeach
-										@endif
-                                        </tbody>
-
-                                    </table>
-                                    
-                                    <hr>
-
-
-                               	</div>
-                                
-                            
-  </div>
-</div>
 </div>
 
 
