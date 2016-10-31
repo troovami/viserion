@@ -28,25 +28,23 @@ class DetallesController extends Controller
     }
 
     public function detalles($valor)
-    {
+    {              
         //busco el id del vehículo para saber si existe:
         $vehiculos = Consultas::querysValor('vehiculos',$valor);
 
-        //Mi variable bandera para establecer si pasa o no a determinada vista:
-        $flag = false;
-
-        foreach ($vehiculos as $value) {
-            if (!empty($value->id)) {
-                 //echo $value->id;
-                 $flag = true;
-            }   
-        }
-         
-        if ($flag == false) {
-            //echo "no existe";
-            return \View::make('errors.404');
+        if (!$vehiculos){
+        	
+        	return \View::make('errors.404');
+        	
         }
 
+		if ($vehiculos[0]->status_user == 707){        	        
+        	
+        	return \View::make('errors.pausada');
+        	
+        }   
+              
+        
         //Descripción del vehículo:
         $vehiculos = Consultas::querysValor('vehiculoDetalle',$valor);
 	    
@@ -80,25 +78,22 @@ class DetallesController extends Controller
     	
     	$id = \Auth::user()->id;
     	//busco el id del vehículo para saber si existe:
-    	$vehiculos = Consultas::querysValor('vehiculosEditar',$valor);
-    
-    	//Mi variable bandera para establecer si pasa o no a determinada vista:
-    	$flag = false;
-    
-    	foreach ($vehiculos as $value) {
-    		if (!empty($value->id)) {
-    			//echo $value->id;
-    			$flag = true;
-    		}
-    	}
-    	 
-    	if ($flag == false) {
-    		//echo "no existe";
+    	$vehiculos = Consultas::querysValor('vehiculosEditar',$valor);	
+    	
+    	if (!$vehiculos){
+    		 
     		return \View::make('errors.404');
+    		 
     	}
-    
+    	
     	//Descripción del vehículo:
-    	$vehiculos = Consultas::querysValor('vehiculoDetalle',$valor);
+    	$vehiculos = Consultas::querysValor('vehiculoDetalleEditar',$valor);
+    	    	
+    	if (!$vehiculos){
+    		 
+    		return \View::make('errors.404');
+    		 
+    	}
     	 
     	//Imágenes del vehículo:
     	$imagenes = Consultas::querysValor('imagenes2',$valor);
@@ -150,6 +145,8 @@ class DetallesController extends Controller
     	$imagenes->save();
     	    
     	DetallesController::statusPublicacion($idPublicacion);
+    	
+    	
     	
     	Session::flash('message','La imágen fue actualizada exitosamente!');
     	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idPublicacion);
@@ -231,13 +228,18 @@ class DetallesController extends Controller
     	
     	if($texto == "Activa"){
     	
-    		echo '<i title="'.$texto.'" style="color: green; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>';
-    	
+    		echo '<i title="'.$texto.'" style="color: violet; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>';    	
+
+    	}elseif($texto == "Vendido"){
+    			 
+    			echo '<i title="'.$texto.'" style="color: green; cursor:pointer" class="fa fa-money" aria-hidden="true"></i>';  
+    			
     	}else{
     	
     		echo '<i title="'.$texto.'" style="color: orange; cursor:pointer" class="fa fa-pause" aria-hidden="true"></i>';
     	
     	}
+    	
     	
     }
     

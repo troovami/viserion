@@ -2462,20 +2462,34 @@ function ImagenesGaleria1() {
 		switch (accionText) {
 			case "En Línea":
 			case "Pausar":
+			case "Vendido":
 								
 				if(accionText == "En Línea"){
 					accionText = "Activa";
 				}else if(accionText == "Pausar"){
 					accionText = "Pausada";
+				}else if(accionText == "Vendido"){
+					accionText = "Vendido";																				
+					
 				}
 						
+				
+				
+				
+				
+				
 			    divname = "accionPublicacion"+valor;
 			    
 			    //alert('div->'+divname +' - accion->'+ accion +' - texto->'+ accionText+' - id->'+id);
 			    //http.open("GET", 'paginas' + url, true);
 			    http.open("GET", 'Acciones/'+accion+'/texto/'+accionText+'/id/'+id, true);//ver archivo: routes.php
 			    http.onreadystatechange = handleHttpResponse;
-			    http.send(null);				
+			    http.send(null);
+			    
+			    if(accionText == "Vendido"){
+			    	window.location.href="http://vehiculos-troovami.got/Mi-Cuenta";
+			    }
+			    
 										
 			break;
 				

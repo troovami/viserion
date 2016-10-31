@@ -35,11 +35,17 @@
                 <!-- Vehicle Details -->
                 <article class="single-vehicle-details">
                     <div class="single-vehicle-title">
-                        <span class="badge-premium-listing">
-                            
-                            <img src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" alt="{!! $vehiculo->pais !!}" title="{!! $vehiculo->pais !!}" style="width:35px"> {!! $vehiculo->pais !!}
 
-                        </span>
+                             	@if ($vehiculo->status_user == '712' ) 
+					                  
+						            <span class="badge-premium-listing">
+	                            
+			                           Vendido!!!!
+			
+			                        </span>
+					                                               
+								@endif
+
 
                         <h2 class="post-title">  
                         

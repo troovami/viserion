@@ -119,7 +119,7 @@
 
                                         <ul class="nav nav-tabs">
 
-                                            <li class="active"> <a data-toggle="tab" href="#publicaciones" aria-controls="seguridad" role="tab"><i class="fa fa-newspaper-o"></i> Mis Publicaciones
+                                            <li class="active"> <a data-toggle="tab" href="#publicaciones" aria-controls="seguridad" role="tab"><i style="color: green" class="fa fa-newspaper-o"></i> Mis Publicaciones
                                             
                                             
 													    <span class="badge" style="background-color: #777"> 
@@ -136,7 +136,7 @@
                                             
                                             </a></li>
 
-                                            <li> <a data-toggle="tab" href="#favoritos" aria-controls="sonido" role="tab"><i class="fa fa-heart"></i> Mis Favoritos
+                                            <li> <a data-toggle="tab" href="#favoritos" aria-controls="sonido" role="tab"><i  style="color: red" class="fa fa-heart"></i> Mis Favoritos
                                             
 													    <span class="badge" style="background-color: #777"> 
 					    									@if (isset($totalFavoritos_usuario))
@@ -253,12 +253,30 @@
 													      												<td>
 													      													<a href="#">
 													      													
-													      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control selectpicker input-sm" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' )" >
+													      														
+													      														@if ($publicaciones->status_user == "Vendido" )
+													                                                            
+													                                                            <button class="btn btn-primary" type="button">
+																												  Vendido <span class="badge">
+																												  <i class="fa fa-tags" aria-hidden="true"></i>
+																												  </span>
+																												</button> 
+													                                                                
+													                                                            @else
+													                                                               
+													                                                               
+													                                                               
+													      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control selectpicker input-sm" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' ) " >
 													      															<option value="">Seleccione</option>
 													      															<option value="706">En Línea</option>
 													      															<option value="707">Pausar</option>
-													      															<option value="">Modificar</option>     															
-													      														</select>
+													      															<option value="712">Vendido</option> 
+													      															<option value="">Modificar</option>													      															   															
+													      														</select>													                                                               
+													                                                                                           
+													                                                            @endif
+													      														
+
 													      														
 													      													</a>
 													      												</td>
@@ -270,9 +288,12 @@
 														      															      														
 																	      												@if($publicaciones->status_user == "Activa")
 																	      												
-																			  												<i title="{{ $publicaciones->status_user }}" style="color: green; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>
+																			  												<i title="{{ $publicaciones->status_user }}" style="color: violet; cursor:pointer" class="fa fa-play" aria-hidden="true"></i>
 																			  												
 																			  												
+																	      												@elseif($publicaciones->status_user == "Vendido")
+																	      												
+																			  												<i title="{{ $publicaciones->status_user }}" style="color: green; cursor:pointer" class="fa fa-money" aria-hidden="true"></i>																			  												
 																	      												
 																	      												@else	      														
 																		      											

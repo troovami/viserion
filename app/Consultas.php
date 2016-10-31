@@ -9,7 +9,9 @@ class Consultas extends Model
 {	
 	//Estatus Activas:
 	const STATUS_ADMIN = 708;
+	const STATUS_ADMIN2 = 710;
 	const STATUS_USER = 706;
+	const STATUS_USER2 = 712;
 	
 	protected function querysValor($consulta,$valor){
 
@@ -28,7 +30,8 @@ class Consultas extends Model
 				return $cuenta_usuario;
 			break;			
 							
-            case 'vehiculos':
+            /*
+             case 'vehiculos':
                  $vehiculos = DB::table('tbl_vehiculos as v')
 		        ->where('v.id', '=', $valor)
             	->Where(function ($query) {
@@ -43,10 +46,34 @@ class Consultas extends Model
             		$query->where('v.status_user', '=', Consultas::STATUS_USER);
             	}) 	        
 		        ->select('v.*')
-		        ->get();
+		        ->get();            			      
                 return $vehiculos;
+            break;                
+            */
+                        
+            case 'vehiculos':
+            	$vehiculos = DB::select("SELECT v.id, v.status_user, v.status_admin 
+            			FROM tbl_vehiculos as v 
+            			WHERE v.id = ".$valor." 
+            			and v.status_admin = ".Consultas::STATUS_ADMIN." and v.bol_eliminado = 0"); 
+            			            	
+            	return $vehiculos;
+            break;            
+
+            case 'vehiculosEditar':
+            	$vehiculos = DB::select("SELECT v.id, v.status_user, v.status_admin
+            			FROM tbl_vehiculos as v
+            			WHERE v.id = ".$valor."
+            			and (v.status_admin = ".Consultas::STATUS_ADMIN.") or (v.status_admin = ".Consultas::STATUS_ADMIN2.")
+            			
+            					and v.lng_idpersona = ".\Auth::user()->id."
+            					
+            			and v.bol_eliminado = 0");
+            
+            	return $vehiculos;
             break;
-                                  
+            	
+            /*
             case 'vehiculosEditar':
             	$vehiculos = DB::table('tbl_vehiculos as v')
             	->where('v.id', '=', $valor)
@@ -59,10 +86,7 @@ class Consultas extends Model
             	->Where(function ($query) {
             		$query->where('v.bol_eliminado', '=', 0);
             	})
-            	
-            	
-            	
-            	
+
             	->Where(function ($query) {
             		//$id = \Auth::user()->id;
             		$query->where('v.status_admin', '=', Consultas::STATUS_ADMIN);
@@ -76,7 +100,10 @@ class Consultas extends Model
             	return $vehiculos;
             break;            
 
-            case 'vehiculoDetalle':
+            */
+            
+            
+            /*case 'vehiculoDetalle':
 			    $vehiculoDetalle = DB::table('tbl_vehiculos as v')
 			    ->leftjoin('cat_datos_maestros as dm', 'dm.id', '=', 'v.lng_idtransmision')
 			    ->leftjoin('cat_datos_maestros as dm2', 'dm2.id', '=', 'v.lng_iddireccion')
@@ -124,7 +151,102 @@ class Consultas extends Model
 			    ->get();
 			    return $vehiculoDetalle;
             break;
-
+            */
+            
+            
+            
+            	case 'vehiculoDetalle':
+            	
+            		
+            		$vehiculoDetalle = DB::select("select v.*,v.id as lng_idvehiculo,per.name as usuario,p2.str_paises as pais_persona,p.str_abreviatura,p2.blb_img as bandera_persona,per.str_nombre as nombre_persona,per.str_apellido as apellido_persona,per.email,
+						            per.str_ididentificacion,per.str_telefono,per.str_twitter,per.str_facebook,per.str_instagram, ma.blb_img as logo, ma.id as lng_idmarca,
+						            per.blb_img as ima_persona,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision, 
+						            dm2.str_descripcion as direccion,dm3.str_descripcion as color, dm4.str_descripcion as estereo,
+						            dm5.str_descripcion as tapizado, dm6.str_descripcion as vidrios, dm7.str_descripcion as traccion,
+						            dm8.str_descripcion as combustible, dm9.str_descripcion as negociable, 
+						            dm10.str_descripcion as financiamiento, dm11.str_descripcion as chocado, 
+						            v.lng_idunicodueno as unicodueno, dm13.str_descripcion as reparado, dm14.str_descripcion as cilindrada, dm15.str_descripcion as subtipo,
+						            p.str_paises as pais, ciu.str_ciudad as ciudad, ma.str_marca as marca, per.created_at as fecha_inscripcion,
+						            mo.str_modelo as modelo			    
+							       from tbl_vehiculos as v
+							       left join cat_datos_maestros as dm on dm.id = v.lng_idtransmision 
+							       left join cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion 
+							       join cat_datos_maestros as dm3 on dm3.id = v.lng_idcolor 
+						           left join cat_datos_maestros as dm4 on dm4.id = v.lng_idestereo 
+						         left join cat_datos_maestros as dm5 on dm5.id = v.lng_idtapizado 
+						         left join cat_datos_maestros as dm6 on dm6.id = v.lng_idvidrios 
+						         left join cat_datos_maestros as dm7 on dm7.id = v.lng_idtraccion 
+						         left join cat_datos_maestros as dm8 on dm8.id = v.lng_idcombustible 
+						        join cat_datos_maestros as dm9 on dm9.id = v.lng_idnegociable 
+						        join cat_datos_maestros as dm10 on dm10.id = v.lng_idfinanciamiento 
+						        join cat_datos_maestros as dm11 on dm11.id = v.lng_idchocado 		        		       		        
+						        join cat_datos_maestros as dm13 on dm13.id = v.lng_idmotorreparado 
+						        join cat_datos_maestros as dm14 on dm14.id = v.lng_idcilindrada 		        
+						        join cat_datos_maestros as dm15 on dm15.id = v.lng_idsubtipo_vehiculo 		        
+							    join cat_paises as p on p.id = v.lng_idpais 			    
+							    join cat_ciudades as ciu on ciu.id = v.lng_idciudad 			    
+							    join tbl_modelos as mo on mo.id = v.lng_idmodelo 
+							    join cat_marcas as ma on ma.id = mo.lng_idmarca 
+							    join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id 
+						        join tbl_personas as per on per.id = v.lng_idpersona 
+						        join cat_paises as p2 on p2.id = per.lng_idpais 
+							    where v.id = ".$valor." 
+							    and ima.int_peso = 1 							    		
+			            		and v.status_admin = ".Consultas::STATUS_ADMIN."			                	
+			            		and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")  								    		
+							    and v.bol_eliminado = 0 
+							    ");
+            		
+            		return $vehiculoDetalle;
+            	break;
+            	
+            	
+            	
+            	
+            	case 'vehiculoDetalleEditar':
+            		 
+            	
+            		$vehiculoDetalleEditar = DB::select("select v.*,v.id as lng_idvehiculo,per.name as usuario,p2.str_paises as pais_persona,p.str_abreviatura,p2.blb_img as bandera_persona,per.str_nombre as nombre_persona,per.str_apellido as apellido_persona,per.email,
+						            per.str_ididentificacion,per.str_telefono,per.str_twitter,per.str_facebook,per.str_instagram, ma.blb_img as logo, ma.id as lng_idmarca,
+						            per.blb_img as ima_persona,ima.blb_img as imagen, p.blb_img as bandera,dm.str_descripcion as transmision,
+						            dm2.str_descripcion as direccion,dm3.str_descripcion as color, dm4.str_descripcion as estereo,
+						            dm5.str_descripcion as tapizado, dm6.str_descripcion as vidrios, dm7.str_descripcion as traccion,
+						            dm8.str_descripcion as combustible, dm9.str_descripcion as negociable,
+						            dm10.str_descripcion as financiamiento, dm11.str_descripcion as chocado,
+						            v.lng_idunicodueno as unicodueno, dm13.str_descripcion as reparado, dm14.str_descripcion as cilindrada, dm15.str_descripcion as subtipo,
+						            p.str_paises as pais, ciu.str_ciudad as ciudad, ma.str_marca as marca, per.created_at as fecha_inscripcion,
+						            mo.str_modelo as modelo
+							       from tbl_vehiculos as v
+							       left join cat_datos_maestros as dm on dm.id = v.lng_idtransmision
+							       left join cat_datos_maestros as dm2 on dm2.id = v.lng_iddireccion
+							       join cat_datos_maestros as dm3 on dm3.id = v.lng_idcolor
+						           left join cat_datos_maestros as dm4 on dm4.id = v.lng_idestereo
+						         left join cat_datos_maestros as dm5 on dm5.id = v.lng_idtapizado
+						         left join cat_datos_maestros as dm6 on dm6.id = v.lng_idvidrios
+						         left join cat_datos_maestros as dm7 on dm7.id = v.lng_idtraccion
+						         left join cat_datos_maestros as dm8 on dm8.id = v.lng_idcombustible
+						        join cat_datos_maestros as dm9 on dm9.id = v.lng_idnegociable
+						        join cat_datos_maestros as dm10 on dm10.id = v.lng_idfinanciamiento
+						        join cat_datos_maestros as dm11 on dm11.id = v.lng_idchocado
+						        join cat_datos_maestros as dm13 on dm13.id = v.lng_idmotorreparado
+						        join cat_datos_maestros as dm14 on dm14.id = v.lng_idcilindrada
+						        join cat_datos_maestros as dm15 on dm15.id = v.lng_idsubtipo_vehiculo
+							    join cat_paises as p on p.id = v.lng_idpais
+							    join cat_ciudades as ciu on ciu.id = v.lng_idciudad
+							    join tbl_modelos as mo on mo.id = v.lng_idmodelo
+							    join cat_marcas as ma on ma.id = mo.lng_idmarca
+							    join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id
+						        join tbl_personas as per on per.id = v.lng_idpersona
+						        join cat_paises as p2 on p2.id = per.lng_idpais
+							    where v.id = ".$valor."
+							    and ima.int_peso = 1
+			            		and (v.status_admin = ".Consultas::STATUS_ADMIN." or v.status_admin = ".Consultas::STATUS_ADMIN2.")
+							    and v.bol_eliminado = 0			            		
+                                and v.lng_idpersona = ".\Auth::user()->id."			            				
+							    ");
+            	
+            		return $vehiculoDetalleEditar;
+            break;            	            	            
 
 			case 'imagenes':
 				    $imagenes = DB::table('tbl_imagenes_vehiculos as ima')
@@ -1337,7 +1459,7 @@ class Consultas extends Model
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0
                 	and status_admin = ".Consultas::STATUS_ADMIN."
-                	and status_user = ".Consultas::STATUS_USER."
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             	 
             	return $todosLosVehiculos;            
@@ -1379,7 +1501,7 @@ class Consultas extends Model
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
             		where v.bol_eliminado = 0 ".$and."
             		and status_admin = ".Consultas::STATUS_ADMIN."
-                	and status_user = ".Consultas::STATUS_USER."
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             
             	return $buscarVehiculos;            
@@ -1395,7 +1517,7 @@ class Consultas extends Model
             		join tbl_modelos mo on mo.id = v.lng_idmodelo
             		where v.bol_eliminado = 0 ".$and."
                     and status_admin = ".Consultas::STATUS_ADMIN."
-                	and status_user = ".Consultas::STATUS_USER."
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
             		order by v.id desc ");            	
             	            	
                 return $total_buscarVehiculos;
@@ -1417,7 +1539,7 @@ class Consultas extends Model
             		where v.bol_eliminado = 0
             		and v.lng_idtipo_vehiculo = 153
             		and status_admin = ".Consultas::STATUS_ADMIN."
-                	and status_user = ".Consultas::STATUS_USER."             			
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")           			
                     order by v.id desc limit 9 offset 0");
             
             	return $ultimosVehiculos;
@@ -1440,7 +1562,7 @@ class Consultas extends Model
             		where v.bol_eliminado = 0
             		and v.lng_idtipo_vehiculo = 559
             		and status_admin = ".Consultas::STATUS_ADMIN."
-                	and status_user = ".Consultas::STATUS_USER."            				
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")          				
                     order by v.id desc limit 9 offset 0");
             	
             		return $ultimosVehiculos2;
