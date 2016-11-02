@@ -40,7 +40,7 @@
 					                  
 						            <span class="badge-premium-listing">
 	                            
-			                           Vendido!!!!
+			                           Publicación Vendida
 			
 			                        </span>
 					                                               
@@ -80,7 +80,7 @@
     
     </li>
     <li>
-        &nbsp;&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
+        &nbsp;&nbsp;<div class="fb-share-button" data-href="http://www.troovami.com/{{Request::path()}}" data-layout="button"></div>
     </li>
 
   </ul>

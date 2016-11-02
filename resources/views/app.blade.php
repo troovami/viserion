@@ -11,18 +11,18 @@
 
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@publisher_handle">
+<meta name="twitter:site" content="@troovami">
 <meta name="twitter:title" content="Troovami - Vehículos">
 <meta name="twitter:description" content="Sitio de venta de vehículos">
 <meta name="twitter:creator" content="@author_handle">
 
-<meta name="twitter:image" content="http://50.78.120.122/viserion_web/public/autostars/images/troovami-vehicles.jpg">
+<meta name="twitter:image" content="http://troovami.com/autostars/images/troovami-vehicles.jpg">
 
 <!-- Open Graph data -->
 <meta property="og:title" content="Troovami - Vehículos" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://viserion-troovami.ddns.net" />
-<meta property="og:image" content="http://50.78.120.122/viserion_web/public/autostars/images/troovami-vehicles2.jpg" />
+<meta property="og:url" content="http://troovami.com" />
+<meta property="og:image" content="http://troovami.com/autostars/images/troovami-vehicles2.jpg" />
 <meta property="og:description" content="Sitio de venta de vehículos" />
 <meta property="og:site_name" content="troovami.com" /meta property="fb:admins" content="Facebook numeric ID" />
 
@@ -68,6 +68,57 @@
     {!! Html::style('validacionesCliente/src/parsley.css') !!} 
 
     <style>
+
+
+/*Parpadeo*/
+/*
+.text {
+  font-size:28px;
+  font-family:helvetica;
+  font-weight:bold;
+  color:#71d90b;
+  text-transform:uppercase;
+}
+.parpadea {
+  
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:parpadeo;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-moz-keyframes parpadeo{  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes parpadeo {  
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+   100% { opacity: 1.0; }
+}
+
+@keyframes parpadeo {  
+  0% { opacity: 1.0; }
+   50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+*/
+
+/**/
+
+
+
+
+
+
+
 
 
 
