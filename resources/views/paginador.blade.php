@@ -27,7 +27,7 @@
 
                                     <div class="result-item-image">    
                                     
-                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/publicaciones/<?=$vehiculo->str_mini?>" style="width: 100%; height: 100%"/>                                        
+                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/publicaciones/<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>                                        
                                         
                                         <!-- 
                                         	<a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>
@@ -91,10 +91,10 @@
                             
 									                      @if (Auth::guest())
 			                                               
-					                                                    <div class="price" style="font-size:12px">
+					                                                    <div class="price" style="font-size:10px">
 			                                                    
 																	<a href="#" class="" data-toggle="modal" data-target="#loginModal">
-											                            Click ver precio
+											                            Ver precio
 											                        </a>
 																	                                                    
 			                                                    </div>
