@@ -15,7 +15,6 @@
 /**********************Accesos Públicos:*****************************************/
 	//Route::any('/Ubicacion', 'HomeController@ubicacion');
 	
-	
 	Route::any('/Ubicacion', [
 			'uses' => 'HomeController@ubicacion',
 			'as' =>'ubicacion'
@@ -25,7 +24,12 @@
 		'uses' => 'HomeController@index',
 		'as' =>'home'
 	]);
-		
+			
+	Route::get('Favoritos/{id}', [
+			'uses' => 'DetallesController@favPublicacion',
+			'as' =>'favoritos'
+	]);
+	
 	Route::get('/No-existe', [
 		'uses' => 'ErrorController@index',
 		'as' =>'error'
@@ -186,7 +190,7 @@ Route::group(['middleware' => 'auth'], function () {
 			'uses' => 'DetallesController@acciones',
 			'as' =>'acciones'
 	]);	
-	
+		
 	Route::group(['prefix' => 'Publicar'], function () {
 			
 		//Placas:

@@ -250,7 +250,21 @@ class DetallesController extends Controller
     	return $publicacion;
     	
     }
-    
+        
+    public  function favPublicacion($id){
+    	
+    	
+    	return $id;
+    	/*
+    	$lng_idpersona = \Auth::user()->id;
+    	$lng_idusuario_social = DB::insert('insert into tbl_usuarios_sociales (lng_idpersona, lng_idempresa, bol_eliminado) values (?, ?, ?)', [$lng_idpersona, 0, 0]);
+    	 
+    	$tbl_favoritos = DB::insert('insert into tbl_favoritos (lng_idpublicacion, lng_idusuario_social, bol_eliminado) values (?, ?, ?)', [$id, $lng_idusuario_social, 0]);
+    	
+    	
+    	return $tbl_favoritos;
+    	 */
+    }    
     
     
     

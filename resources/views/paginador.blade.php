@@ -50,11 +50,11 @@
 
                                             @if ($vehiculo->str_video == "")
                                             	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:9px" class="col-md-6" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                            	<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div>Fav</a>
                                             @else
                                                 <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
                                             	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:9px" class="col-md-4" href="#"><i class="fa fa-heart"></i> Fav</a>
+                                            	<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div>Fav</a>
                                             @endif
 
                                             <div class="result-item-block col1" style="font-size:11px;width: 100%">
