@@ -10,7 +10,7 @@
             	
             	<div class="row">
                     <!-- Search Filters -->
-                    <div class="col-md-3 search-filters" id="Search-Filters">
+                    <div class="col-md-3 search-filters disable" id="Search-Filters">
                     	<div class="" style="margin-top: -40px">
                     	<!-- <div class="tbsticky filters-sidebar" style="margin-top: -30px">	-->	
                     	
@@ -23,8 +23,8 @@
                                 </div>
 
                             </div>                    	
-                    	                    	
-                            <h3><i class="fa fa-filter"></i> Filtros</h3>
+                    	    <div class="disable">
+                    	     <h3><i class="fa fa-filter"></i> Filtros</h3>
                             <div class="accordion" id="toggleArea">
                             
                             	<span id="tipoFiltrado" class="label label-primary" title="Tipo" style="cursor:pointer"></span>
@@ -82,9 +82,7 @@
                                         </div>
                                     </div>
                                 </div>                                
-                             <!-- -->
-                                                                
-                                <!-- Filter by City -->
+                           		<!-- Filter by City -->
                                 <div class="accordion-group">
                                     <div class="accordion-heading togglize"> <a class="accordion-toggle" data-toggle="collapse" data-parent="#" href="#collapseSix">Ciudades <i class="fa fa-angle-down"></i> </a> </div>
                                     <div id="collapseSix" class="accordion-body collapse">
@@ -459,14 +457,18 @@
                                 </div>
 
                             </div>
+                    	    </div>               	
+                           
                             <!-- End Toggle -->
-                                <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
+                            
+                            <!-- Publicidad Lateral -->
+                                <a class="disable" href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                     <img src="{{ asset('autostars/images/publicidad-troovami/publicidad2.jpg') }}" alt="Logo">   
                                 </a>
                                 <br><br>
                             @include('twitter')
                                     
-                                <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
+                                <a class="disable" href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                     <img src="{{ asset('autostars/images/publicidad-troovami/publicidad2.jpg') }}" alt="Logo">   
                                 </a>
                                 <br><br>
@@ -474,7 +476,7 @@
 
                             <br><br>
 
-                             <div class="sidebar-widget widget seller-contact-widget">
+                             <div id="sidebar-widget widget seller-contact-widget">
 
                                 <div class="vehicle-enquiry-in">
                                     <div class="row">
@@ -483,7 +485,7 @@
                                         
                                             <p class="text-align-center"> 
                                             
-                                                <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
+                                                <a class="disable href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                                 	<img src="{{ asset('autostars/images/publicidad-troovami/publicidad1.jpg') }}" alt="Logo">  
                                                 </a>
                                             
@@ -503,7 +505,7 @@
                                         
                                             <br><br><p class="text-align-center"> 
                                             
-                                            <a href="http://www.skd.com.ve" title="www.skd.com.ve" target="_blank">
+                                            <a class="disable href="http://www.skd.com.ve" title="www.skd.com.ve" target="_blank">
                                             	<img src="{{ asset('autostars/images/publicidad-troovami/publicidad3.png') }}" alt="Logo">   
                                             </a>
                                             
@@ -523,7 +525,7 @@
                                         
                                             <p class="text-align-center"> 
                                             
-                                                <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
+                                                <a class="disable" href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                                     <img src="{{ asset('autostars/images/publicidad-troovami/001.jpg') }}" alt="Logo">   
                                                 </a>
                                                 
@@ -533,14 +535,14 @@
                                       </div>
                                     </div>
                                 </div>
-                            </div>                           
-                             
+                            </div>                          
+                        <!-- Fin de Publicidad Lateral -->
                         </div>
                         
                        
                     </div>
                     
-                    <!-- Listing Results -->
+                    <!-- Inicio de Publicaciones -->
                     <div class="col-md-9 results-container">
                         <div class="results-container-in">
                         	<div class="waiting" style="display:none;">
@@ -670,7 +672,7 @@
 						
 						</div>                           
                            
-                           
+                       <!-- Fin Publicaciones -->    
                                                       
                             <br>
                             
@@ -737,16 +739,69 @@
                                 </div>
                                 
                             </section>
-
-							<hr>
-								
-								<a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+                            <!-- Fin de Ultimos Carros -->
+                           
+                            <!--<hr>
+							<a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
 									<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
-								</a>
+							</a>
 								<br>
+							<hr>-->
+							
+							<!-- Slider Publicidad -->
+							 <section class="listing-block recent-vehicles">
+                                <div class="listing-header">
+                                    <h3>Publicidad</h3>
+                                </div>
+                                
+                                <div class="listing-container">
+                                    <div class="carousel-wrapper">
+                                        <div class="row">
+                                            <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+                                               <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                       <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														   </a>
+	                                                     </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+	                                                    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+											</ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+							
+                            <!-- Fin de Slider Publicidad -->
+                            
 
-							<hr>
-					
 				            <!-- Recently Listed Vehicles -->
                             <section class="listing-block recent-vehicles">
                                 <div class="listing-header">
@@ -807,13 +862,14 @@
                                     </div>
                                 </div>
                                 
-                            </section>							
+                            </section>
+                             
+                            	
 								
-								<a href="http://www.bluproducts.com" title="www.bluproducts.com" target="_blank">
-									<img src="{{ asset('autostars/images/publicidad-troovami/bluaboutbanner.jpg') }}" alt="Logo">
-								</a>
-								<br>
-
+							<a href="http://www.bluproducts.com" title="www.bluproducts.com" target="_blank">
+								<img src="{{ asset('autostars/images/publicidad-troovami/bluaboutbanner.jpg') }}" alt="Logo">
+							</a>
+							<br>
                         </div>
                     </div>
                	</div>

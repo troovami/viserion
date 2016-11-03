@@ -35,17 +35,11 @@
                 <!-- Vehicle Details -->
                 <article class="single-vehicle-details">
                     <div class="single-vehicle-title">
+                        <span class="badge-premium-listing">
+                            
+                            <img src="data:image/jpeg;base64,{{ $vehiculo->bandera }}" alt="{!! $vehiculo->pais !!}" title="{!! $vehiculo->pais !!}" style="width:35px"> {!! $vehiculo->pais !!}
 
-                             	@if ($vehiculo->status_user == '712' ) 
-					                  
-						            <span class="badge-premium-listing">
-	                            
-			                           Publicación Vendida
-			
-			                        </span>
-					                                               
-								@endif
-
+                        </span>
 
                         <h2 class="post-title">  
                         
@@ -80,7 +74,7 @@
     
     </li>
     <li>
-        &nbsp;&nbsp;<div class="fb-share-button" data-href="http://www.troovami.com/{{Request::path()}}" data-layout="button"></div>
+        &nbsp;&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
     </li>
 
   </ul>
@@ -754,7 +748,8 @@
                             
                         </div>
                         <!-- Vehicle Details Sidebar -->
-                        <div class="col-md-4 vehicle-details-sidebar sidebar"><!-- style="background-color: green" -->
+                        <div class="col-md-4 vehicle-details-sidebar sidebar">
+                        <!-- style="background-color: green" -->
                         
                         <div class="col-md-12">
 
@@ -767,22 +762,28 @@
                                     <div class="row">
                                       <div class="col-md-12">
 
-                                            <p>
-                                                @include('twitter')
-                                            
+                                            <p class="text-align-center">
+                                              
                                                     <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                                         <img src="{{ asset('autostars/images/publicidad-troovami/publicidad2.jpg') }}" style="width: 350px" alt="Logo">   
                                                     </a>
-                                                @include('facebook')
+                                                    <br><br>
+                            <div class="social-network1">
+                            @include('twitter')
+                            </div>
+                                              
                                             </p>
                     
-                                                <p class="text-align-center"> 
+                                            <p class="text-align-center"> 
                                                 
                                                     <a href="http://www.skd.com.ve" title="www.skd.com.ve" target="_blank">
                                                     	<img src="{{ asset('autostars/images/publicidad-troovami/publicidad3.png') }}" style="width: 350px" alt="Logo">   
                                                     </a>
-                                                
-                                                </p>
+                                                    <br><br>
+                                                    <div class="social-network1">
+                            @include('facebook')
+                            </div>
+                                            </p>
                                             
 
                                       </div>
@@ -792,6 +793,26 @@
 
                             
                         </div>
+                        <div class="clear">
+                           	
+                           	</div>
+                           	
+                           	<section>
+	                           	<div class="social-network-responsive-detalle social-network2">
+		                           	<div class="twitter">
+		                           	<a class="twitter-timeline" href="https://twitter.com/troovami" data-width="290"
+  data-height="607">Tweets by troovami</a>
+		                           	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+		                           	</div>
+		                            <div class="facebook">
+		                            	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTroovami-1566517207012420%2F&tabs=timeline&width=290px&height=607px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="290px" height="607px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="false"></iframe>
+		                            </div>
+		                        </div>
+                           	</section>
+                           	
+                           	<div class="clear">
+                           	<br>
+                           	</div>
                     </div>
                 </article>
                 
