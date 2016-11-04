@@ -1478,12 +1478,14 @@ class Consultas extends Model
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca            		
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
+            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social            			
             		where v.bol_eliminado = 0
                 	and status_admin = ".Consultas::STATUS_ADMIN."
                 	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
@@ -1494,6 +1496,37 @@ class Consultas extends Model
                 //join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
 
             break;
+            
+            
+            case 'todosLosVehiculos_Favoritos':
+            
+            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+            			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
+            			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+                    from tbl_vehiculos as v
+            		join cat_paises as p on p.id = v.lng_idpais
+                    join tbl_modelos as mo on mo.id =  v.lng_idmodelo
+            		join cat_marcas as ma on ma.id =  mo.lng_idmarca
+                    join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+            		
+            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
+            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social	
+            			
+            		where v.bol_eliminado = 0
+                	and status_admin = ".Consultas::STATUS_ADMIN."
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
+                	and v.lng_idpersona = ".$and."
+                			
+            		order by v.id desc limit ".$limit." offset ".$offset." ");
+            
+            	return $todosLosVehiculos;
+            
+            	//join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
+            
+            	break;            
+            
+            
 /*
             case 'buscarVehiculos':
                                 
@@ -1520,12 +1553,17 @@ class Consultas extends Model
             	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca					
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+            			
+           			
+            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
+            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social            			
+            			
             		where v.bol_eliminado = 0 ".$and."
             		and status_admin = ".Consultas::STATUS_ADMIN."
                 	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
@@ -1930,6 +1968,36 @@ class Consultas extends Model
     protected function querysValor4($consulta,$valor,$valor2,$valor3,$id){
     	
     	switch ($consulta){
+    		
+    		
+    		case 'buscarVehiculos_favoritos':
+    		
+    			$buscarVehiculos_favoritos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+            			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
+            			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+                    from tbl_vehiculos as v
+            		join cat_paises as p on p.id = v.lng_idpais
+                    join tbl_modelos as mo on mo.id =  v.lng_idmodelo
+            		join cat_marcas as ma on ma.id =  mo.lng_idmarca
+                    join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
+    					
+					left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
+            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social	
+    					
+            		where v.bol_eliminado = 0 ".$valor3."
+            		and status_admin = ".Consultas::STATUS_ADMIN."
+                	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
+            		order by v.id desc limit ".$limit." offset ".$offset." ");
+    		
+    			return $buscarVehiculos_favoritos;
+    		
+    			//join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
+    		
+    		break;    		
+    		
+    		
+    		
     		case 'vehiculosSimilares'://cualquiera
     			    				
     			$vehiculosSimilares = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,

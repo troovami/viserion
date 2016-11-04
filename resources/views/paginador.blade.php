@@ -52,12 +52,22 @@
                                             	                                            	
                                             	@if (Auth::user())
                                             		
-                                            		<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
-                                            		<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Favorito"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+                                            		<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ver publicación"><i style="color: green" class="fa fa-eye"></i></a>
+                                            		
+                                            		
+                                            		@if ($vehiculo->fav != "")
+                                            		
+                                            			<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i style="color: red" class="fa fa-heart"></i></div></a>
+                                            		
+                                            		@else
+                                            	
+                                            			<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+                                            	
+                                            		@endif
                                             	
                                             	@else
                                             	
-                                            		<a style="font-size:9px" class="col-md-12" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+                                            		<a style="font-size:9px" class="col-md-12" href="{{ route('detalles',$vehiculo->id) }}" title="Ver publicación"><i style="color: green" class="fa fa-eye"></i></a>
                                             		                                            	                                            	                                            
                                             	@endif
                                                                                                                                     
@@ -65,14 +75,24 @@
                                             
                                             	@if (Auth::user())
                                             	
-	                                                <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Video"><i class="fa fa-video-camera"></i></a>
-	                                            	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
-	                                            	<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Favorito"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+	                                                <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Ver video"><i style="color: blue" class="fa fa-video-camera"></i></a>
+	                                            	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}" title="Ver publicación"><i style="color: green" class="fa fa-eye"></i></a>
+	                                            	
+	                                            	
+	                                            	@if ($vehiculo->fav != "")
+	                                            	
+	                                            		<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i style="color: red" class="fa fa-heart"></i></div></a>
+	                                            
+		                                            @else
+		                                            	
+		                                            	<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+		                                            
+		                                            @endif
 	                                            
 	                                            @else
                                                                                         
-	                                                <a style="font-size:9px" class="col-md-6" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Video"><i class="fa fa-video-camera"></i></a>
-	                                            	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+	                                                <a style="font-size:9px" class="col-md-6" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Ver video"><i style="color: blue" class="fa fa-video-camera"></i></a>
+	                                            	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ver publicación"><i style="color: green" class="fa fa-eye"></i></a>
 	                                            	                                            	                                            	
                                             	@endif
                                             

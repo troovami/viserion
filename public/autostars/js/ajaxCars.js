@@ -97,11 +97,27 @@ function handleHttpResponse_placas()
 
 function handleHttpResponse_fav()
 {
-    if (http_fav.readyState == 4)
+	
+    if (http_fav.readyState == 0)
+    {
+        results = "Error al Cargar los datos";
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav).innerHTML = results;
+    }
+
+    if (http_fav.readyState == 1)
+    {
+        results = "";
+        //results = '<img src="../imagenes/fetching.gif">';
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav).innerHTML = results;
+    }
+	
+	if (http_fav.readyState == 4)
     {  
         results = http_fav.responseText;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-		document.getElementById(divname_fav).value = "<i style='color: red' class='fa fa-heart'></i>";
+        document.getElementById(divname_fav).innerHTML = "<i style='color: red' class='fa fa-heart'></i>";
                                  
 
     }
@@ -2531,31 +2547,15 @@ function ImagenesGaleria1() {
 	    http_placas.open("GET", 'Placas/'+valor, true);
 	    http_placas.onreadystatechange = handleHttpResponse_placas;
 	    http_placas.send(null);
-
 		
 	}
 	
-	
 	function fav(id){
-		
-		//alert(id);
 
-	    divname_fav = "fav_pub"+id;	    
+	    divname_fav = "fav_pub"+id;	  
 	    http_fav.open("GET", 'Favoritos/'+id, true);
 	    http_fav.onreadystatechange = handleHttpResponse_fav;
 	    http_fav.send(null);
-	    
-		
+ 
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    
