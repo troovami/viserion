@@ -61,7 +61,7 @@
 
 
 <!-- Single button -->
-<div class="btn-group">
+<!--<div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Compartir esta publicación">
     <i class="fa fa-share-alt"></i> Compartir <span class="caret"></span>
   </button>
@@ -78,6 +78,17 @@
     </li>
 
   </ul>
+</div>-->
+
+<div class="btn-group" style="border: 1px solid #ccc;border-radius: 3px; height: 35px;">
+    <ul class="social-media-list text-alig-center" style="margin: 7px 11px;">
+        <li>
+        &nbsp;&nbsp;<div class="fb-share-button top" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
+    	</li>
+        <li>
+        &nbsp;&nbsp;<a href="https://twitter.com/share" class="twitter-share-button" data-text="Se vende este vehículo {!! $vehiculo->marca !!} {!! $vehiculo->modelo !!} {!! $vehiculo->int_ano !!}" data-url="http://www.troovami.com/{{Request::path()}}" data-via="troovami" data-hashtags="">Tweet</a>
+  		</li>
+    </ul>
 </div>
 
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
@@ -100,7 +111,7 @@
 													                          <div class="btn btn-default price">
 													                          
 																				<a href="#" class="" data-toggle="modal" data-target="#loginModal">
-														                            Click ver precio
+														                            Ver precio
 														                        </a>
 														                        
 													                          </div>

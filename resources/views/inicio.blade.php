@@ -657,19 +657,19 @@
                                    --> 
                                     
                            </nav> 
-                                                      
-                        <div class="row">
+                        <div class="row text-align-center">
 						  <div class="col-md-3" style="text-align: left;">
 							<!-- <button class="btn btn-danger" id="anterior" name="anterior" type="button" onclick="anterior()" title="Página anterior"><i class="fa fa-chevron-left"></i> </button>-->						  
 						  </div>
 						  
-						  <div class="col-md-6" style="text-align: center;"></div>
+						  <div class="col-md-3" style="text-align: center;"></div>
 						  
-						  <div class="col-md-3" style="text-align: right;">
+						  <div class="col-md-6" style="text-align: right;">
 						  	<button class="btn btn-primary" id="anterior" name="anterior" type="button" onclick="anterior()" title="Página anterior"><i class="fa fa-chevron-left"></i> </button>
 							<button class="btn btn-primary" id="siguiente" name="siguiente" type="button" onclick="siguiente()" title="Página siguiente"> <i class="fa fa-chevron-right"></i></button>						  
 						  </div>
-						
+						  <div id="numPagina" class="btn btn-default social-network2 col-md-3" style="top: 15px;">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>                             
+                        
 						</div>                           
                            
                        <!-- Fin Publicaciones -->    

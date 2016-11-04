@@ -3660,7 +3660,7 @@ h1.page-title{
 	font-size:13px;
 	text-transform:none;
 	color:#777;
-	padding-left:14px;
+	padding-left:13px;
 	padding-right:14px;
 	font-family: 'Roboto', sans-serif;
 }
@@ -5901,6 +5901,8 @@ body{
 	.single-listing-actions .badge-premium-listing{
 		display:inline-block;
 		margin-top:12px;
+		margin-top: 46px!important;
+    	margin-right: -177px!important;
 	}
 	.single-vehicle-title .badge-premium-listing{
 		display:none;
@@ -6249,6 +6251,27 @@ body{
 	display: none;
 }
 
+.social-media-list li 
+{ 
+	display:block; 
+	float: left; 
+	width:50%; 
+	text-align:center; 
+	margin: 0 auto;
+}
+
+.top
+{
+	top:-3px;
+}
+
+@media only screen and (min-width: 768px)
+{
+	.top
+{
+	top:-26px;
+}
+}
 
 
 
