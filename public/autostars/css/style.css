@@ -115,6 +115,15 @@ a img {
 a > img {
 	vertical-align: middle;	
 }
+@media only screen and (max-width: 767px)
+{
+	a > img {
+    vertical-align: middle;
+    width: 100%!important;
+    height: 100%!important;
+}
+	
+}
 .gray-bg{
 	background:#e8e8e8;
 }
@@ -2164,9 +2173,8 @@ body.boxed .body{
 	{
 	display:inline;
 	}
-	
-	
-	#pre-form-register{
+	#pre-form-register
+	{
 	display:none;
 	}
 }
@@ -3575,6 +3583,16 @@ h1.page-title{
 	top:-5px;
 	margin-bottom:-5px;
 }
+@media only screen and (max-width: 991px)
+{
+	.single-vehicle-details
+	{
+	position:relative;
+	top:-5px;
+	margin:25px;
+	}
+}
+
 .single-vehicle-details .post-title{
 	padding-right:30px;
 	margin-bottom:10px

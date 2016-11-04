@@ -243,7 +243,7 @@
                                 
                                 <br>
                                 @if (Auth::user())
-                                    <p class="text-align-center">
+                                    <p class="text-align-center social-network1">
                                         <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
                                             <img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" style="width: 350px" alt="Logo">   
                                         </a>
@@ -252,7 +252,7 @@
 
                                 @if (Auth::guest())
                                 
-                                    <p class="text-align-center"> 
+                                    <p class="text-align-center social-network1"> 
                                     
                                         <a href="http://www.tecnotropolisla.com" title="www.tecnotropolisla.com" target="_blank">
                                             <img src="{{ asset('autostars/images/publicidad-troovami/publicidad2.jpg') }}" style="width: 350px" alt="Logo">   
@@ -260,7 +260,7 @@
 
                                     </p>
 
-                                    <p class="text-align-center">
+                                    <p class="text-align-center social-network1">
                                         <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
                                             <img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" style="width: 350px" alt="Logo">   
                                         </a>
@@ -675,7 +675,7 @@
                             -->
                             @endif
                     <hr>
-                            <a href="http://www.libost.com" title="www.libost.com" target="_blank">
+                            <a class="social-network1" href="http://www.libost.com" title="www.libost.com" target="_blank">
                                 <img src="{{ asset('autostars/images/publicidad-troovami/publicidad-libost.png') }}" style="" alt="Logo">
                             </a>
 
@@ -756,7 +756,7 @@
                         </div>
                             <!-- Vehicle Enquiry -->
                             
-                             <div class="sidebar-widget widget seller-contact-widget">
+                             <div class="sidebar-widget widget seller-contact-widget social-network1">
                              
                                 <div class="vehicle-enquiry-in">
                                     <div class="row">
@@ -793,25 +793,72 @@
 
                             
                         </div>
-                        <div class="clear">
+                        <!-- Slide Publicidad -->
+                        <section class="listing-block recent-vehicles social-network2">
+                                <div class="listing-header">
+                                    <h3>Publicidad</h3>
+                                </div>
+                                
+                                <div class="listing-container">
+                                    <div class="carousel-wrapper">
+                                        <div class="row">
+                                            <ul class="owl-carousel carousel-fw" id="vehicle-slider" data-columns="3" data-autoplay="" data-pagination="yes" data-arrows="no" data-single-item="no" data-items-desktop="3" data-items-desktop-small="3" data-items-tablet="2" data-items-mobile="1">
+                                               <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                       <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														   </a>
+	                                                     </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+	                                                    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+	                                            <li class="item">
+	                                                    <div class="vehicle-block format-standard">
+	                                                      <a href="http://www.corporacionjpb.com" title="www.corporacionjpb.com" target="_blank">
+																<img src="{{ asset('autostars/images/publicidad-troovami/jpb-publicidad.JPG') }}" alt="Logo">
+														  </a>
+													    </div>	              
+	                                            </li>
+											</ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        <!-- Fin de Slide Publicidad -->
+                        	<div class="clear">
                            	
                            	</div>
-                           	
-                           	<section>
-	                           	<div class="social-network-responsive-detalle social-network2">
-		                           	<div class="twitter">
-		                           	<a class="twitter-timeline" href="https://twitter.com/troovami" data-width="290"
-  data-height="607">Tweets by troovami</a>
-		                           	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-		                           	</div>
-		                            <div class="facebook">
-		                            	<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTroovami-1566517207012420%2F&tabs=timeline&width=290px&height=607px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="290px" height="607px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="false"></iframe>
-		                            </div>
-		                        </div>
-                           	</section>
-                           	
+                           	<div class="container social-network2">
+                           		<div class="row text-align-center">
+                           			<div class="col-xs-12 col-sm-6">
+			                           	<a class="twitter-timeline" href="https://twitter.com/troovami" data-width="290" data-height="600">Tweets by troovami</a>
+			                           	<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  									</div>
+		  							<div class="col-xs-12 col-sm-6">
+										<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FTroovami-1566517207012420%2F&tabs=timeline&width=290px&height=607px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="290px" height="607px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="false"></iframe>
+				                    </div>
+                           		</div>
+                           	</div>
                            	<div class="clear">
-                           	<br>
                            	</div>
                     </div>
                 </article>
