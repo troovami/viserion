@@ -44,17 +44,38 @@
                                         <p class="label label-primary">{!! $vehiculo->int_ano !!}</p>
                                                                              
                                         </span>
-                                        <span class="  premium-listing "></span>
+                                        <span class="premium-listing"></span>
                                         
                                         <div class="result-item-view-buttons">
 
-                                            @if ($vehiculo->str_video == "")
-                                            	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div>Fav</a>
+                                            @if ($vehiculo->str_video == "")                                            	                                            	                                            
+                                            	                                            	
+                                            	@if (Auth::user())
+                                            		
+                                            		<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+                                            		<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Favorito"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+                                            	
+                                            	@else
+                                            	
+                                            		<a style="font-size:9px" class="col-md-12" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+                                            		                                            	                                            	                                            
+                                            	@endif
+                                                                                                                                    
                                             @else
-                                                <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto"><i class="fa fa-play-circle-o"></i> Video</a>
-                                            	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}"><i class="fa fa-eye"></i> Ver</a>
-                                            	<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div>Fav</a>
+                                            
+                                            	@if (Auth::user())
+                                            	
+	                                                <a style="font-size:9px" class="col-md-4" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Video"><i class="fa fa-video-camera"></i></a>
+	                                            	<a style="font-size:9px" class="col-md-4" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+	                                            	<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Favorito"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+	                                            
+	                                            @else
+                                                                                        
+	                                                <a style="font-size:9px" class="col-md-6" href="{!! $vehiculo->str_video !!}" data-rel="prettyPhoto" title="Video"><i class="fa fa-video-camera"></i></a>
+	                                            	<a style="font-size:9px" class="col-md-6" href="{{ route('detalles',$vehiculo->id) }}" title="Ir"><i class="fa fa-eye"></i></a>
+	                                            	                                            	                                            	
+                                            	@endif
+                                            
                                             @endif
 
                                             <div class="result-item-block col1" style="font-size:11px;width: 100%">

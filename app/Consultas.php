@@ -17,6 +17,16 @@ class Consultas extends Model
 
 		switch ($consulta) {
 				
+			case 'usuario_social':
+				
+			 $usuario_social = DB::table('tbl_usuarios_sociales')
+				->select(DB::raw('id','lng_idpersona'))
+				->where('lng_idpersona', '=', $valor)
+				->get();
+				
+				return $usuario_social;
+			break;								
+
 			case 'cuenta_usuario':
 				$cuenta_usuario = DB::table('tbl_personas as per')
 				->join('cat_paises as p', 'p.id', '=', 'per.lng_idpais')
@@ -199,10 +209,7 @@ class Consultas extends Model
             		
             		return $vehiculoDetalle;
             	break;
-            	
-            	
-            	
-            	
+
             	case 'vehiculoDetalleEditar':
             		 
             	
@@ -351,7 +358,8 @@ class Consultas extends Model
 							join cat_marcas as m on m.id = mo.lng_idmarca 
 							join cat_paises as p on p.id = v.lng_idpais 
 							join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id and ima.int_peso = 1 
-							join tbl_usuarios_sociales as us on us.lng_idpersona = ".$valor." or us.lng_idempresa = ".$valor." WHERE 1");
+							join tbl_usuarios_sociales as us on us.id = fav.lng_idusuario_social 	
+							WHERE us.lng_idpersona = ".$valor." ");
 						
 					return $favoritos_usuario;
 				break;				
@@ -374,10 +382,11 @@ class Consultas extends Model
 				join cat_marcas as m on m.id = mo.lng_idmarca 
 				join cat_paises as p on p.id = v.lng_idpais 
 				join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id and ima.int_peso = 1 
-				join tbl_usuarios_sociales as us on us.lng_idpersona = ".$valor." or us.lng_idempresa = ".$valor);
+				join tbl_usuarios_sociales as us on us.id = fav.lng_idusuario_social 	
+				WHERE us.lng_idpersona = ".$valor." ");
 					
 				return $totalFavoritos_usuario;
-				break;			
+			break;			
 
 			case 'paisesTiposPublicados':
 				$paises = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT p.id, p.str_paises, p.blb_img AS bandera, p.str_abreviatura,COUNT(*) AS total
@@ -784,7 +793,25 @@ class Consultas extends Model
     protected function querysValor2($consulta,$valor,$valor2){
 
         switch ($consulta) {
+        	
+        	case 'favoritos':
+        			
+        		/*
+        		 $favoritos = DB::table('tbl_favoritos')
+        		->select(DB::raw('id','lng_idusuario_social'))
+        		->where('lng_idusuario_social', '=', $valor)
+        		->get();
+        			
+        		*/
+        		
+        		$favoritos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT  id,lng_idusuario_social 
+        				from tbl_favoritos
+        				where lng_idusuario_social = ".$valor." 
+        				and lng_idpublicacion = ".$valor2." ");
 
+        		return $favoritos;
+        	break;        	
+        	        	
         	case 'marcasTipoPaisPublicados':
         	
         		$marcas = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT  m.id, m.str_marca, m.blb_img as logo, count(str_marca) as total
