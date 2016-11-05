@@ -97,29 +97,11 @@ function handleHttpResponse_placas()
 
 function handleHttpResponse_fav()
 {
-	
-    if (http_fav.readyState == 0)
-    {
-        results = "Error al Cargar los datos";
-        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname_fav).innerHTML = results;
-    }
-
-    if (http_fav.readyState == 1)
-    {
-        results = "";
-        //results = '<img src="../imagenes/fetching.gif">';
-        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname_fav).innerHTML = results;
-    }
-	
 	if (http_fav.readyState == 4)
     {  
         results = http_fav.responseText;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname_fav).innerHTML = "<i style='color: red' class='fa fa-heart'></i>";
-                                 
-
+        document.getElementById(divname_fav).innerHTML = "<i style='color: red' class='fa fa-heart'></i>";                                 
     }
 }
 

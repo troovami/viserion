@@ -348,7 +348,7 @@ class Consultas extends Model
 			break;			
 			
 			case 'favoritos_usuario':
-					$favoritos_usuario = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id, m.str_marca, mo.str_modelo, p.str_paises as pais, 
+					$favoritos_usuario = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id, m.str_marca, mo.str_modelo, p.str_paises as pais, int_ano,
 							p.blb_img as bandera, v.str_precio_venta, v.str_moneda, ima.blb_img as imagen 
 							FROM tbl_favoritos as fav 
 							join tbl_vehiculos v on v.id = fav.lng_idpublicacion 
@@ -1478,14 +1478,19 @@ class Consultas extends Model
             	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.idpub as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca            		
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
-            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
-            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social            			
+            			
+					left join (
+                        
+                        SELECT fav.lng_idpublicacion as idpub, us.lng_idpersona as idper FROM tbl_favoritos fav join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social join tbl_personas per on per.id = us.lng_idpersona                                                
+                        
+                        ) as fav on fav.idpub = v.id and fav.idper = 0
+            			
             		where v.bol_eliminado = 0
                 	and status_admin = ".Consultas::STATUS_ADMIN."
                 	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
@@ -1500,18 +1505,21 @@ class Consultas extends Model
             
             case 'todosLosVehiculos_Favoritos':
             
-            	$todosLosVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+            	$todosLosVehiculos_Favoritos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id, v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.idpub as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
             		
-            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
-            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social	
+					left join (
+                        
+                        SELECT fav.lng_idpublicacion as idpub, us.lng_idpersona as idper FROM tbl_favoritos fav join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social join tbl_personas per on per.id = us.lng_idpersona                                                
+                        
+                        ) as fav on fav.idpub = v.id and fav.idper = ".$and."
             			
             		where v.bol_eliminado = 0
                 	and status_admin = ".Consultas::STATUS_ADMIN."
@@ -1520,7 +1528,7 @@ class Consultas extends Model
                 			
             		order by v.id desc limit ".$limit." offset ".$offset." ");
             
-            	return $todosLosVehiculos;
+            	return $todosLosVehiculos_Favoritos;
             
             	//join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
             
@@ -1553,16 +1561,18 @@ class Consultas extends Model
             	$buscarVehiculos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.idpub as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca					
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
             			
-           			
-            		left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
-            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social            			
+            		left join (
+                        
+                        SELECT fav.lng_idpublicacion as idpub, us.lng_idpersona as idper FROM tbl_favoritos fav join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social join tbl_personas per on per.id = us.lng_idpersona                                                
+                        
+                        ) as fav on fav.idpub = v.id and fav.idper = 0          			
             			
             		where v.bol_eliminado = 0 ".$and."
             		and status_admin = ".Consultas::STATUS_ADMIN."
@@ -1970,30 +1980,31 @@ class Consultas extends Model
     	switch ($consulta){
     		
     		
-    		case 'buscarVehiculos_favoritos':
+    		case 'buscarVehiculos_Favoritos':
     		
-    			$buscarVehiculos_favoritos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
+    			$buscarVehiculos_Favoritos = DB::select("SELECT HIGH_PRIORITY SQL_BUFFER_RESULT v.id,v.lng_idpais,v.lng_idmodelo,
             			v.lng_idciudad, v.bol_eliminado, v.lng_idtipo_vehiculo,v.int_ano,v.str_moneda,v.str_precio_venta,
             			v.str_video, v.str_comentario, p.str_paises as pais, p.str_abreviatura,
-            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.lng_idpublicacion as fav
+            			ciu.str_ciudad as ciudad, ma.str_marca as marca, mo.str_modelo as modelo, v.str_mini, fav.idpub as fav
                     from tbl_vehiculos as v
             		join cat_paises as p on p.id = v.lng_idpais
                     join tbl_modelos as mo on mo.id =  v.lng_idmodelo
             		join cat_marcas as ma on ma.id =  mo.lng_idmarca
                     join cat_ciudades as ciu on ciu.id =  v.lng_idciudad
-    					
-					left join tbl_favoritos as fav on fav.lng_idpublicacion = v.id 
-            		left join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social	
-    					
+        
+            		left join (
+    			
+                        SELECT fav.lng_idpublicacion as idpub, us.lng_idpersona as idper FROM tbl_favoritos fav join tbl_usuarios_sociales us on us.id = fav.lng_idusuario_social join tbl_personas per on per.id = us.lng_idpersona
+    			
+                        ) as fav on fav.idpub = v.id and fav.idper = ".$id."
+        
             		where v.bol_eliminado = 0 ".$valor3."
             		and status_admin = ".Consultas::STATUS_ADMIN."
                 	and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.")
-            		order by v.id desc limit ".$limit." offset ".$offset." ");
-    		
-    			return $buscarVehiculos_favoritos;
+            		order by v.id desc limit ".$valor." offset ".$valor2." ");
     		
     			//join tbl_imagenes_vehiculos as ima on ima.lng_idvehiculo = v.id  and ima.int_peso = 1
-    		
+    			return $buscarVehiculos_Favoritos;
     		break;    		
     		
     		
