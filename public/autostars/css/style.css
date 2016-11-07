@@ -117,7 +117,7 @@ a > img {
 }
 @media only screen and (max-width: 767px)
 {
-	a > img {
+	.media-box img {
     vertical-align: middle;
     width: 100%!important;
     height: 100%!important;

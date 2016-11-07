@@ -180,7 +180,24 @@
 													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
 													                                            </tr>
 													                                        </thead>
-													
+															<tfoot class="print">										
+										                        <tr>
+										                            <th colspan="9" class="ts-pager form-horizontal">
+										                                <button type="button" class="btn first"><i class="fa fa-step-backward"></i></button>
+										                                <button type="button" class="btn prev"><i class="fa fa-backward"></i></button>
+										                                <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+										                                <button type="button" class="btn next"><i class="fa fa-forward"></i></button>
+										                                <button type="button" class="btn last"><i class="fa fa-step-forward"></i></button>
+										                                <select class="pagesize input-mini" title="Select page size">
+										                                    <option selected="selected" value="10">10</option>
+										                                    <option value="20">20</option>
+										                                    <option value="30">30</option>
+										                                    <option value="40">40</option>
+										                                </select>
+										                                <select class="pagenum input-mini" title="Select page number"></select>
+										                            </th>
+										                        </tr>
+										                    </tfoot>
 													                                        <tbody>
 																								
 																								@if (isset($publicaciones_usuario))
@@ -386,6 +403,27 @@
 													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
 													                                            </tr>
 													                                        </thead>
+													
+										                    <tfoot class="print">
+										
+										                        <tr>
+										                            <th colspan="5" class="ts-pager form-horizontal">
+										                                <button type="button" class="btn first"><i class="fa fa-step-backward"></i></button>
+										                                <button type="button" class="btn prev"><i class="fa fa-backward"></i></button>
+										                                <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+										                                <button type="button" class="btn next"><i class="fa fa-forward"></i></button>
+										                                <button type="button" class="btn last"><i class="fa fa-step-forward"></i></button>
+										                                <select class="pagesize input-mini" title="Select page size">
+										                                    <option selected="selected" value="10">10</option>
+										                                    <option value="20">20</option>
+										                                    <option value="30">30</option>
+										                                    <option value="40">40</option>
+										                                </select>
+										                                <select class="pagenum input-mini" title="Select page number"></select>
+										                            </th>
+										                        </tr>
+										                    </tfoot>													
+													
 													
 													                                        <tbody>
 																								
