@@ -224,6 +224,10 @@ class DetallesController extends Controller
     public function acciones($accion, $texto, $id){
     
     	$lng_idpersona = \Auth::user()->id;
+    	
+    	echo $lng_idpersona;
+    	die();
+    	
     	Consultas::cambiarEstatus($accion, $id, $lng_idpersona);
     	
     	if($texto == "Activa"){
@@ -239,8 +243,7 @@ class DetallesController extends Controller
     		echo '<i title="'.$texto.'" style="color: orange; cursor:pointer" class="fa fa-pause" aria-hidden="true"></i>';
     	
     	}
-    	
-    	
+    	    	
     }
     
     public  function statusPublicacion($id){
@@ -250,7 +253,38 @@ class DetallesController extends Controller
     	return $publicacion;
     	
     }
-    
+        
+    public  function favPublicacion($id){
+    	
+    	$lng_idpersona = \Auth::user()->id;
+    	    	
+    	$lng_idusuario_social = Consultas::querysValor('usuario_social',$lng_idpersona);
+    	
+    	if(!empty($lng_idusuario_social[0]->id)){
+    		
+    		$id_us = $lng_idusuario_social[0]->id;
+    		
+    	}else{
+    		
+    		DB::insert('insert into tbl_usuarios_sociales (lng_idpersona, lng_idempresa, bol_eliminado) values (?, ?, ?)', [$lng_idpersona, 0, 0]);
+    		
+    		$lng_idusuario_social = Consultas::querysValor('usuario_social',$lng_idpersona);
+    		
+    		$id_us = $lng_idusuario_social[0]->id;
+    	}
+    	    	    	
+    	$lng_idfavorito = Consultas::querysValor2('favoritos',$id_us,$id);
+    	
+    	if(empty($lng_idfavorito)){
+    		
+    		    		
+    		$tbl_favoritos = DB::insert('insert into tbl_favoritos (lng_idpublicacion, lng_idusuario_social, bol_eliminado) values (?, ?, ?)', [$id, $id_us, 0]);
+    		    		
+    	}
+    	
+    	return "fav";
+    	
+    }    
     
     
     

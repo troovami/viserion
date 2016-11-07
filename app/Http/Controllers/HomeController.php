@@ -62,7 +62,19 @@ class HomeController extends Controller
             }           
             
             $paginas = ceil($resultados / $this->tamano_pagina);
-            $vehiculos = Consultas::querysValor3('buscarVehiculos',$this->tamano_pagina,$inicio,$and);
+            
+            if(\Auth::user()){
+            
+            	$lng_idpersona = \Auth::user()->id;
+            
+            	$vehiculos = Consultas::querysValor4('buscarVehiculos_Favoritos',$this->tamano_pagina,$inicio,$and,$lng_idpersona);
+            
+            }else{
+            
+            	$vehiculos = Consultas::querysValor3('buscarVehiculos',$this->tamano_pagina,$inicio,$and);
+            
+            }
+            
             $ultimosVehiculos = Consultas::querysValor3('ultimosVehiculos',$this->tamano_pagina,0,'');//Carros        
             $ultimosVehiculos2 = Consultas::querysValor3('ultimosVehiculos2',$this->tamano_pagina,0,'');//Motocicletas    
             $total_paginas = array('paginas' => $paginas );
@@ -77,7 +89,19 @@ class HomeController extends Controller
             }   
 
             $paginas = ceil($resultados / $this->tamano_pagina);
-            $vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,0,'');
+
+            if(\Auth::user()){
+            	
+            	$lng_idpersona = \Auth::user()->id;
+            	
+            	$vehiculos = Consultas::querysValor3('todosLosVehiculos_Favoritos',$this->tamano_pagina,0,$lng_idpersona);
+            	
+            }else{
+            	
+            	$vehiculos = Consultas::querysValor3('todosLosVehiculos',$this->tamano_pagina,0,'');
+            	
+            }
+            
             $ultimosVehiculos = Consultas::querysValor3('ultimosVehiculos',$this->tamano_pagina,0,'');//Carros        
             $ultimosVehiculos2 = Consultas::querysValor3('ultimosVehiculos2',$this->tamano_pagina,0,'');//Motocicletas                
             $total_paginas = array('paginas' => $paginas ); 
@@ -171,7 +195,19 @@ class HomeController extends Controller
         }           
         
         $paginas = ceil($resultados / $this->tamano_pagina);
-        $vehiculos = Consultas::querysValor3('buscarVehiculos',$this->tamano_pagina,$inicio,$and);
+        
+        if(\Auth::user()){
+        	 
+        	$lng_idpersona = \Auth::user()->id;
+        	 
+        	$vehiculos = Consultas::querysValor4('buscarVehiculos_Favoritos',$this->tamano_pagina,$inicio,$and,$lng_idpersona);
+        	 
+        }else{
+        	 
+        	$vehiculos = Consultas::querysValor3('buscarVehiculos',$this->tamano_pagina,$inicio,$and);
+        	 
+        }
+
         $total_paginas = array('paginas' => $paginas );
         $registros = array('resultados' => $resultados );
         $tantos = array('inicio' => $inicio );

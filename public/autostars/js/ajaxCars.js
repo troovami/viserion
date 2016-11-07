@@ -2,6 +2,7 @@ var divname;
 
 var divname_placas;
 var divname_paginar;
+var divname_fav;
 
 var divname_PaisesBuscador;
 var divname_PaisesFiltro;
@@ -27,6 +28,8 @@ var http = getXmlHttpObject();
 var http_paginar = getXmlHttpObject();
 
 var http_placas = getXmlHttpObject();
+
+var http_fav = getXmlHttpObject();
 
 var http_PaisesBuscador = getXmlHttpObject();
 var http_PaisesFiltro = getXmlHttpObject();
@@ -88,6 +91,17 @@ function handleHttpResponse_placas()
         	document.getElementById('str_placa').value = "";
         }                           
 
+    }
+}
+
+
+function handleHttpResponse_fav()
+{
+	if (http_fav.readyState == 4)
+    {  
+        results = http_fav.responseText;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav).innerHTML = "<i style='color: red' class='fa fa-heart'></i>";                                 
     }
 }
 
@@ -2515,21 +2529,15 @@ function ImagenesGaleria1() {
 	    http_placas.open("GET", 'Placas/'+valor, true);
 	    http_placas.onreadystatechange = handleHttpResponse_placas;
 	    http_placas.send(null);
-
 		
 	}
 	
+	function fav(id){
+
+	    divname_fav = "fav_pub"+id;	  
+	    http_fav.open("GET", 'Favoritos/'+id, true);
+	    http_fav.onreadystatechange = handleHttpResponse_fav;
+	    http_fav.send(null);
+ 
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    

@@ -170,7 +170,7 @@
 													                                        <thead>
 													                                            <tr style="text-align: center">
 													                                            	<td><strong>#</strong></td>
-													                                                <td><strong>Imágen</strong></td>
+													                                                <td><strong>Vehículo</strong></td>
 													                                                <td><strong>Descripción</strong></td>
 													                                                <td><strong>Precio</strong></td>
 													                                                <td><strong>Período</strong></td>
@@ -378,7 +378,7 @@
 													                                        <thead>
 													                                            <tr style="text-align: center">
 													                                            	<td><strong>#</strong></td>
-													                                                <td><strong>Imágen</strong></td>
+													                                                <td><strong>Vehículo</strong></td>
 													                                                <td><strong>Descripción</strong></td>
 													                                                <td><strong>Precio</strong></td>
 													                                      												                                                
@@ -413,7 +413,7 @@
 																										
 																										<td>
 													                                                       
-													                                                            <h5><a href="{{ route('detalles',$favoritos->id) }}" target="_blank" title="Click para ver {{$favoritos->str_marca}} {{$favoritos->str_modelo}}"> 
+													                                                            <h5><a href="{{ route('detalles',$favoritos->id) }}" target="_blank" title="Ver {{$favoritos->str_marca}} {{$favoritos->str_modelo}}"> 
 													
 													                                                                @if( strlen(".$favoritos->str_marca $favoritos->str_modelo.") < 20 ) 
 													                                                                
@@ -447,10 +447,10 @@
 						
 													      												<td>
 													      												
-													      														<a href="https://twitter.com/share" class="twitter-share-button" data-text="Se vende este vehículo {{ $publicaciones->str_marca }} {{ $publicaciones->str_modelo }} {{ $publicaciones->int_ano }}" data-url="http://www.troovami.com/Vehiculo/{{$publicaciones->id}}" data-via="troovami" data-hashtags="">Tweet</a>
+													      														<a href="https://twitter.com/share" class="twitter-share-button" data-text="En venta {{ $favoritos->str_marca }} {{ $favoritos->str_modelo }} {{ $favoritos->int_ano }}" data-url="http://www.troovami.com/Vehiculo/{{$favoritos->id}}" data-via="troovami" data-hashtags="">Tweet</a>
 																												<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>    
 													      														         			<br>  									
-													      												&nbsp;<div class="fb-share-button" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
+													      												&nbsp;<div class="fb-share-button" data-href="http://troovami.com/{{Request::path()}}" data-layout="button"></div>
 													      												</td>
 													      												      												
 													      												
