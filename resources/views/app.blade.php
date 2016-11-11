@@ -2196,7 +2196,7 @@
 
 
     
-        @if((Route::current()->getName() == 'accesorios') || (Route::current()->getName() == 'cuenta') )
+        @if(Route::current()->getName() == 'accesorios') 
  		
 <!-- jQuery -->
         <!-- {!! Html::script('pag/js/jquery-1.4.4.min.js') !!}-->

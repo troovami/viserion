@@ -1446,7 +1446,7 @@ class Consultas extends Model
                 		from tbl_vehiculos as v 
                 		where v.bol_eliminado = 0 
                 		and status_admin = ".Consultas::STATUS_ADMIN."
-                		and status_user = ".Consultas::STATUS_USER." ");
+                		and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.") ");
                 
                 return $total_vehiculos;
 

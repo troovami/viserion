@@ -225,8 +225,8 @@ class DetallesController extends Controller
     
     	$lng_idpersona = \Auth::user()->id;
     	
-    	echo $lng_idpersona;
-    	die();
+    	//echo $lng_idpersona;
+    	//die();
     	
     	Consultas::cambiarEstatus($accion, $id, $lng_idpersona);
     	
