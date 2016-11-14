@@ -909,6 +909,9 @@ function anterior(){
 function contador(){
 	
 	document.getElementById('numPagina').innerHTML = "Página: "+ document.getElementById('pag').value + " de " + document.getElementById('paginas').value + " / Vehículos: " + document.getElementById('total').value;
+
+	document.getElementById('numPagina2').innerHTML = "Página: "+ document.getElementById('pag').value + " de " + document.getElementById('paginas').value + " / Vehículos: " + document.getElementById('total').value;
+
 }
 
 function quitarFiltro(valor){
@@ -2501,8 +2504,7 @@ function ImagenesGaleria1() {
 			    http.send(null);
 			    
 			    if(accionText == "Vendido"){
-			    	//window.location.href="http://vehiculos-troovami.got/Mi-Cuenta";
-			    	window.location.href="http://cars.troovami.got/Mi-Cuenta";
+			    	window.location.href="http://vehiculos-troovami.got/Mi-Cuenta";
 			    }
 			    
 										
@@ -2510,10 +2512,11 @@ function ImagenesGaleria1() {
 				
 			case "Modificar":
 								
-				//window.location.href="http://vehiculos-troovami.got/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
-                window.location.href="http://cars.troovami.got/Mi-Cuenta/Modificar/"+id;
+				window.location.href="http://vehiculos-troovami.got/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
+                //window.location.href="http://cars.troovami.com/Mi-Cuenta/Modificar/"+id;
 				//window.location.href="http://troovami.com/Mi-Cuenta/Modificar/"+id;//ver archivo: routes.php
-               
+                //window.location.href="http://viserion-troovami.ddns.net/Mi-Cuenta/Modificar/"+id;
+
 			break;
 		
 		}

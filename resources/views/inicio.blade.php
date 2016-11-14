@@ -585,7 +585,7 @@
 	                            
 	                            -->
 	                                                    
-	                            <div id="numPagina" class="btn btn-default ">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>
+	                            <div id="numPagina" class="btn btn-default">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>
 	                        </div>						  
 						  
 						  </div>
@@ -668,7 +668,7 @@
 						  	<button class="btn btn-primary" id="anterior" name="anterior" type="button" onclick="anterior()" title="Página anterior"><i class="fa fa-chevron-left"></i> </button>
 							<button class="btn btn-primary" id="siguiente" name="siguiente" type="button" onclick="siguiente()" title="Página siguiente"> <i class="fa fa-chevron-right"></i></button>						  
 						  </div>
-						  <div id="numPagina" class="btn btn-default social-network2 col-md-3" style="top: 15px;">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>                             
+						  <div id="numPagina2" class="btn btn-default social-network2 col-md-3" style="top: 15px;">Página: 1 de {{ $i-1 }} / Vehículos: {{ $total }}</div>                             
                         
 						</div>                           
                            
