@@ -3,6 +3,14 @@ var divname;
 var divname_placas;
 var divname_paginar;
 var divname_fav;
+var divname_fav_eliminar;
+var divname_tabla;
+
+var divname_fav_4;
+var divname_fav_eliminar_4;
+var divname_tabla_total;
+
+var input_idpub;
 
 var divname_PaisesBuscador;
 var divname_PaisesFiltro;
@@ -30,6 +38,13 @@ var http_paginar = getXmlHttpObject();
 var http_placas = getXmlHttpObject();
 
 var http_fav = getXmlHttpObject();
+var http_fav_eliminar = getXmlHttpObject();
+
+
+var http_fav_4 = getXmlHttpObject();
+var http_fav_eliminar_4 = getXmlHttpObject();
+var http_fav_eliminar_tabla = getXmlHttpObject();
+var http_fav_eliminar_tabla_total = getXmlHttpObject();
 
 var http_PaisesBuscador = getXmlHttpObject();
 var http_PaisesFiltro = getXmlHttpObject();
@@ -100,10 +115,71 @@ function handleHttpResponse_fav()
 	if (http_fav.readyState == 4)
     {  
         results = http_fav.responseText;
+        
+        id = document.getElementById(input_idpub).value;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname_fav).innerHTML = "<i style='color: red' class='fa fa-heart'></i>";                                 
+        document.getElementById(divname_fav).innerHTML = '<a style="font-size:9px" class="col-md-6" href="#" onclick="fav_eliminar('+id+')" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>';                                 
     }
 }
+
+function handleHttpResponse_fav_eliminar()
+{
+	if (http_fav_eliminar.readyState == 4)
+    {  
+        results = http_fav_eliminar.responseText;
+        id = document.getElementById(input_idpub).value;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav_eliminar).innerHTML = '<a style="font-size:9px" class="col-md-6" href="#" onclick="fav('+id+')" title="Añadir a favoritos"><i class="fa fa-heart"></i></a>';                                 
+    }
+}
+
+
+function handleHttpResponse_fav_4()
+{
+	if (http_fav_4.readyState == 4)
+    {  
+        results = http_fav_4.responseText;
+        
+        id = document.getElementById(input_idpub).value;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav_4).innerHTML = '<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4('+id+')" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>';                                 
+    }
+}
+
+function handleHttpResponse_fav_eliminar_4()
+{
+	if (http_fav_eliminar_4.readyState == 4)
+    {  
+        results = http_fav_eliminar_4.responseText;
+        id = document.getElementById(input_idpub).value;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_fav_eliminar_4).innerHTML = '<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_4('+id+')" title="Añadir a favoritos"><i class="fa fa-heart"></i></a>';                                 
+    }
+}
+
+function handleHttpResponse_fav_eliminar_tabla()
+{
+	if (http_fav_eliminar_tabla.readyState == 4)
+    {  
+        results = http_fav_eliminar_tabla.responseText;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_tabla).innerHTML = results;    
+        
+        eliminar_fav_total();
+        
+    }
+}
+
+function handleHttpResponse_fav_eliminar_tabla_total()
+{
+	if (http_fav_eliminar_tabla_total.readyState == 4)
+    {  
+        results = http_fav_eliminar_tabla_total.responseText;
+        //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
+        document.getElementById(divname_tabla_total).innerHTML = results;                                 
+    }
+}
+
 
 function handleHttpResponse_paginar()
 {
@@ -2537,10 +2613,75 @@ function ImagenesGaleria1() {
 	
 	function fav(id){
 
+		//alert('add fav');
+		input_idpub = "idpub"+id;
+		
 	    divname_fav = "fav_pub"+id;	  
 	    http_fav.open("GET", 'Favoritos/'+id, true);
 	    http_fav.onreadystatechange = handleHttpResponse_fav;
 	    http_fav.send(null);
  
 	}
+	
+	function fav_eliminar(id){
+
+		//alert('del fav');
+		input_idpub = "idpub"+id;
+		
+	    divname_fav_eliminar = "fav_pub"+id;	  
+	    http_fav_eliminar.open("GET", 'Favoritos/'+id, true);
+	    http_fav_eliminar.onreadystatechange = handleHttpResponse_fav_eliminar;
+	    http_fav_eliminar.send(null);
+ 
+	}
+	
+	
+	function fav_4(id){
+
+		//alert('add fav');
+		input_idpub = "idpub"+id;
+		
+	    divname_fav_4 = "fav_pub"+id;	  
+	    http_fav_4.open("GET", 'Favoritos/'+id, true);
+	    http_fav_4.onreadystatechange = handleHttpResponse_fav_4;
+	    http_fav_4.send(null);
+ 
+	}
+	
+	function fav_eliminar_4(id){
+
+		//alert('del fav');
+		input_idpub = "idpub"+id;
+		
+	    divname_fav_eliminar_4 = "fav_pub"+id;	  
+	    http_fav_eliminar_4.open("GET", 'Favoritos/'+id, true);
+	    http_fav_eliminar_4.onreadystatechange = handleHttpResponse_fav_eliminar_4;
+	    http_fav_eliminar_4.send(null);
+ 
+	}	
+	
+	function eliminar_fav(id){
+				
+	    divname_tabla = "tabla_favoritos";	
+	    
+	    http_fav_eliminar_tabla.open("GET", 'FavoritosTabla/'+id, true);
+	    http_fav_eliminar_tabla.onreadystatechange = handleHttpResponse_fav_eliminar_tabla;
+	    http_fav_eliminar_tabla.send(null);
+	    		
+	}	
+	
+	function eliminar_fav_total(){
+		
+		//alert(id);
+		
+		divname_tabla_total = "totalFavoritos_usuario";	
+	    
+	    http_fav_eliminar_tabla_total.open("GET", 'FavoritosTablaTotal/', true);
+	    http_fav_eliminar_tabla_total.onreadystatechange = handleHttpResponse_fav_eliminar_tabla_total;
+	    http_fav_eliminar_tabla_total.send(null);
+	    		
+	}	
+	
+	
+	
 	

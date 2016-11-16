@@ -30,6 +30,16 @@
 			'as' =>'favoritos'
 	]);
 	
+	Route::get('FavoritosTabla/{id}', [
+			'uses' => 'DetallesController@favPublicacionTabla',
+			'as' =>'favoritosTabla'
+	]);	
+	
+	Route::get('FavoritosTablaTotal', [
+			'uses' => 'DetallesController@favPublicacionTablaTotal',
+			'as' =>'favoritosTablaTotal'
+	]);	
+	
 	Route::get('/No-existe', [
 		'uses' => 'ErrorController@index',
 		'as' =>'error'

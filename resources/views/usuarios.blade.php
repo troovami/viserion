@@ -141,17 +141,19 @@
 
                                             <li> <a data-toggle="tab" href="#favoritos" aria-controls="sonido" role="tab"><i  style="color: red" class="fa fa-heart"></i> Mis Favoritos
                                             
-													    <span class="badge" style="background-color: #777"> 
-					    									@if (isset($totalFavoritos_usuario))
-														
-							                                    @foreach ($totalFavoritos_usuario as $totales_fav)
-																    {{ $totales_fav->total }} 
-																@endforeach
-																
-															@else
-																0										
-															@endif
-													    </span>                                             
+													    
+														    <span id="totalFavoritos_usuario" class="badge" style="background-color: #777"> 
+						    									@if (isset($totalFavoritos_usuario))
+															
+								                                    @foreach ($totalFavoritos_usuario as $totales_fav)
+																	    {{ $totales_fav->total }} 
+																	@endforeach
+																	
+																@else
+																	0										
+																@endif
+														    </span>
+													                                            
                                             
                                             </a></li>
 
@@ -375,6 +377,9 @@
 													                               
 													
 													                                <div class="table-responsive" style="overflow: scroll; height: 400px; width: 100%;">
+													                                
+													                                	<div id="tabla_favoritos">
+													                                	
 													                                    <table class="table table-striped dashboard-tables saved-cars-table">
 													                                    
 													                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
@@ -386,12 +391,10 @@
 													                                                <td><strong>Precio</strong></td>
 													                                      												                                                
 													       
-													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>                                               
+													                                                <td><strong><i class="fa fa-share-alt" aria-hidden="true"></i></strong></td>
+													                                                <td><strong>Eliminar</strong></td>                                              
 													                                            </tr>
-													                                        </thead>
-													
-												
-													
+													                                        </thead>								
 													
 													                                        <tbody>
 																								
@@ -458,7 +461,14 @@
 													      														         			<br>  									
 													      												&nbsp;<div class="fb-share-button" data-href="http://troovami.com/{{Request::path()}}" data-layout="button"></div>
 													      												</td>
-													      												      												
+													      												      
+													      												<td>
+													      												
+													      													<button onclick="eliminar_fav({{ $favoritos->id }}) ">
+													      														<i class="fa fa-trash" style="color: red" aria-hidden="true"></i>
+													      													</button>
+													      													
+													      												</td>      												
 													      												
 													      												<?php 
 													      													$a++;
@@ -469,6 +479,8 @@
 													                                        </tbody>
 													
 													                                    </table>
+													                                    
+													                                    </div>
 													                                    
 													                                    <hr>
 													

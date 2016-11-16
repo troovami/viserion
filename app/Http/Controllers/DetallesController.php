@@ -280,14 +280,83 @@ class DetallesController extends Controller
     		    		
     		$tbl_favoritos = DB::insert('insert into tbl_favoritos (lng_idpublicacion, lng_idusuario_social, bol_eliminado) values (?, ?, ?)', [$id, $id_us, 0]);
     		    		
+    	}else{    	
+    		
+    		$tbl_favoritos = DB::delete('DELETE FROM `tbl_favoritos` WHERE `lng_idpublicacion` = '.$id.' and `lng_idusuario_social` = '.$id_us);
+    		
     	}
-    	
+
     	return "fav";
     	
     }    
     
+    public  function favPublicacionTabla($id){
+    	 
+    	$lng_idpersona = \Auth::user()->id;
+    
+    	$lng_idusuario_social = Consultas::querysValor('usuario_social',$lng_idpersona);
+    	 
+    	if(!empty($lng_idusuario_social[0]->id)){
+    
+    		$id_us = $lng_idusuario_social[0]->id;
+    
+    	}else{
+    
+    		DB::insert('insert into tbl_usuarios_sociales (lng_idpersona, lng_idempresa, bol_eliminado) values (?, ?, ?)', [$lng_idpersona, 0, 0]);
+    
+    		$lng_idusuario_social = Consultas::querysValor('usuario_social',$lng_idpersona);
+    
+    		$id_us = $lng_idusuario_social[0]->id;
+    	}
+    	 
+    	$lng_idfavorito = Consultas::querysValor2('favoritos',$id_us,$id);
+    	 
+    	if(empty($lng_idfavorito)){
     
     
+    		$tbl_favoritos = DB::insert('insert into tbl_favoritos (lng_idpublicacion, lng_idusuario_social, bol_eliminado) values (?, ?, ?)', [$id, $id_us, 0]);
+    
+    	}else{   
+    
+    		$tbl_favoritos = DB::delete('DELETE FROM `tbl_favoritos` WHERE `lng_idpublicacion` = '.$id.' and `lng_idusuario_social` = '.$id_us);
+    
+    	}
+
+    	
+    	$favoritos_usuario = Consultas::querysValor('favoritos_usuario',$lng_idpersona);    	
+    	
+    	
+    	return \View::make('favoritos',compact('favoritos_usuario'));
+    	 
+    }    
+    
+    
+     public  function favPublicacionTablaTotal(){
+     	
+    	$lng_idpersona = \Auth::user()->id;
+
+
+        $favoritos_usuario = Consultas::querysValor('favoritos_usuario',$lng_idpersona);
+
+     	if (array_key_exists('0', $favoritos_usuario)) {
+     		 
+     		$a = 0;
+     		//for($x=0; $x < count($publicaciones_usuario); $x++){
+     		foreach ($favoritos_usuario as $fav){
+     			 
+     			 
+     	
+     			$totalFavoritos_usuario = Consultas::querysValor('totalFavoritos_usuario',$lng_idpersona);
+     	
+     			//print_r($totalFavoritos_usuario);die;
+     			$a++;
+     		}
+     		 
+     	}     	
+     	
+     	return \View::make('favoritosTotal',compact('totalFavoritos_usuario'));
+     	
+     }
     
     
 }

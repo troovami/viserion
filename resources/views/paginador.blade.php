@@ -48,6 +48,8 @@
                                         
                                         <div class="result-item-view-buttons">
 
+											<input type="hidden" id="idpub<?=$vehiculo->id?>" readonly="readonly" name="idpub<?=$vehiculo->id?>" value="{{ $vehiculo->id }}" style="width: 50px">
+
                                             @if ($vehiculo->str_video == "")                                            	                                            	                                            
                                             	                                            	
                                             	@if (Auth::user())
@@ -57,11 +59,15 @@
                                             		
                                             		@if ($vehiculo->fav != "")
                                             		
-                                            			<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i style="color: red" class="fa fa-heart"></i></div></a>
+                                            			<div id="fav_pub<?=$vehiculo->id?>">
+                                            				<a style="font-size:9px" class="col-md-6" href="#" onclick="fav_eliminar({{ $vehiculo->id }})" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>
+                                            			</div>
                                             		
                                             		@else
                                             	
-                                            			<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
+                                            			<div id="fav_pub<?=$vehiculo->id?>">
+                                            				<a style="font-size:9px" class="col-md-6" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><i class="fa fa-heart"></i></a>
+                                            			</div>
                                             	
                                             		@endif
                                             	
@@ -81,12 +87,15 @@
 	                                            	
 	                                            	@if ($vehiculo->fav != "")
 	                                            	
-	                                            		<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i style="color: red" class="fa fa-heart"></i></div></a>
-	                                            
+	                                            		<div id="fav_pub<?=$vehiculo->id?>">
+	                                            			<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4({{ $vehiculo->id }})" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>
+	                                            		</div>
 		                                            @else
 		                                            	
-		                                            	<a style="font-size:9px" class="col-md-4" href="#" onclick="fav({{ $vehiculo->id }})" title="Añadir a favoritos"><div id="fav_pub<?=$vehiculo->id?>"><i class="fa fa-heart"></i></div></a>
-		                                            
+		                                            	<div id="fav_pub<?=$vehiculo->id?>">
+		                                            		<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_4({{ $vehiculo->id }})" title="Añadir a favoritos"><i class="fa fa-heart"></i></a>
+		                                            	</div>
+		                                            	
 		                                            @endif
 	                                            
 	                                            @else
