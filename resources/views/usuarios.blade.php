@@ -37,7 +37,7 @@
                     
                         <div class="col-md-3 col-sm-4 users-sidebar-wrapper">
                             <!-- SIDEBAR -->
-                            <div class="users-sidebar tbssticky">
+                            <div class="users-sidebar tbssticky" style="bottom:-120px;">
                             	
                                 <ul class="list-group">
                                     <li class="list-group-item active"> <a href="#"><i class="fa fa-cog"></i> Mi Cuenta </a></li>
@@ -56,7 +56,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-9 col-sm-8">
+                        <div class="col-md-9 col-sm-8 panel-usuario">
 
 	                         @foreach ($cuenta_usuario as $usuario)							
 
@@ -69,35 +69,38 @@
   </div>
   <div class="panel-body">
     
-	                                    	<div class="col-xs-6 col-md-4 thumbnail">
+	                                    	<div class="col-xs-12 col-md-6 thumbnail" style="margin: 0;padding: 14px;">
 				                            @if (Auth::user()->blb_img != "")
-				                            	<img src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" style="width:100%">
+				                            	<img src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}">
 											@else
 										
 												  @if (Auth::user()->lng_idgenero == 1)
-												  	<img src="{{ asset('autostars/images/user_masculino.png') }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" style="width:100%">								  	
+												  	<img src="{{ asset('autostars/images/user_masculino.png') }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}">								  	
 												  @elseif (Auth::user()->lng_idgenero == 2)
-												  	<img src="{{ asset('autostars/images/usuario_femenino.png') }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" style="width:100%">
+												  	<img src="{{ asset('autostars/images/usuario_femenino.png') }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}">
 												  @endif								
 				
 				                       		@endif	                                    
 	                                    
 		                                    </div>
+		                                    <div class="col-xs-12 col-md-6" style="padding: 0;">
+		                                    	&nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-user" aria-hidden="true"></i> Usuario:</strong> {!! $usuario->name !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> Nombre Completo: </strong>{!! $usuario->str_nombre !!}, {!! $usuario->str_apellido !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-user-secret" aria-hidden="true"></i> Cédula:</strong> {!! number_format($usuario->str_ididentificacion, 0, ',', '.')    !!}<br>
+												&nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-venus-mars" aria-hidden="true"></i> Género: </strong>{!! $usuario->genero !!}<br>
+												&nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-birthday-cake" aria-hidden="true"></i> Fecha de Nacimiento: </strong>{!! $usuario->fecha_nacimiento !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-flag" aria-hidden="true"></i> País: 
+		                                        <img src="data:image/jpeg;base64,{{ $usuario->blb_bandera}}" alt="{!! $usuario->pais !!}" title="{!! $usuario->pais !!}" style="width:20px">	                                         
+		                                        </strong>{!! $usuario->pais !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-calendar" aria-hidden="true"></i> Inscrito: </strong>{!! $usuario->fecha_inscripcion !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-phone-square" aria-hidden="true"></i> Teléfono: </strong>{!! $usuario->str_codarea !!} {!! $usuario->str_telefono !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-envelope" aria-hidden="true"></i> Correo: </strong>{!! $usuario->email !!}<br>	                                        
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-twitter" aria-hidden="true"></i> Twitter: </strong>{!! $usuario->str_twitter !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook: </strong>{!! $usuario->str_facebook !!}<br>
+		                                        &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-instagram" aria-hidden="true"></i> Instagram: </strong>{!! $usuario->str_instagram !!}
+		                                    </div>
 	
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-user" aria-hidden="true"></i> Usuario:</strong> {!! $usuario->name !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> Nombre Completo: </strong>{!! $usuario->str_nombre !!}, {!! $usuario->str_apellido !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-user-secret" aria-hidden="true"></i> Cédula:</strong> {!! number_format($usuario->str_ididentificacion, 0, ',', '.')    !!}<br>
-											 &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-venus-mars" aria-hidden="true"></i> Género: </strong>{!! $usuario->genero !!}<br>
-											 &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-birthday-cake" aria-hidden="true"></i> Fecha de Nacimiento: </strong>{!! $usuario->fecha_nacimiento !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-flag" aria-hidden="true"></i> País: 
-	                                         <img src="data:image/jpeg;base64,{{ $usuario->blb_bandera}}" alt="{!! $usuario->pais !!}" title="{!! $usuario->pais !!}" style="width:20px">	                                         
-	                                         </strong>{!! $usuario->pais !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-calendar" aria-hidden="true"></i> Inscrito: </strong>{!! $usuario->fecha_inscripcion !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-phone-square" aria-hidden="true"></i> Teléfono: </strong>{!! $usuario->str_codarea !!} {!! $usuario->str_telefono !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-envelope" aria-hidden="true"></i> Correo: </strong>{!! $usuario->email !!}<br>	                                        
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-twitter" aria-hidden="true"></i> Twitter: </strong>{!! $usuario->str_twitter !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook: </strong>{!! $usuario->str_facebook !!}<br>
-	                                         &nbsp;&nbsp;&nbsp;<strong> <i class="fa fa-instagram" aria-hidden="true"></i> Instagram: </strong>{!! $usuario->str_instagram !!}
+	                                         
 	                                     </div>
     
     
@@ -158,13 +161,13 @@
                                             
                                             <div id="publicaciones" class="tab-pane fade  in active">                                                                                             
                                                
-													<div class="panel panel-default">
+													<div class="panel panel-default" style="width: 100%;">
 	
 													  <div class="panel-body">
 													                               
 													
-													                                <div class="table-responsive">
-													                                    <table class="table table-striped dashboard-tables saved-cars-table" style="width: 500%">
+													                                <div class="table-responsive" style="overflow: scroll; height: 400px;">
+													                                    <table class="table table-striped dashboard-tables saved-cars-table">
 													                                    
 													                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
 													                                        <thead>
@@ -173,7 +176,7 @@
 													                                                <td><strong>Vehículo</strong></td>
 													                                                <td><strong>Descripción</strong></td>
 													                                                <td><strong>Precio</strong></td>
-													                                                <td><strong>Período</strong></td>
+													                                                <td style="width: 80px;"><strong>Período</strong></td>
 													                                                
 													                                                <td colspan="2"><strong>Acciones</strong></td>                                                
 													                                                <td><strong>Estatus</strong></td>
@@ -256,9 +259,9 @@
 													      														
 													      														@if ($publicaciones->status_user == "Vendido" )
 													                                                            
-													                                                            <button class="btn btn-primary" type="button">
-																												  Vendido <span class="badge">
-																												  <i class="fa fa-tags" aria-hidden="true"></i>
+													                                                             <button class="btn btn-primary" style="width: 120px;font-size: 9px" type="button" title="Vendido">
+																												  <b>Vendido</b> <span class="badge">
+																												  <i class="fa fa-tags" aria-hidden="true" style="font-size: 9px"></i>
 																												  </span>
 																												</button> 
 													                                                                
@@ -266,13 +269,13 @@
 													                                                               
 													                                                               
 													                                                               
-													      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control selectpicker input-sm" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' ) " >
+													      														<select id="accionesPublicacion<?=$a?>" name="accionesPublicacion<?=$a?>" class="form-control" style="width: 120px" onchange="acciones('<?=$publicaciones->id?>', '<?=$a?>' ) " >
 													      															<option value="">Seleccione</option>
 													      															<option value="706">En Línea</option>
 													      															<option value="707">Pausar</option>
 													      															<option value="712">Vendido</option> 
 													      															<option value="">Modificar</option>													      															   															
-													      														</select>													                                                               
+													      														</select>												                                                               
 													                                                                                           
 													                                                            @endif
 													      														
@@ -371,8 +374,8 @@
 													  <div class="panel-body">
 													                               
 													
-													                                <div class="table-responsive">
-													                                    <table class="table table-striped dashboard-tables saved-cars-table" style="width: 500%">
+													                                <div class="table-responsive" style="overflow: scroll; height: 400px; width: 100%;">
+													                                    <table class="table table-striped dashboard-tables saved-cars-table">
 													                                    
 													                                    <!-- <table class="table table-bordered dashboard-tables saved-cars-table" style="width: 100%">-->
 													                                        <thead>

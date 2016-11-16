@@ -3177,7 +3177,6 @@ h1.page-title{
 .result-item-view-buttons a{
 	display:inline-block;
 	float:left;
-	width:33.33%;
 	text-align:center;
 	padding:9px 0 5px;
 	background:#F9F9F9;
@@ -6272,6 +6271,75 @@ body{
 	top:-26px;
 }
 }
+
+.breadcrumb
+{
+	width: 250px!important;
+    margin-left: 10px!important;
+}
+
+.main
+{
+	margin: 0px 10px 0px 10px!important;
+}
+
+@media only screen and (max-width: 992px)
+{
+	.modal-content 
+	{
+	   min-width:300px!important;
+	}
+	.btn-default 
+	{
+	    width:265px!important;
+		min-width:265px!important;
+	}
+	
+	.imageBoxImage 
+	{
+   		max-width: 265px!important;
+   		max-height:265px!important;
+	}
+	
+	.imageBoxImage .thumbBoxImage 
+	{
+   		max-width: 215px!important;
+   		max-height:215px!important;
+	}
+	
+	.imageBox 
+	{
+   		max-width: 265px!important;
+   		max-height:265px!important;
+	}
+	
+	.imageBox .thumbBox 
+	{
+   		max-width: 215px!important;
+   		max-height:215px!important;
+	}
+	
+}
+
+
+@media only screen and (max-width: 768px)
+{
+	.panel-usuario
+	{
+		padding: 10px 30px;	
+	}
+	
+	.thumbnail > img
+	{
+	    max-height: 190px;
+    	max-width: 200px;
+	}
+}
+
+
+
+
+
 
 
 
