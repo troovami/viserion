@@ -411,15 +411,22 @@
 								?>
 														
 							@else
+											
+								<img src="{{ asset('autostars/images/paises-america/13.png') }}" alt="..." style="width:30px; height: 25px" title="Venezuela" >			
 													    		
-					      		<img src="{{ asset('autostars/images/paises-america/mapa-paises-america2.png') }}" alt="..." style="width:30px; height: 25px" title="Latino América" >
-
+					      		<!-- 
+					      			<img src="{{ asset('autostars/images/paises-america/mapa-paises-america2.png') }}" alt="..." style="width:30px; height: 25px" title="Latino América" >
+ 								-->
+ 								
 							@endif					    					   				
 
-					      <span class="caret"></span>
-
+							<!-- 
+					      		<span class="caret"></span>
+ 							-->
 					    </button>					    
-					        					   
+					        	
+					        	
+					        	<!-- 				   
 						    <ul class="dropdown-menu">
 				      
 						      @foreach ($paisesLista as $lista)	
@@ -432,6 +439,9 @@
 							      
 						      @endforeach
 						      	
+						      	
+						      	<!-- 
+						      	
 						      	<li onclick="document.getElementById('locacion').value = 'todos';document.getElementById('ubicacionForm').submit() ">			
 						      	
 							      	<a href="#" data-toggle="modal" data-target=".bs-example-modal-lg" onclick="" style="font-size: 12px">
@@ -439,8 +449,13 @@
 							      	</a>						      	
 						      		
 						      	</li>	
+						      	
+						      	 -- >
+						      	
 						      								      								                
 						    </ul>
+						    
+						     -->
 					    
 					  </div>
 					    
@@ -451,7 +466,7 @@
 					
 			</form>
 			      
-			<!-- paises -->                    
+			<!-- paises -->                      
 
 				</div>
 
