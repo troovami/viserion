@@ -121,7 +121,7 @@
 	                                            		?>
 		                                            	@foreach ($ciudades as $ciudad)
 		                                            	
-		                                            		@if ($flag > 6)
+		                                            		@if ($flag > 5)
 															
 		                                                		<li class="list-group-item"><span class="badge">{{ $ciudad->total }}</span>
 		                                                			<a href="#" onclick="filtro_por_ciudad2({{ $ciudad->id }});"><img class="" src="autostars/images/paises-america/<?=$ciudad->lng_idpais?>.png" style="width:20px" /> {{ $ciudad->str_ciudad }}</a>
@@ -189,7 +189,7 @@
 	                                            		?>
 		                                            	@foreach ($marcas as $marca)
 		                                            	
-		                                            		@if ($flag2 > 6)
+		                                            		@if ($flag2 > 5)
 															
 		                                                		<li class="list-group-item"><span class="badge">{{ $marca->total }} </span>
 			                                                		<a href="#" onclick="filtro_por_marca2({{ $marca->id}})">
@@ -269,7 +269,7 @@
 	                                            		?>
 		                                            	@foreach ($modelosTotal as $modelo)
 		                                            	
-		                                            		@if ($flag3 > 6)
+		                                            		@if ($flag3 > 5)
 															
 			                                                	<li class="list-group-item"><span class="badge">{{ $modelo->total }}</span>
 			                                                		<a href="#" onclick="filtro_por_modelo2({{ $modelo->lng_idmodelo }});">
@@ -349,7 +349,7 @@
 	                                            		?>
 		                                            	@foreach ($colors as $color)
 		                                            	
-		                                            		@if ($flag4 > 6)
+		                                            		@if ($flag4 > 5)
 															
 			                                                	<li class="list-group-item"><span class="badge">{{ $color->total }}</span>
 			                                                		<a href="#" onclick="filtros('color',<?=$color->lng_idcolor;?>);">

@@ -680,7 +680,7 @@ class Consultas extends Model
             			where v.lng_idtipo_vehiculo = ".$valor." 
             			and v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER."             					
+                	and ( (v.status_user = ".Consultas::STATUS_USER.")  or (v.status_user = ".Consultas::STATUS_USER2."))            					
 						GROUP BY c.str_ciudad, c.id
 						ORDER BY c.str_ciudad, c.id");
             
@@ -1208,7 +1208,7 @@ class Consultas extends Model
 					FROM tbl_vehiculos as v					
 					where v.bol_eliminado = 0
 	                and v.status_admin = ".Consultas::STATUS_ADMIN."
-	                and v.status_user = ".Consultas::STATUS_USER."          				
+	                and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")         				
 					group by v.int_ano
 					order by v.int_ano desc");
         		 
@@ -1221,7 +1221,7 @@ class Consultas extends Model
 							join cat_datos_maestros dm on dm.id = v.lng_idcolor
 							where v.bol_eliminado = 0            				
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	        				
+                	and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")        				
 							group by v.lng_idcolor
 							order by count(v.lng_idcolor) desc");
         		 
@@ -1238,7 +1238,7 @@ class Consultas extends Model
 						and dm.bol_eliminado = 0
         			and v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	        			
+                	and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")   	        			
 						group by dm.str_descripcion, dm.id
 						order by dm.int_peso, dm.id");
         	
@@ -1357,8 +1357,8 @@ class Consultas extends Model
                 		from cat_paises as p 
                 		join tbl_vehiculos as v on p.id = v.lng_idpais 
                 		where v.bol_eliminado = 0
-            		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	                 		
+            			and v.status_admin = ".Consultas::STATUS_ADMIN."
+                		and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")                  			                			
                 		group by p.str_paises,p.id
                 		order by p.str_paises,p.id ");
                 
@@ -1372,7 +1372,7 @@ class Consultas extends Model
 						JOIN cat_paises p ON p.id = c.lng_idpais
             			where v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	             			
+                	and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")  	             			
 						GROUP BY c.str_ciudad, c.id
 						ORDER BY c.str_ciudad, c.id");
             
@@ -1386,7 +1386,7 @@ class Consultas extends Model
 						JOIN tbl_vehiculos as v ON v.lng_idmodelo = mo.id
 						where v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	             			
+                	and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")  	             			
 						GROUP BY m.str_marca, m.id
 						ORDER BY m.str_marca, m.id");
             
@@ -1406,7 +1406,7 @@ class Consultas extends Model
 							join cat_marcas as ma on ma.id = mo.lng_idmarca
 							where v.bol_eliminado = 0
             		and v.status_admin = ".Consultas::STATUS_ADMIN."
-                	and v.status_user = ".Consultas::STATUS_USER." 	             			
+                	and (v.status_user = ".Consultas::STATUS_USER." or v.status_user = ".Consultas::STATUS_USER2.")   	             			
 							group by ma.str_marca, mo.str_modelo, v.lng_idmodelo
 							order by ma.str_marca, mo.str_modelo, v.lng_idmodelo");
             
@@ -1448,6 +1448,14 @@ class Consultas extends Model
                 		and status_admin = ".Consultas::STATUS_ADMIN."
                 		and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.") ");
                 
+                
+               /* echo "SELECT HIGH_PRIORITY SQL_BUFFER_RESULT count(*) as total 
+                		from tbl_vehiculos as v 
+                		where v.bol_eliminado = 0 
+                		and status_admin = ".Consultas::STATUS_ADMIN."
+                		and (status_user = ".Consultas::STATUS_USER.") or (status_user = ".Consultas::STATUS_USER2.") ";
+                
+                die();*/
                 return $total_vehiculos;
 
             break;

@@ -30,7 +30,7 @@
 	                                            		?>
 		                                            	@foreach ($colors as $color)
 		                                            	
-		                                            		@if ($flag4 > 6)
+		                                            		@if ($flag4 > 5)
 															
 			                                                	<li class="list-group-item"><span class="badge">{{ $color->total }}</span>
 			                                                		<a href="#" onclick="filtros('color',<?=$color->lng_idcolor;?>);">
