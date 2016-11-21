@@ -1439,6 +1439,7 @@ body.boxed .body{
 .user-login-panel{
 	float:right;
 	position:relative;
+	margin-right: 15px;
 }
 .user-login-btn{
 	float:left;
@@ -1573,7 +1574,7 @@ body.boxed .body{
 
 .search-trigger 
 {
-    width: 35px!important;
+    width: 50px!important;
 }
 
 }
@@ -2163,7 +2164,7 @@ body.boxed .body{
 	}
 }
 
-@media only screen and (max-width: 991px)
+@media only screen and (max-width: 765px)
 {
 	.button-register-original
 	{
@@ -2175,13 +2176,37 @@ body.boxed .body{
 	}
 }
 
-@media only screen and (min-width: 991px)
+@media only screen and (min-width: 766px) and (max-width: 991px)
 {
 	.button-register-original
 	{
 	display:inline;
 	}
 	.button-register-responsive
+	{
+	display:none;
+	}
+}
+
+@media only screen and (min-width: 991px)
+{
+	.button-register-original
+	{
+	display:none;
+	}
+	.button-register-responsive
+	{
+	display:none;
+	}
+	.logo-original
+	{
+	display:none;	
+	}
+	.isotipo-original
+	{
+	display:none;	
+	}
+	.user-button
 	{
 	display:none;
 	}
@@ -2360,7 +2385,17 @@ body.boxed .body{
 {
 	.utility-bar 
 	{
-	margin-top: 131px!important;
+	margin-top: 51px!important;
+	}
+}
+
+@media only screen and (max-width:992px)
+{
+	.header-navbar
+	{
+	display: none;
+	background: #ffffff;
+	top:0;
 	}
 }
 
@@ -6358,8 +6393,31 @@ body{
     	max-width: 200px;
 	}
 }
+@media only screen and (min-width: 766px) and (max-width: 992px) 
+{
+	.logo-original
+	{
+	display:inline;	
+	}
 
+	.isotipo-original
+	{
+	display:none;	
+	}
+}
 
+@media only screen and (max-width: 765px) 
+{
+	.logo-original
+	{
+	display:none;	
+	}
+
+	.isotipo-original
+	{
+	display:inline;	
+	}
+}
 
 
 
