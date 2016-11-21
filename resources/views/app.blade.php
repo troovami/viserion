@@ -448,7 +448,7 @@
                 @endif
 
                 @if (Auth::user())
-                    <div class="user-login-panel logged-in-user">
+                    <div class="user-login-panel logged-in-user user-button">
                         <a href="#" class="user-login-btn" id="userdropdown" data-toggle="dropdown">
 
                             @if (Auth::user()->blb_img != "")
