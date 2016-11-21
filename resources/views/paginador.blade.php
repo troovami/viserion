@@ -60,7 +60,7 @@
                                             		@if ($vehiculo->fav != "")
                                             		
                                             			<div id="fav_pub<?=$vehiculo->id?>">
-                                            				<a style="font-size:9px" class="col-md-6" href="#" onclick="fav_eliminar({{ $vehiculo->id }})" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>
+                                            				<a style="font-size:9px" class="col-md-6" href="#" onclick="fav_eliminar({{ $vehiculo->id }})" title="Quitar de favoritos"><i style="color: red" class="fa fa-heart"></i></a>
                                             			</div>
                                             		
                                             		@else
@@ -88,7 +88,7 @@
 	                                            	@if ($vehiculo->fav != "")
 	                                            	
 	                                            		<div id="fav_pub<?=$vehiculo->id?>">
-	                                            			<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4({{ $vehiculo->id }})" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>
+	                                            			<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4({{ $vehiculo->id }})" title="Quitar de favoritos"><i style="color: red" class="fa fa-heart"></i></a>
 	                                            		</div>
 		                                            @else
 		                                            	

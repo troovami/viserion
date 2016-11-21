@@ -142,7 +142,7 @@ function handleHttpResponse_fav_4()
         
         id = document.getElementById(input_idpub).value;
         //innerHTML es para llenar el div resultado con info, recuerden javascript es casesensitive (una variable a != A)
-        document.getElementById(divname_fav_4).innerHTML = '<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4('+id+')" title="Añadir a favoritos"><i style="color: red" class="fa fa-heart"></i></a>';                                 
+        document.getElementById(divname_fav_4).innerHTML = '<a style="font-size:9px" class="col-md-4" href="#" onclick="fav_eliminar_4('+id+')" title="Quitar de favoritos"><i style="color: red" class="fa fa-heart"></i></a>';                                 
     }
 }
 
