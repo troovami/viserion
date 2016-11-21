@@ -406,11 +406,12 @@
 
                     <div class="topnav dd-menu">
                         <ul class="top-navigation sf-menu">
-                            
-                            <li>
+                            <li class="button-register-original">
                                 <a href="{{route('register')}}" style="color:#FFF;">Registrate</a>
                             </li>
-
+                            <li class="button-register-responsive">
+                            	<a class="user-login-btn" href="{{route('register')}}" style="color:#FFF;"><i class="fa fa-user-plus"></i></a>
+                            </li>
                         </ul>
 
                     </div>
