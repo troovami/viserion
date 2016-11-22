@@ -80,7 +80,7 @@
   </ul>
 </div>-->
 
-<div class="btn-group" style="border: 1px solid #ccc;border-radius: 3px; height: 35px;width: 229px;">
+<div class="btn-group" style="border: 1px solid #ccc;border-radius: 3px; height: 35px;">
     <ul class="social-media-list text-alig-center" style="margin: 7px 11px;">
         <li>
         &nbsp;&nbsp;<div class="fb-share-button top" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
@@ -108,7 +108,7 @@
 		                            
 											                            	@if (Auth::guest())
 					                                               
-													                          <div class="btn btn-default price">
+													                          <div class="btn btn-default price" style="width: 78px;padding: 6px;">
 													                          
 																				<a href="#" class="" data-toggle="modal" data-target="#loginModal">
 														                            Ver precio

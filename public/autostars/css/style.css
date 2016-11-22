@@ -1438,9 +1438,9 @@ body.boxed .body{
 }
 .user-login-panel{
 	float:right;
-	position:relative;
-	margin-right: 27px;
+	position: relative;
 }
+
 .user-login-btn{
 	float:left;
 	width:35px;
@@ -2378,6 +2378,7 @@ body.boxed .body{
     .header-right 
     {
     margin-top: 8px;
+    margin-right: 25px;
 	}
 }
 
@@ -5957,7 +5958,6 @@ body{
 	}
 	.single-listing-actions .badge-premium-listing{
 		display:inline-block;
-		margin-top:12px;
 	}
 	.single-vehicle-title .badge-premium-listing{
 		display:none;
@@ -6320,13 +6320,13 @@ body{
 	top:-3px;
 }
 
-/*@media only screen and (min-width: 768px)
+@media only screen and (min-width: 768px)
 {
 	.top
 {
 	top:-26px;
 }
-}*/
+}
 
 .breadcrumb
 {
@@ -6345,11 +6345,11 @@ body{
 	{
 	   min-width:300px!important;
 	}
-	.btn-default 
+	/*.btn-default 
 	{
 	    width:229px!important;
 		min-width:229px!important;
-	}
+	}*/
 	
 	.imageBoxImage 
 	{
