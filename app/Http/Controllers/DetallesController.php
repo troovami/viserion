@@ -214,7 +214,7 @@ class DetallesController extends Controller
     		]);
     	}    	    	
     	
-    	DetallesController::statusPublicacion($idPublicacion);
+    	DetallesController::statusPublicacion($idvehiculo);
     	
     	Session::flash('message','Las Caracteristicas fueron actualizadas exitosamente!');
     	//return Redirect::to('/Mi-Cuenta/Modificar/'.$idvehiculo);
