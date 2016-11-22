@@ -80,7 +80,7 @@
   </ul>
 </div>-->
 
-<div class="btn-group" style="border: 1px solid #ccc;border-radius: 3px; height: 35px;">
+<div class="btn-group" style="border: 1px solid #ccc;border-radius: 3px; height: 35px;width: 229px;">
     <ul class="social-media-list text-alig-center" style="margin: 7px 11px;">
         <li>
         &nbsp;&nbsp;<div class="fb-share-button top" data-href="http://viserion-troovami.ddns.net/{{Request::path()}}" data-layout="button"></div>
