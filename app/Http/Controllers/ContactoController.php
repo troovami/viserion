@@ -50,7 +50,7 @@ class ContactoController extends Controller
     		//echo "Error: " . $mail->ErrorInfo;
     		Session::flash('message','Error!, el mensaje no se pudo enviar');
     	} else {
-    		Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
+    		Session::flash('message','Su mensaje fue enviado exitosamente!');
     	}
     	
     	/*
