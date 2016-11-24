@@ -35,16 +35,14 @@ class ContactoController extends Controller
     }
     
     public function enviar()
-    {
-    	
+    {    	
     	$message = $_POST['comentario']."<br><br> Atte.: ".$_POST['nombre']."<br> Teléfono: (+".$_POST['pais'].") ".$_POST['str_telefono'];
-    	
-    	
+    	    	
     	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
     	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-    	$cabeceras .= "Content-Type: image/png";
-    	$cabeceras .= 'From: troovami.com <troovami@gmail.com>' . "\r\n";
-    	//mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras);
+    	$cabeceras .= "Content-Type: image/png";   	
+    	$cabeceras .= 'To: Troovami <troovami@gmail.com>' . "\r\n";
+    	$cabeceras .= 'From: '.$_POST['nombre'].' <'.$_POST['correo'].'>' . "\r\n";    	
     	
     	if (!mail('troovami@gmail.com', $_POST['asunto'].' - Troovami.com', $message, $cabeceras)) {
     		//echo "Error: " . $mail->ErrorInfo;

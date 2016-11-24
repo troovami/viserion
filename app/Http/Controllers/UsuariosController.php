@@ -235,9 +235,9 @@ class UsuariosController extends Controller
             $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
             $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $cabeceras .= "Content-Type: image/png";
-            $cabeceras .= 'From: troovami.com <troovami@gmail.com>' . "\r\n";
-            //mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras);
-            
+    		$cabeceras .= 'To: <'.$request->email.'>' . "\r\n";   
+    		$cabeceras .= 'From: Troovami <troovami@gmail.com>' . "\r\n";
+    	
             if (!mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras)) {
             	//echo "Error: " . $mail->ErrorInfo;
             	Session::flash('message','Error!, el mensaje no se pudo enviar');
