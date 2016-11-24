@@ -46,7 +46,7 @@ class ContactoController extends Controller
     	$cabeceras .= 'From: troovami.com <troovami@gmail.com>' . "\r\n";
     	//mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras);
     	
-    	if (!mail('troovami@gmail.com', 'Recuperar Clave - Troovami.com', $message, $cabeceras)) {
+    	if (!mail('troovami@gmail.com', $_POST['asunto'].' - Troovami.com', $message, $cabeceras)) {
     		//echo "Error: " . $mail->ErrorInfo;
     		Session::flash('message','Error!, el mensaje no se pudo enviar');
     	} else {
