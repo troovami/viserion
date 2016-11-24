@@ -6345,36 +6345,6 @@ body{
 	{
 	   min-width:300px!important;
 	}
-	/*.btn-default 
-	{
-	    width:229px!important;
-		min-width:229px!important;
-	}*/
-	
-	.imageBoxImage 
-	{
-   		max-width: 265px!important;
-   		max-height:265px!important;
-	}
-	
-	.imageBoxImage .thumbBoxImage 
-	{
-   		max-width: 215px!important;
-   		max-height:215px!important;
-	}
-	
-	.imageBox 
-	{
-   		max-width: 265px!important;
-   		max-height:265px!important;
-	}
-	
-	.imageBox .thumbBox 
-	{
-   		max-width: 215px!important;
-   		max-height:215px!important;
-	}
-	
 }
 
 
@@ -6415,6 +6385,80 @@ body{
 	{
 	display:inline;	
 	}
+}
+@media only screen and (min-width: 320px) and (max-width: 640px) 
+{
+	.select-fotos-modal
+	{
+		 width: 265px;
+	}
+
+	.imageBoxImage 
+	{
+   		max-width: 265px!important;
+   		max-height:265px!important;
+	}
+	
+	.imageBoxImage .thumbBoxImage 
+	{
+   		max-width: 215px!important;
+   		max-height:215px!important;
+	}
+	
+	.imageBox 
+	{
+   		max-width: 265px!important;
+   		max-height:265px!important;
+	}
+	
+	.imageBox .thumbBox 
+	{
+   		max-width: 215px!important;
+   		max-height:215px!important;
+	}
+
+
+}
+
+@media only screen and (min-width: 641px) and (max-width: 1024px)
+{
+	.select-fotos-modal
+	{
+		 width: 425px;
+	}
+
+	.imageBoxImage 
+	{
+   		max-width: 425px!important;
+   		max-height:425px!important;
+	}
+	
+	.imageBoxImage .thumbBoxImage 
+	{
+   		max-width: 372px!important;
+   		max-height:372px!important;
+	}
+	
+	.imageBox 
+	{
+   		max-width: 425px!important;
+   		max-height:425px!important;
+	}
+	
+	.imageBox .thumbBox 
+	{
+   		max-width: 372px!important;
+   		max-height:372px!important;
+	}
+}
+
+@media only screen and (min-width: 1025px)
+{
+	.select-fotos-modal
+	{
+		 width: 650px;
+	}
+
 }
 
 

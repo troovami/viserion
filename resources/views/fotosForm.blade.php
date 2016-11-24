@@ -20,7 +20,7 @@
 					    <div class="row">
 						    <div class="col-md-12">						    
 					    		<center>
-						    		<span class="btn-default btn-lg btn-block btn-file" style="background-color: #5bc0de; width: 650px;">							        
+						    		<span class="btn-default btn-lg btn-block btn-file select-fotos-modal" style="background-color: #5bc0de;">							        
 								        <h3 class="panel-title" style="color: #FFF; cursor: pointer;"><i class="fa fa-image"></i> Seleccione la Imágen</h3>
 								        <input type="file" id="fileImage" name="fileImage">
 								    </span>
@@ -71,7 +71,7 @@
 					    <div class="row">
 						    <div class="col-md-12">						    
 					    		<center>
-						    		<span class="btn-default btn-lg btn-block btn-file" style="background-color: #5bc0de; width: 650px;">							        
+						    		<span class="btn-default btn-lg btn-block btn-file select-fotos-modal" style="background-color: #5bc0de;">							        
 								        <h3 class="panel-title" style="color: #FFF; cursor: pointer;"><i class="fa fa-image"></i> Seleccione la Imágen</h3>
 								        <input type="file" id="file">
 								    </span>

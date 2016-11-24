@@ -239,7 +239,7 @@
 									@include('fotosForm')
 
 									<div class="row">
-									  <div class="col-md-6" style="text-align: left;">
+									  <div class="col-md-6" style="text-align: left;top: 37px;">
 									  		<button class="btn btn-primary anterior" id="anterior" name="anterior" type="button" title="Página anterior"><i class="fa fa-chevron-left"></i> </button>
 									  </div>
 										<div class="col-md-6" style="text-align: right;">
