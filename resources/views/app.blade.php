@@ -4,6 +4,13 @@
 <!-- Basic Page Needs
   ================================================== -->
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="keywords" content="Venta de carros en Venezuela, venta de motocicletas en Venezuela,venta de motos en Venezuela,Compra de carros en Venezuela,Compra de motocicletas en Venezuela,compra de motos en Venezuela,compra y venta de carros en Venezuela,compra y venta de motocicletas en Venezuela,compra y venta de motos en Venezuela,precio de carros dólares venezuela,precio de motocicletas dólares venezuela,precio de motos dólares venezuela,precio de carros en bolívares venezuela,precio de motocicletas bolívares en venezuela,precio de motos en bolívares venezuela,anuncios clasificados venezuela" />
+<meta name="description" content="Portal privado para la compra y ventas de vehiculos en Venezuela">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="Index, Follow">
+<meta name="googlebot" content="Index, Follow">
+<meta name="google" content="nositelinkssearchbox">
+		
 <title>Troovami - Vehículos</title>
 
 <link rel="icon" href="{{ asset('autostars/images/troovami-vehicles.png') }}" type="image/x-icon"/>

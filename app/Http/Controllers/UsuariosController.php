@@ -231,11 +231,11 @@ class UsuariosController extends Controller
 		
 	</table>';
             
-            /*
+            
             $cabeceras  = 'MIME-Version: 1.0' . "\r\n";
             $cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $cabeceras .= "Content-Type: image/png";
-            $cabeceras .= 'From: troovami.com <ezebarazarte@gmail.com>' . "\r\n";
+            $cabeceras .= 'From: troovami.com <troovami@gmail.com>' . "\r\n";
             //mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras);
             
             if (!mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras)) {
@@ -244,9 +244,8 @@ class UsuariosController extends Controller
             } else {
             	Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
             }
-            */
             
-            
+            /*
             $mail = new PHPMailer;
             $mail->isSMTP();
             $mail->SMTPDebug = 0;
@@ -255,8 +254,8 @@ class UsuariosController extends Controller
             $mail->Port = 465;
             $mail->SMTPAuth = true;
             $mail->SMTPSecure = "ssl";
-            $mail->Username = "ezebarazarte@gmail.com";
-            $mail->Password = "falcor90dvv";
+            $mail->Username = "troovami@gmail.com";
+            $mail->Password = "20tr**v4m115";
             $mail->setFrom('troovami@troovami.com', 'troovami.com');
             $mail->addAddress($request->email);
             $mail->Subject = 'Recuperar Clave - Troovami.com';
@@ -274,15 +273,11 @@ class UsuariosController extends Controller
             } else {
                 Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
             }
+			*/
 
-            
-            
             return Redirect::to('/Recuperar-Clave');    
         }   
-        
-        
-        
-        
+
         if ($flag == false) {
             //echo "no existe";
             return \View::make('errors.errorCorreo');

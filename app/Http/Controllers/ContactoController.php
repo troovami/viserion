@@ -37,7 +37,24 @@ class ContactoController extends Controller
     public function enviar()
     {
     	
-	    $mail = new PHPMailer;
+    	$message = $_POST['comentario']."<br><br> Atte.: ".$_POST['nombre']."<br> Teléfono: (+".$_POST['pais'].") ".$_POST['str_telefono'];
+    	
+    	
+    	$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+    	$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    	$cabeceras .= "Content-Type: image/png";
+    	$cabeceras .= 'From: troovami.com <troovami@gmail.com>' . "\r\n";
+    	//mail($request->email, 'Recuperar Clave - Troovami.com', $message, $cabeceras);
+    	
+    	if (!mail('troovami@gmail.com', 'Recuperar Clave - Troovami.com', $message, $cabeceras)) {
+    		//echo "Error: " . $mail->ErrorInfo;
+    		Session::flash('message','Error!, el mensaje no se pudo enviar');
+    	} else {
+    		Session::flash('message','Su clave fue enviada exitosamente a su dirección de correo electrónico');
+    	}
+    	
+    	/*
+    	$mail = new PHPMailer;
 		$mail->isSMTP();
 		$mail->SMTPDebug = 0;
 		$mail->Debugoutput = 'html';
@@ -45,13 +62,15 @@ class ContactoController extends Controller
         $mail->Port = 465;
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = "ssl";
-        $mail->Username = "ezebarazarte@gmail.com";
-        $mail->Password = "falcor90dvv";
-		$mail->setFrom($_POST['correo'], $_POST['nombre']);
-		$mail->addAddress('ezebarazarte@gmail.com');
-		$mail->Subject = $_POST['asunto'];
+        $mail->Username = "troovami@gmail.com";
+        $mail->Password = "20tr**v4m115";
+		$mail->SetFrom('troovami@gmail.com');
+		$mail->AddReplyTo($_POST['correo'], $_POST['nombre']);
+		$mail->addAddress("troovami@gmail.com");
+		
+		$mail->Subject = "Troovami - ". $_POST['asunto'];
 		//$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
-		$mail->msgHTML($_POST['comentario']."<br><br> Atte.: ".$_POST['nombre']."<br> Teléfono: (+".$_POST['pais'].") ".$_POST['str_telefono']);
+		$mail->msgHTML($message);
 		$mail->AltBody = 'Contactanos';
 		//$mail->addAttachment('images/imagen_adjunta.png');
 		 
@@ -61,9 +80,10 @@ class ContactoController extends Controller
 		} else {
 		    Session::flash('message','Su mensaje fue enviado exitosamente!');
 		}
-	    	
+	   	*/
+
     	//Session::flash('message','Su mensaje fue enviado exitosamente!');
-    	return Redirect::to('/Contactenos');
+    	return Redirect::to('/Contacto');
     }    
 
     /**
