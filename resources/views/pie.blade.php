@@ -45,7 +45,7 @@
                             <li class="twitter"><a href="https://twitter.com/troovami" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             
                             
-                            <li class="instagram"><a href="https://www.instagram.com/neilbarazarte/?ref=badge" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                            <li class="instagram"><a href="https://www.instagram.com/troovami/?ref=badge" target="_blank"><i class="fa fa-instagram"></i></a></li>
                             <!-- 
                             <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li class="youtube"><a href="#"><i class="fa fa-youtube"></i></a></li>

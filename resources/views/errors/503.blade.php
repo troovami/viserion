@@ -98,7 +98,7 @@
   function get15dayFromNow() {
 
     //return new Date(new Date().valueOf() + 1 * 24 * 60 * 60 * 1000);
-    return new Date(new Date('Oct 31 2016, 10:55:02').valueOf());//la fecha y la hora debo ponerla igual en el crontab
+    return new Date(new Date('Dec 31 2016, 10:55:02').valueOf());//la fecha y la hora debo ponerla igual en el crontab
   }
 
   var $days = $('#days');

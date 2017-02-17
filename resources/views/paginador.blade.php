@@ -27,7 +27,7 @@
 
                                     <div class="result-item-image">    
                                     
-                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/publicaciones/<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>                                        
+                                        <a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="publicaciones/<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>                                        
                                         
                                         <!-- 
                                         	<a href="{{ route('detalles',$vehiculo->id) }}" class="media-box"><img class="" src="<?=$vehiculo->str_mini?>" style="width: 140px; height: 93px"/>

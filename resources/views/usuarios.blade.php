@@ -71,7 +71,7 @@
     
 	                                    	<div class="col-xs-12 col-md-6 thumbnail" style="margin: 0;padding: 14px;">
 				                            @if (Auth::user()->blb_img != "")
-				                            	<img src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}">
+				                            	<img width="50%" class="img-responsive" src="data:image/jpeg;base64,{{ $usuario->blb_img }}" alt="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}" title="{!! $usuario->str_nombre !!} {!! $usuario->str_apellido !!}">
 											@else
 										
 												  @if (Auth::user()->lng_idgenero == 1)

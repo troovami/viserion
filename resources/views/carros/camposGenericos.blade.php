@@ -195,12 +195,18 @@ Descripción
                    <label style="color: #777"><i style="color: red">*</i> Año</label>
                     <?php $ano = date('Y')?>                   	
 						
-                    {!! Form::select('int_ano', 
-                                        (['' => 'Seleccione'] + range($ano,1950)), 
-                                        null, 
-                                        ['class' => 'form-control','required']
-                                    ) 
-                    !!} 
+					<select id="int_ano" name="int_ano" class="form-control" required="required" onchange="">
+					<option value="">Seleccione</option>
+					
+						<?php 
+							for ($i = $ano; $i >= 1950; $i--) {
+							    ?>
+							    <option value="<?=$i?>"><?=$i?></option>
+							    <?php 
+							}
+							?>
+					</select>
+							
 										
                 </div>
 

@@ -66,6 +66,21 @@ return [
                 \PDO::ATTR_EMULATE_PREPARES => true
             ]
         ],
+    		
+    		'mysql2' => [
+    				'driver'    => 'mysql',
+    				'host'      => env('DB2_HOST', 'localhost'),
+    				'database'  => env('DB2_DATABASE', 'forge'),
+    				'username'  => env('DB2_USERNAME', 'forge'),
+    				'password'  => env('DB2_PASSWORD', ''),
+    				'charset'   => 'utf8',
+    				'collation' => 'utf8_unicode_ci',
+    				'prefix'    => '',
+    				'strict'    => false,
+    				'options'   => [
+    						\PDO::ATTR_EMULATE_PREPARES => true
+    				]
+    		],
 
         'pgsql' => [
             'driver'   => 'pgsql',
